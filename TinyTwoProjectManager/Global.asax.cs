@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
 
 namespace TinyTwoProjectManager
 {
@@ -13,6 +14,7 @@ namespace TinyTwoProjectManager
         {
             FilterConfig.Configure(GlobalFilters.Filters);
             RouteConfig.Configure(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Session_Start(object sender, EventArgs e)
