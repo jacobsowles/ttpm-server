@@ -1,0 +1,6 @@
+TinyTwoProjectManager/node_modules/
+TinyTwoProjectManager/bin/
+TinyTwoProjectManager/obj/
+packages/
+*.user
+*.suo

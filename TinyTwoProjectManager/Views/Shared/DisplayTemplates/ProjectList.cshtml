@@ -1,0 +1,15 @@
+﻿@model TinyTwoProjectManager.Models.ProjectList
+
+<div class="module" id="project-list">
+    <div class="module-header">
+        <h2>Projects</h2>
+        <div class="links"><a href="#create-project-pane" id="create-project-link" rel="modal:open">+</a></div>
+    </div>
+
+    <div class="module-body" id="project-list-accordion">
+        @foreach (var project in Model.Projects)
+        {
+            @Html.DisplayFor(m => project)
+        }
+    </div>
+</div>

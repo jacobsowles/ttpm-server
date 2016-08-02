@@ -1,0 +1,42 @@
+﻿body {
+    color: #373737;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+a {
+    color: #7da468;
+}
+
+a:hover {
+    color: #7da468;
+}
+
+.no-left-padding {
+    padding-left: 0;
+}
+
+.no-right-padding {
+    padding-right: 0;
+}
+
+.no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-primary {
+    background: #7da468;
+    margin-right: 10px;
+    border-color: #476039;
+}
+
+.btn-primary:hover {
+    background: #476039;
+    border-color: #476039;
+}
+
+.form-control {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}

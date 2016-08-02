@@ -1,0 +1,44 @@
+﻿#left-column {
+    border-right: 1px solid #e0e0e0;
+    height: calc(100vh - 61px);
+    background: #f4f4f4;
+}
+
+#main-header {
+    background: #f4f4f4;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 16px;
+}
+
+#main-header p {
+    margin-bottom: 0;
+    font-size: .9em;
+}
+
+#main-header-right {
+    float: right;
+}
+
+#main-header-right img {
+    float: right;
+    margin: 7px 0 0 16px;
+}
+
+#logo {
+    font-weight: bold;
+}
+
+#logo:hover {
+    text-decoration: none;
+}
+
+#logo img {
+    margin-right: 6px;
+    float: left;
+}
+
+#logo-text {
+    padding-top: 4px;
+    float: left;
+    margin-top: 7px;
+}

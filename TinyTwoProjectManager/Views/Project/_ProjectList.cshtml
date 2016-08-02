@@ -1,0 +1,23 @@
+﻿@model TinyTwoProjectManager.Models.ProjectList
+
+@Html.DisplayForModel()
+
+<div class="modal" id="create-project-pane" style="display: none">
+    @using (Ajax.BeginForm("Create", "Project", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "left-column"
+    }))
+    {
+        <h3>Create a new project</h3>
+        <div class="form-group">
+            <label for="new-project-name">Name</label>
+            <input type="text" class="form-control" id="new-project-name" name="Name" placeholder="Example" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Project</button>
+        <a href="#" id="create-project-cancel" rel="modal:close">Cancel</a>
+
+        <input type="hidden" name="ProjectListId" value="1" /> // TODO: Pull this from session.
+    }
+</div>

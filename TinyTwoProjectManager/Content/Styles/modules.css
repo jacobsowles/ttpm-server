@@ -1,0 +1,74 @@
+﻿.module {
+    
+}
+
+.module-header {
+    background: #5e804d;
+    padding: 10px 16px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.module-header h2 {
+    display: inline;
+    font-size: .9em;
+    text-transform: uppercase;
+}
+
+.module .links {
+    float: right;
+}
+
+.module-header a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2px 6px;
+}
+
+.module-header a:hover {
+    background-color: #476039;
+    text-decoration: none;
+}
+
+.module-body {
+
+}
+
+.module-body ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.module-body h3 {
+    color: #373737;
+    padding: 10px 16px;
+    display: block;
+    font-size: .9em;
+    margin: 0;
+    font-weight: bold;
+}
+
+    .module-body h3:hover {
+        background: #dbe3d5;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .module-body h3.ui-state-active {
+        background: #adc69f;
+    }
+
+.module-body h4 {
+    color: #373737;
+    padding: 10px 16px 10px 32px;
+    display: block;
+    font-size: .9em;
+    margin: 0;
+}
+
+    .module-body h4:hover {
+        background: #dbe3d5;
+        text-decoration: none;
+        cursor: pointer;
+    }
