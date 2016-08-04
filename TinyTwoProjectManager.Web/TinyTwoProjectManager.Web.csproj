@@ -449,6 +449,7 @@
     <Content Include="Content\Styles\ThirdParty\slideout.css" />
     <Content Include="packages.config" />
     <Content Include="Scripts\accordion.js" />
+    <Content Include="Scripts\task-list.js" />
     <Content Include="Scripts\task.js" />
     <Content Include="Scripts\project.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.js" />

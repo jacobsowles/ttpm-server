@@ -19,6 +19,7 @@ namespace TinyTwoProjectManager.Web.App_Start
                 .Include("~/Scripts/accordion.js")
                 .Include("~/Scripts/project.js")
                 .Include("~/Scripts/task.js")
+                .Include("~/Scripts/task-list.js")
             );
 
             bundles.Add(new StyleBundle("~/StyleBundles/ThirdParty")
