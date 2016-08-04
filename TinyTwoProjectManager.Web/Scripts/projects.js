@@ -10,14 +10,12 @@
         $('#create-project-pane input').val('');
     });
 
-    $('#task-lists h4').on('click', function () {
+    $('.task-lists h4').on('click', function (evt) {
+        evt.preventDefault();
         var taskListId = $(this).attr('id');
 
-        $('#center-column').load('/TaskList/Index/' + taskListId, function (responseText, statusText, xhr) {
-            if (statusText == 'success') {
-            } else if (statusText == 'error') {
-                alert('Error: ' + xhr.status + ': ' + xhr.statusText); // TODO: do better
-            }
+        $.get('/Task/GetTasksForTaskList/', { id: taskListId }, function (data) {
+            $('#center-column').html(data);
         });
     });
 });

@@ -16,13 +16,19 @@ namespace TinyTwoProjectManager.Web.App_Start
             routes.MapRoute(
                 name: "Project",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Project", action = "Create" }
+                defaults: new { controller = "Project", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "TaskList",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "TaskList", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Task",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Task", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
