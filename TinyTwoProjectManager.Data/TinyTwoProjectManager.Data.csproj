@@ -66,15 +66,15 @@
     <Compile Include="Repositories\TaskRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TinyTwoProjectManager.Core\TinyTwoProjectManager.Models.csproj">
-      <Project>{31cefe17-5665-4afb-86a8-dfdb3dbbdb97}</Project>
-      <Name>TinyTwoProjectManager.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201607302132405_InitialCreate.resx">
       <DependentUpon>201607302132405_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyTwoProjectManager.Models\TinyTwoProjectManager.Models.csproj">
+      <Project>{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}</Project>
+      <Name>TinyTwoProjectManager.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

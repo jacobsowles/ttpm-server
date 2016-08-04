@@ -527,13 +527,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TinyTwoProjectManager.Core\TinyTwoProjectManager.Models.csproj">
-      <Project>{31CEFE17-5665-4AFB-86A8-DFDB3DBBDB97}</Project>
-      <Name>TinyTwoProjectManager.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TinyTwoProjectManager.Data\TinyTwoProjectManager.Data.csproj">
       <Project>{37bdde1a-6c8e-43a8-b795-c03ab11880c5}</Project>
       <Name>TinyTwoProjectManager.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TinyTwoProjectManager.Models\TinyTwoProjectManager.Models.csproj">
+      <Project>{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}</Project>
+      <Name>TinyTwoProjectManager.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\TinyTwoProjectManager.Service\TinyTwoProjectManager.Services.csproj">
       <Project>{e632d30e-d8f9-48ae-a8f8-2d9200a09612}</Project>

@@ -108,10 +108,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TinyTwoProjectManager.Core\TinyTwoProjectManager.Models.csproj">
-      <Project>{31cefe17-5665-4afb-86a8-dfdb3dbbdb97}</Project>
-      <Name>TinyTwoProjectManager.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TinyTwoProjectManager.Data\TinyTwoProjectManager.Data.csproj">
       <Project>{37bdde1a-6c8e-43a8-b795-c03ab11880c5}</Project>
       <Name>TinyTwoProjectManager.Data</Name>

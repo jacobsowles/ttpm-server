@@ -14,3 +14,6 @@ TinyTwoProjectManager.Data/obj/Debug/TinyTwoProjectManager.Data.csproj.FileListA
 TinyTwoProjectManager.Data/obj/
 TinyTwoProjectManager.Data/bin/
 TinyTwoProjectManager.Core/obj/Debug/TinyTwoProjectManager.Models.csproj.FileListAbsolute.txt
+TinyTwoProjectManager.Models/bin/
+TinyTwoProjectManager.Models/obj/Debug/TinyTwoProjectManager.Models.csproj.FileListAbsolute.txt
+TinyTwoProjectManager.Models/obj/

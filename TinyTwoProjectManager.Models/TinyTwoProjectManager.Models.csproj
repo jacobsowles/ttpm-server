@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E632D30E-D8F9-48AE-A8F8-2D9200A09612}</ProjectGuid>
+    <ProjectGuid>{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TinyTwoProjectManager.Services</RootNamespace>
-    <AssemblyName>TinyTwoProjectManager.Services</AssemblyName>
+    <RootNamespace>TinyTwoProjectManager.Models</RootNamespace>
+    <AssemblyName>TinyTwoProjectManager.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,20 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TaskService.cs" />
-    <Compile Include="TaskListService.cs" />
-    <Compile Include="ProjectService.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TinyTwoProjectManager.Data\TinyTwoProjectManager.Data.csproj">
-      <Project>{37bdde1a-6c8e-43a8-b795-c03ab11880c5}</Project>
-      <Name>TinyTwoProjectManager.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TinyTwoProjectManager.Models\TinyTwoProjectManager.Models.csproj">
-      <Project>{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}</Project>
-      <Name>TinyTwoProjectManager.Models</Name>
-    </ProjectReference>
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
