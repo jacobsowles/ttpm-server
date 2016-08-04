@@ -1,13 +1,32 @@
 ﻿@model TaskListViewModel
 
+<script>
+    $(function () {
+        sortables_init();
+    });
+</script>
+
 @if (Model != null && Model.Tasks.Any())
 {
-    <ul>
-        @foreach (var task in Model.Tasks)
-        {
-            <li>@task.Name</li>
-        }
-    </ul>
+    var taskViewModel = Model.Tasks.FirstOrDefault();
+
+    <table class="table table-striped" id="task-list-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.LabelFor(m => taskViewModel.Name)</th>
+                <th>@Html.LabelFor(m => taskViewModel.Notes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model.Tasks)
+            {
+                <tr>
+                    @Html.DisplayFor(m => task)
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 else

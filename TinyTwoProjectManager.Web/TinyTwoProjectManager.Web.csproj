@@ -449,7 +449,8 @@
     <Content Include="Content\Styles\ThirdParty\slideout.css" />
     <Content Include="packages.config" />
     <Content Include="Scripts\accordion.js" />
-    <Content Include="Scripts\projects.js" />
+    <Content Include="Scripts\task.js" />
+    <Content Include="Scripts\project.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.min.js" />
     <None Include="Scripts\ThirdParty\jquery-3.1.0.intellisense.js" />
@@ -465,6 +466,7 @@
     <Content Include="Scripts\ThirdParty\react-dom-15.0.1.js" />
     <Content Include="Scripts\ThirdParty\slideout.js" />
     <Content Include="Scripts\ThirdParty\slideout.min.js" />
+    <Content Include="Scripts\ThirdParty\sortable.js" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -490,6 +492,7 @@
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.min.map" />
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.slim.min.map" />
     <Content Include="Views\Shared\EditorTemplates\ProjectViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TaskViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

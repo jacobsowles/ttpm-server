@@ -42,11 +42,8 @@ namespace TinyTwoProjectManager.Data.Infrastructure
         {
             return new List<Task>
             {
-                new Task { Name = "Rotate tires", TaskListId = 1 },
-                new Task { Name = "Check fluid levels", TaskListId = 1 },
-
-                new Task { Name = "Rotate tires", TaskListId = 2 },
-                new Task { Name = "Check fluid levels", TaskListId = 2 },
+                new Task { Name = "Rotate tires", TaskListId = 1, Notes = "See http://www.greatautohelp.com/images/rotate.gif for details" },
+                new Task { Name = "Check fluid levels", TaskListId = 1, Complete = true },
 
                 new Task { Name = "Change oil", TaskListId = 3 },
                 new Task { Name = "Lubricate pins", TaskListId = 3 },

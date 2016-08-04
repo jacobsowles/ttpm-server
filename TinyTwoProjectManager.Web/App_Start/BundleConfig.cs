@@ -12,11 +12,13 @@ namespace TinyTwoProjectManager.Web.App_Start
                 .Include("~/Scripts/ThirdParty/jquery-validate-{version}.min.js")
                 .Include("~/Scripts/ThirdParty/jquery-modal.min.js")
                 .Include("~/Scripts/ThirdParty/bootstrap.min.js")
+                .Include("~/Scripts/ThirdParty/sortable.js")
             );
 
             bundles.Add(new ScriptBundle("~/ScriptBundles/Site")
                 .Include("~/Scripts/accordion.js")
-                .Include("~/Scripts/projects.js")
+                .Include("~/Scripts/project.js")
+                .Include("~/Scripts/task.js")
             );
 
             bundles.Add(new StyleBundle("~/StyleBundles/ThirdParty")

@@ -13,6 +13,11 @@ namespace TinyTwoProjectManager.Models
         [Required]
         public string Name { get; set; }
 
+        public string Notes { get; set; }
+
+        [Required]
+        public bool Complete { get; set; }
+
         public virtual TaskList TaskList { get; set; }
     }
 }

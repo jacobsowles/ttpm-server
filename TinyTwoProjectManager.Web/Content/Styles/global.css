@@ -24,6 +24,10 @@ a:hover {
     padding-right: 0;
 }
 
+.with-padding {
+    padding: 20px;
+}
+
 .btn-primary {
     background: #7da468;
     margin-right: 10px;
