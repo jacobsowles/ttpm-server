@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
+
+    @Styles.Render("~/StyleBundles/ThirdParty")
+    @Styles.Render("~/StyleBundles/Site")
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 no-horizontal-padding" id="main-header">
+                <a href="/" id="logo" title="Home">
+                    <img src="@Url.Content("~/Content/Images/tt-logo.png")" alt="Logo" height="40" />
+                    <span id="logo-text">PROJECT MANAGER</span>
+                </a>
+
+                <div id="main-header-right">
+                    <a href="/" title="Settings"><img src="@Url.Content("~/Content/Images/Vendor/interface-icon-compilation/settings-2.png")" alt="Settings" height="25" /></a>
+                    <a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/Vendor/basic-solid-ui/menu.png")" alt="Menu" height="25" /></a>
+                </div>
+            </div>
+        </div>
+
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/ScriptBundles/ThirdParty")
+    @Scripts.Render("~/ScriptBundles/Site")
+
+    @RenderSection("scripts", false)
+</body>
+</html>

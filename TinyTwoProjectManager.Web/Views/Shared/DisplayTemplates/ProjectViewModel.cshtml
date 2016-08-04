@@ -1,0 +1,18 @@
+﻿@model ProjectViewModel
+
+<h3>@Model.Name</h3>
+
+<div class="task-lists">
+    @if (Model.TaskLists != null && Model.TaskLists.Any())
+    {
+        foreach (var taskList in Model.TaskLists)
+        {
+            @Html.DisplayFor(m => taskList)
+        }
+    }
+
+    else
+    {
+        <h4>Add a task list</h4>
+    }
+</div>

@@ -4,3 +4,13 @@ TinyTwoProjectManager/obj/
 packages/
 *.user
 *.suo
+TinyTwoProjectManager.Web/bin/
+TinyTwoProjectManager.Web/obj/
+TinyTwoProjectManager.Tests/obj/
+TinyTwoProjectManager.Tests/bin/
+TinyTwoProjectManager.Service/bin/
+TinyTwoProjectManager.Service/obj/
+TinyTwoProjectManager.Data/obj/Debug/TinyTwoProjectManager.Data.csproj.FileListAbsolute.txt
+TinyTwoProjectManager.Data/obj/
+TinyTwoProjectManager.Data/bin/
+TinyTwoProjectManager.Core/obj/Debug/TinyTwoProjectManager.Models.csproj.FileListAbsolute.txt

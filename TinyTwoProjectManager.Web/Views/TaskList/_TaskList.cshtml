@@ -1,0 +1,16 @@
+﻿@model TinyTwoProjectManager.Web.ViewModels.TaskListViewModel
+
+@if (Model != null && Model.Tasks.Any())
+{
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li>@task.Name</li>
+        }
+    </ul>
+}
+
+else
+{
+    <p>There are no tasks in this task list.</p>
+}
