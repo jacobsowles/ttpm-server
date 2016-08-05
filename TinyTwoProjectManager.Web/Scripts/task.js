@@ -18,4 +18,9 @@
 
         // TODO: save data
     });
+
+    $(document).on('change', '#task-table input[type=checkbox]', function () {
+        var row = $(this).closest('tr');
+        this.checked ? row.addClass('task-complete') : row.removeClass('task-complete');
+    });
 });
