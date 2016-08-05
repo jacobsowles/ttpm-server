@@ -1,0 +1,18 @@
+﻿#task-table input:focus {
+    outline: none;
+}
+
+#task-table input[type=text] {
+    width: 100%;
+}
+
+.view-mode input[type=text] {
+    background: none;
+    border: none;
+}
+
+.edit-mode input[type=text] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}

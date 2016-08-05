@@ -4,7 +4,7 @@
 {
     var taskViewModel = Model.Tasks.FirstOrDefault();
 
-    <table class="table table-striped" id="task-list-table">
+    <table class="table table-striped" id="task-table">
         <thead>
             <tr>
                 <th></th>
@@ -15,8 +15,8 @@
         <tbody>
             @foreach (var task in Model.Tasks)
             {
-                <tr>
-                    @Html.DisplayFor(m => task)
+                <tr class="view-mode">
+                    @Html.EditorFor(m => task)
                 </tr>
             }
         </tbody>

@@ -438,8 +438,9 @@
     <Content Include="Content\Images\Vendor\interface-icon-compilation\wifi.png" />
     <Content Include="Content\Styles\global.css" />
     <Content Include="Content\Styles\modal.css" />
-    <Content Include="Content\Styles\modules.css" />
+    <Content Include="Content\Styles\module.css" />
     <Content Include="Content\Styles\structure.css" />
+    <Content Include="Content\Styles\task.css" />
     <Content Include="Content\Styles\ThirdParty\bootstrap-theme.css" />
     <Content Include="Content\Styles\ThirdParty\bootstrap-theme.min.css" />
     <Content Include="Content\Styles\ThirdParty\bootstrap.css" />
@@ -493,7 +494,7 @@
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.min.map" />
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.slim.min.map" />
     <Content Include="Views\Shared\EditorTemplates\ProjectViewModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\TaskViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TaskViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
