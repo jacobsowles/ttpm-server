@@ -1,11 +1,5 @@
 ﻿@model TaskListViewModel
 
-<script>
-    $(function () {
-        sortables_init();
-    });
-</script>
-
 @if (Model != null && Model.Tasks.Any())
 {
     var taskViewModel = Model.Tasks.FirstOrDefault();
