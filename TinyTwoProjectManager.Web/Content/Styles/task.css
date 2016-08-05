@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+#task-table td:first-child {
+    width: 30px;
+}
+
 .view-mode input[type=text] {
     background: none;
     border: none;
