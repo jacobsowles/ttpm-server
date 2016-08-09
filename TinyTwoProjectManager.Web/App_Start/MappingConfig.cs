@@ -6,7 +6,7 @@ namespace TinyTwoProjectManager.Web.App_Start
 {
     public class MappingConfig
     {
-        public static void Configure()
+        public static void RegisterMappings()
         {
             Mapper.Initialize(config =>
             {

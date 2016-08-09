@@ -22,7 +22,7 @@ namespace TinyTwoProjectManager.Data.Infrastructure
         {
             return new List<Project>
             {
-                new Project { Name = "Maintenance and Repair" },
+                new Project { Name = "Maintenance and Repairs" },
                 new Project { Name = "Homestead" }
             };
         }

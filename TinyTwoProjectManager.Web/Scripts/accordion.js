@@ -1,8 +1,8 @@
 ﻿$(function () {
-    $('#project-list-accordion').accordion({
+    /*$('#project-list-accordion').accordion({
         animate: {
             duration: 150
         },
         collapsible: true
-    });
+    });*/
 });

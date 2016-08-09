@@ -6,8 +6,8 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
 
-    @Styles.Render("~/StyleBundles/ThirdParty")
-    @Styles.Render("~/StyleBundles/Site")
+    @Styles.Render("~/Styles/Dashboard/ThirdParty")
+    @Styles.Render("~/Styles/Dashboard/Site")
 </head>
 <body>
     <div class="container-fluid">
@@ -19,8 +19,8 @@
                 </a>
 
                 <div id="main-header-right">
-                    <a href="/" title="Settings"><img src="@Url.Content("~/Content/Images/Vendor/interface-icon-compilation/settings-2.png")" alt="Settings" height="25" /></a>
-                    <a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/Vendor/basic-solid-ui/menu.png")" alt="Menu" height="25" /></a>
+                    <a href="/" title="Settings"><img src="@Url.Content("~/Content/Images/ThirdParty/interface-icon-compilation/settings-2.png")" alt="Settings" height="25" /></a>
+                    <a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/ThirdParty/basic-solid-ui/menu.png")" alt="Menu" height="25" /></a>
                 </div>
             </div>
         </div>
@@ -28,9 +28,8 @@
         @RenderBody()
     </div>
 
-    @Scripts.Render("~/ScriptBundles/ThirdParty")
-    @Scripts.Render("~/ScriptBundles/Site")
-
-    @RenderSection("scripts", false)
+    @Scripts.Render("~/Scripts/Dashboard/ThirdParty")
+    @Scripts.Render("~/Scripts/Dashboard/Site")
+    @RenderSection("Scripts", false)
 </body>
 </html>

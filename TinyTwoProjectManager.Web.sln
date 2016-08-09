@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwoProjectManager.Data", "TinyTwoProjectManager.Data\TinyTwoProjectManager.Data.csproj", "{37BDDE1A-6C8E-43A8-B795-C03AB11880C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwoProjectManager.Models", "TinyTwoProjectManager.Models\TinyTwoProjectManager.Models.csproj", "{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwoProjectManager.Services", "TinyTwoProjectManager.Service\TinyTwoProjectManager.Services.csproj", "{E632D30E-D8F9-48AE-A8F8-2D9200A09612}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwoProjectManager.Tests", "TinyTwoProjectManager.Tests\TinyTwoProjectManager.Tests.csproj", "{F34E79AC-C0F8-4E10-AAF4-13A52A479D27}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB} = {EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788} = {1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyTwoProjectManager.Web", "TinyTwoProjectManager.Web\TinyTwoProjectManager.Web.csproj", "{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E632D30E-D8F9-48AE-A8F8-2D9200A09612} = {E632D30E-D8F9-48AE-A8F8-2D9200A09612}
+		{37BDDE1A-6C8E-43A8-B795-C03AB11880C5} = {37BDDE1A-6C8E-43A8-B795-C03AB11880C5}
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788} = {1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37BDDE1A-6C8E-43A8-B795-C03AB11880C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37BDDE1A-6C8E-43A8-B795-C03AB11880C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37BDDE1A-6C8E-43A8-B795-C03AB11880C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37BDDE1A-6C8E-43A8-B795-C03AB11880C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD2EEEA-0F85-4E64-9C5C-DC71FF4F4788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E632D30E-D8F9-48AE-A8F8-2D9200A09612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E632D30E-D8F9-48AE-A8F8-2D9200A09612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E632D30E-D8F9-48AE-A8F8-2D9200A09612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E632D30E-D8F9-48AE-A8F8-2D9200A09612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34E79AC-C0F8-4E10-AAF4-13A52A479D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34E79AC-C0F8-4E10-AAF4-13A52A479D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34E79AC-C0F8-4E10-AAF4-13A52A479D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34E79AC-C0F8-4E10-AAF4-13A52A479D27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCEF2AE-49E1-43F1-8D76-D478B0F793AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

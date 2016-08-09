@@ -7,6 +7,7 @@ using TinyTwoProjectManager.Web.ViewModels;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly IProjectService _projectService;

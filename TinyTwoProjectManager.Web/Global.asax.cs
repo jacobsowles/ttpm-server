@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -8,17 +11,18 @@ using TinyTwoProjectManager.Web.App_Start;
 
 namespace TinyTwoProjectManager.Web
 {
-    public class Global : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
-        protected void Application_Start(object sender, EventArgs e)
+        protected void Application_Start()
         {
             System.Data.Entity.Database.SetInitializer(new ProjectManagerInitializer());
 
-            FilterConfig.Configure(GlobalFilters.Filters);
-            RouteConfig.Configure(RouteTable.Routes);
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            MappingConfig.Configure();
-            DependencyInjectorConfig.Configure();
+            MappingConfig.RegisterMappings();
+            DependencyInjectorConfig.RegisterDependencies();
         }
 
         protected void Session_Start(object sender, EventArgs e)

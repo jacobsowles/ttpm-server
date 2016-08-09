@@ -1,19 +1,28 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TinyTwoProjectManager.Data.Configuration;
 using TinyTwoProjectManager.Models;
 
 namespace TinyTwoProjectManager.Data.Infrastructure
 {
-    public class ProjectManagerDbContext : DbContext
+    public class ProjectManagerDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ProjectManagerDbContext() : base("ProjectManagerDbContext")
+        public ProjectManagerDbContext() : base("name=TinyTwoProjectManager")
         {
+            Database.SetInitializer(new ProjectManagerInitializer());
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<TaskList> TaskLists { get; set; }
         public DbSet<Task> Tasks { get; set; }
+
+        public static ProjectManagerDbContext Create()
+        {
+            return new ProjectManagerDbContext();
+        }
 
         public virtual void Commit()
         {
@@ -22,6 +31,15 @@ namespace TinyTwoProjectManager.Data.Infrastructure
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityUser>().ToTable("User");
+            modelBuilder.Entity<ApplicationUser>().ToTable("AppUser");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim");
+            modelBuilder.Entity<IdentityRole>().ToTable("Role");
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new ProjectConfiguration());

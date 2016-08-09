@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="TinyTwoProjectManager.Web.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="TinyTwoProjectManager.Web.MvcApplication" Language="C#" %>

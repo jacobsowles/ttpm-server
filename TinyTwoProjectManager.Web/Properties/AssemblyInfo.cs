@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TinyTwoProjectManager")]
+[assembly: AssemblyTitle("TinyTwoProjectManager.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TinyTwoProjectManager")]
+[assembly: AssemblyProduct("TinyTwoProjectManager.Web")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("800e53f9-fe66-40a6-96ea-341a0befdaad")]
+[assembly: Guid("098bc54a-d0d5-4ce9-94dd-c2dffc4b4b95")]
 
 // Version information for an assembly consists of the following four values:
 //

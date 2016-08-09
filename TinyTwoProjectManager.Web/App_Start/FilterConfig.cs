@@ -1,10 +1,11 @@
-﻿using TinyTwoProjectManager.Web.Attributes;
+﻿using System.Web;
+using System.Web.Mvc;
 
-namespace TinyTwoProjectManager.Web.App_Start
+namespace TinyTwoProjectManager.Web
 {
     public class FilterConfig
     {
-        public static void Configure(System.Web.Mvc.GlobalFilterCollection filters)
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
         }

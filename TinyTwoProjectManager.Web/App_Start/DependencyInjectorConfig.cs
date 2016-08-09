@@ -2,7 +2,6 @@
 using Autofac.Integration.Mvc;
 using System.Reflection;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Services;
@@ -11,7 +10,7 @@ namespace TinyTwoProjectManager.Web.App_Start
 {
     public class DependencyInjectorConfig
     {
-        public static void Configure()
+        public static void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
