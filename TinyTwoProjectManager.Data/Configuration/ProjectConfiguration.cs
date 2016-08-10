@@ -7,8 +7,12 @@ namespace TinyTwoProjectManager.Data.Configuration
     {
         public ProjectConfiguration()
         {
-            ToTable("Project");
-            Property(p => p.Name).IsRequired().HasMaxLength(100);
+            this.ToTable("Project");
+            this.Property(p => p.Name).IsRequired().HasMaxLength(100);
+
+            this.HasRequired(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId);
         }
     }
 }
