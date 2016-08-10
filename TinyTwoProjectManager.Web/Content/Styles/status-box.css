@@ -21,11 +21,11 @@
         position: relative;
         z-index: 100;
         text-align: center;
-        border-radius: 40px;
-        -moz-border-radius: 40px;
-        -webkit-border-radius: 40px;
-        width: 40px;
-        height: 40px;
+        border-radius: 30px;
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        width: 30px;
+        height: 30px;
         margin: -4px 40px 0 0;
         float: right;
         background: #ec6c13;
@@ -33,9 +33,9 @@
     }
 
         #status-box #level-indicator h2 {
-            width: 40px;
-            margin: 6px 1px 0 0;
+            width: 30px;
+            margin: 5px 1px 0 0;
             float: right;
-            font-size: 1.8em;
+            font-size: 1.3em;
             font-family: "Open Sans", Arial, sans-serif;
         }
