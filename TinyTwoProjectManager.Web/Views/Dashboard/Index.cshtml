@@ -5,9 +5,13 @@
     ViewBag.Title = "Dashboard";
 }
 
-@section LeftColumn{
+@section LeftColumn {
     <div id="status-box">
-        <img src="@Url.Content("~/Content/Images/profile-picture.jpg")" alt="Profile Picture" height="150" />
+        <div id="progress-bar" class="circle">
+        </div>
+        <div id="level-indicator">
+            <h2>13</h2>
+        </div>
     </div>
 
     <div class="module" id="project-list">

@@ -23,7 +23,8 @@ namespace TinyTwoProjectManager.Web
                 "~/Scripts/ThirdParty/jquery-ui-1.12.0.min.js",
                 "~/Scripts/ThirdParty/jquery-validate.min.js",
                 "~/Scripts/ThirdParty/jquery-modal.min.js",
-                "~/Scripts/ThirdParty/bootstrap.min.js"
+                "~/Scripts/ThirdParty/bootstrap.min.js",
+                "~/Scripts/ThirdParty/jquery-circle-progress.js"
             ));
 
             bundles.Add(new ScriptBundle("~/Scripts/Dashboard/Site").Include(
@@ -49,7 +50,8 @@ namespace TinyTwoProjectManager.Web
                 "~/Content/Styles/dashboard-layout.css",
                 "~/Content/Styles/modal.css",
                 "~/Content/Styles/module.css",
-                "~/Content/Styles/task.css"
+                "~/Content/Styles/task.css",
+                "~/Content/Styles/status-box.css"
             ));
         }
     }

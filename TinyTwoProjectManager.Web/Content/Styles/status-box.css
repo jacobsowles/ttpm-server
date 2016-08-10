@@ -1,0 +1,41 @@
+﻿#status-box canvas {
+    border-radius: 150px;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    background-image: url('/Content/Images/profile-picture.jpg');
+    background-size: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+#progress-bar {
+    position: relative;
+    top: calc(50% - 75px);
+}
+
+#status-box {
+    text-align: right;
+}
+
+    #status-box #level-indicator {
+        position: relative;
+        z-index: 100;
+        text-align: center;
+        border-radius: 40px;
+        -moz-border-radius: 40px;
+        -webkit-border-radius: 40px;
+        width: 40px;
+        height: 40px;
+        margin: -4px 40px 0 0;
+        float: right;
+        background: #ec6c13;
+        color: #dbdbdb;
+    }
+
+        #status-box #level-indicator h2 {
+            width: 40px;
+            margin: 6px 1px 0 0;
+            float: right;
+            font-size: 1.8em;
+            font-family: "Open Sans", Arial, sans-serif;
+        }

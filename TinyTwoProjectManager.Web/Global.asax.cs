@@ -15,8 +15,6 @@ namespace TinyTwoProjectManager.Web
         protected void Application_Start()
         {
             Database.SetInitializer(new ProjectManagerInitializer());
-            var db = new ProjectManagerDbContext();
-            db.Database.Initialize(true);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

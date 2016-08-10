@@ -489,6 +489,7 @@
     <Content Include="Content\Styles\modal.css" />
     <Content Include="Content\Styles\module.css" />
     <Content Include="Content\Styles\dashboard-layout.css" />
+    <Content Include="Content\Styles\status-box.css" />
     <Content Include="Content\Styles\task.css" />
     <Content Include="Content\Styles\ThirdParty\bootstrap-theme.css" />
     <Content Include="Content\Styles\ThirdParty\bootstrap-theme.min.css" />
@@ -510,6 +511,7 @@
     <Content Include="Content\Styles\ThirdParty\bootstrap.css.map" />
     <Content Include="Content\Styles\ThirdParty\bootstrap.min.css.map" />
     <None Include="Scripts\ThirdParty\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\status-box.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.min.js" />
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.js" />
@@ -517,6 +519,7 @@
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.slim.js" />
     <Content Include="Scripts\ThirdParty\jquery-3.1.0.slim.min.js" />
     <None Include="Scripts\ThirdParty\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\ThirdParty\jquery-circle-progress.js" />
     <Content Include="Scripts\ThirdParty\jquery-modal.min.js" />
     <Content Include="Scripts\ThirdParty\jquery-ui-1.12.0.min.js" />
     <Content Include="Scripts\ThirdParty\jquery.validate.js" />
