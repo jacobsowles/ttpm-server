@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using TinyTwoProjectManager.Data.Infrastructure;
+using TinyTwoProjectManager.Models;
 
 namespace TinyTwoProjectManager.Data.Migrations
 {

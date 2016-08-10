@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -9,6 +10,8 @@ namespace TinyTwoProjectManager.Models
     public class ApplicationUser : IdentityUser
     {
         public DateTime DateCreated { get; set; }
+
+        public virtual ICollection<Project> Projects { get; set; }
 
         public ApplicationUser()
         {

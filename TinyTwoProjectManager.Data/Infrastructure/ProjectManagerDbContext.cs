@@ -10,8 +10,6 @@ namespace TinyTwoProjectManager.Data.Infrastructure
     {
         public ProjectManagerDbContext() : base("name=TinyTwoProjectManager")
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Project> Projects { get; set; }

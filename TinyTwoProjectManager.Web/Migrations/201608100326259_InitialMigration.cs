@@ -13,9 +13,12 @@ namespace TinyTwoProjectManager.Data.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 100),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         DateCreated = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AppUser", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.TaskList",
@@ -25,13 +28,10 @@ namespace TinyTwoProjectManager.Data.Migrations
                         ProjectId = c.Int(nullable: false),
                         Name = c.String(nullable: false, maxLength: 100),
                         DateCreated = c.DateTime(nullable: false),
-                        Project_Id = c.Int(),
-                })
+                    })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Project", t => t.ProjectId, cascadeDelete: true)
-                .ForeignKey("dbo.Project", t => t.Project_Id)
-                .Index(t => t.ProjectId)
-                .Index(t => t.Project_Id);
+                .ForeignKey("dbo.Project", t => t.ProjectId)
+                .Index(t => t.ProjectId);
             
             CreateTable(
                 "dbo.Task",
@@ -43,39 +43,10 @@ namespace TinyTwoProjectManager.Data.Migrations
                         Notes = c.String(),
                         Complete = c.Boolean(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
-                        TaskList_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TaskList", t => t.TaskListId, cascadeDelete: true)
-                .ForeignKey("dbo.TaskList", t => t.TaskList_Id)
-                .Index(t => t.TaskListId)
-                .Index(t => t.TaskList_Id);
-            
-            CreateTable(
-                "dbo.Role",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                        DateCreated = c.DateTime(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
-            CreateTable(
-                "dbo.UserRole",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                        IdentityUser_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.Role", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.User", t => t.IdentityUser_Id)
-                .Index(t => t.RoleId)
-                .Index(t => t.IdentityUser_Id);
+                .ForeignKey("dbo.TaskList", t => t.TaskListId)
+                .Index(t => t.TaskListId);
             
             CreateTable(
                 "dbo.User",
@@ -125,6 +96,32 @@ namespace TinyTwoProjectManager.Data.Migrations
                 .Index(t => t.IdentityUser_Id);
             
             CreateTable(
+                "dbo.UserRole",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                        IdentityUser_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.Role", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.User", t => t.IdentityUser_Id)
+                .Index(t => t.RoleId)
+                .Index(t => t.IdentityUser_Id);
+            
+            CreateTable(
+                "dbo.Role",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                        DateCreated = c.DateTime(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
                 "dbo.AppUser",
                 c => new
                     {
@@ -144,27 +141,25 @@ namespace TinyTwoProjectManager.Data.Migrations
             DropForeignKey("dbo.UserLogin", "IdentityUser_Id", "dbo.User");
             DropForeignKey("dbo.UserClaim", "IdentityUser_Id", "dbo.User");
             DropForeignKey("dbo.UserRole", "RoleId", "dbo.Role");
-            DropForeignKey("dbo.TaskList", "Project_Id", "dbo.Project");
-            DropForeignKey("dbo.Task", "TaskList_Id", "dbo.TaskList");
+            DropForeignKey("dbo.Project", "UserId", "dbo.AppUser");
             DropForeignKey("dbo.Task", "TaskListId", "dbo.TaskList");
             DropForeignKey("dbo.TaskList", "ProjectId", "dbo.Project");
             DropIndex("dbo.AppUser", new[] { "Id" });
+            DropIndex("dbo.Role", "RoleNameIndex");
+            DropIndex("dbo.UserRole", new[] { "IdentityUser_Id" });
+            DropIndex("dbo.UserRole", new[] { "RoleId" });
             DropIndex("dbo.UserLogin", new[] { "IdentityUser_Id" });
             DropIndex("dbo.UserClaim", new[] { "IdentityUser_Id" });
             DropIndex("dbo.User", "UserNameIndex");
-            DropIndex("dbo.UserRole", new[] { "IdentityUser_Id" });
-            DropIndex("dbo.UserRole", new[] { "RoleId" });
-            DropIndex("dbo.Role", "RoleNameIndex");
-            DropIndex("dbo.Task", new[] { "TaskList_Id" });
             DropIndex("dbo.Task", new[] { "TaskListId" });
-            DropIndex("dbo.TaskList", new[] { "Project_Id" });
             DropIndex("dbo.TaskList", new[] { "ProjectId" });
+            DropIndex("dbo.Project", new[] { "UserId" });
             DropTable("dbo.AppUser");
+            DropTable("dbo.Role");
+            DropTable("dbo.UserRole");
             DropTable("dbo.UserLogin");
             DropTable("dbo.UserClaim");
             DropTable("dbo.User");
-            DropTable("dbo.UserRole");
-            DropTable("dbo.Role");
             DropTable("dbo.Task");
             DropTable("dbo.TaskList");
             DropTable("dbo.Project");

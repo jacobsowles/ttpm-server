@@ -197,13 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608100053437_InitialMigration.cs" />
-    <Compile Include="Migrations\201608100053437_InitialMigration.Designer.cs">
-      <DependentUpon>201608100053437_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608100233400_AddUserIdForeignKeyToProject.cs" />
-    <Compile Include="Migrations\201608100233400_AddUserIdForeignKeyToProject.Designer.cs">
-      <DependentUpon>201608100233400_AddUserIdForeignKeyToProject.cs</DependentUpon>
+    <Compile Include="Migrations\201608100326259_InitialMigration.cs" />
+    <Compile Include="Migrations\201608100326259_InitialMigration.Designer.cs">
+      <DependentUpon>201608100326259_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -605,11 +601,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608100053437_InitialMigration.resx">
-      <DependentUpon>201608100053437_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608100233400_AddUserIdForeignKeyToProject.resx">
-      <DependentUpon>201608100233400_AddUserIdForeignKeyToProject.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608100326259_InitialMigration.resx">
+      <DependentUpon>201608100326259_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

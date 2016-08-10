@@ -8,13 +8,12 @@ namespace TinyTwoProjectManager.Data.Configuration
         public TaskConfiguration()
         {
             this.ToTable("Task");
-
-            this.Property(p => p.TaskListId).IsRequired();
             this.Property(p => p.Name).IsRequired().HasMaxLength(100);
 
             this.HasRequired(t => t.TaskList)
-                .WithMany()
-                .HasForeignKey(t => t.TaskListId);
+                .WithMany(tl => tl.Tasks)
+                .HasForeignKey(t => t.TaskListId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

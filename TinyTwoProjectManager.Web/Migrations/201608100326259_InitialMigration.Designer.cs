@@ -13,7 +13,7 @@ namespace TinyTwoProjectManager.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608100053437_InitialMigration"; }
+            get { return "201608100326259_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source
