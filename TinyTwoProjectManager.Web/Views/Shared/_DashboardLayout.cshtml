@@ -7,12 +7,19 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
 
     @Styles.Render("~/Styles/Dashboard/ThirdParty")
-    @Styles.Render("~/Styles/Dashboard/Site")
+    @Styles.Render("~/Content/Styles/global.css")
+    @Styles.Render("~/Content/Styles/dashboard-layout.css")
+    @Styles.Render("~/Content/Styles/modal.css")
+    @Styles.Render("~/Content/Styles/module.css")
+    @Styles.Render("~/Content/Styles/task.css")
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 no-horizontal-padding" id="main-header">
+            <div class="col-xs-2 no-horizontal-padding" id="left-column">
+                @RenderSection("LeftColumn", false)
+            </div>
+            <div class="col-xs-10 no-horizontal-padding" id="main-header">
                 <a href="/" id="logo" title="Home">
                     <img src="@Url.Content("~/Content/Images/tt-logo.png")" alt="Logo" height="40" />
                     <span id="logo-text">PROJECT MANAGER</span>
@@ -23,9 +30,11 @@
                     <a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/ThirdParty/basic-solid-ui/menu.png")" alt="Menu" height="25" /></a>
                 </div>
             </div>
-        </div>
 
-        @RenderBody()
+            <div class="col-xs-10 with-padding" id="center-column">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/Scripts/Dashboard/ThirdParty")

@@ -1,17 +1,16 @@
-﻿@model TinyTwoProjectManager.Web.ViewModels.DashboardViewModel
+﻿@model DashboardViewModel
 
 @{
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     ViewBag.Title = "Dashboard";
 }
 
-<div class="row">
-    <div class="col-xs-2 no-horizontal-padding" id="left-column">
-        <div class="module" id="project-list">
-            @Html.Partial("~/Views/ProjectList/_ProjectList.cshtml", @Model.ProjectList)
-        </div>
+@section LeftColumn{
+    <div id="status-box">
+        <img src="@Url.Content("~/Content/Images/profile-picture.jpg")" alt="Profile Picture" height="150" />
     </div>
 
-    <div class="col-xs-10 with-padding" id="center-column">
+    <div class="module" id="project-list">
+        @Html.Partial("~/Views/ProjectList/_ProjectList.cshtml", @Model.ProjectList)
     </div>
-</div>
+}

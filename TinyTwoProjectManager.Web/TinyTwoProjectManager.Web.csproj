@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\profile-picture.jpg" />
     <Content Include="Content\Images\tt-logo.png" />
     <Content Include="Content\Images\ThirdParty\basic-solid-ui\add-contact.png" />
     <Content Include="Content\Images\ThirdParty\basic-solid-ui\add.png" />

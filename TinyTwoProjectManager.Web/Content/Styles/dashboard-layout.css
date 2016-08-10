@@ -1,7 +1,27 @@
 ﻿#left-column {
-    border-right: 1px solid #e0e0e0;
-    height: calc(100vh - 61px);
-    background: #f4f4f4;
+    height: 100vh;
+    background: #3C393F;
+    color: #dbdbdb;
+}
+
+#left-column h3,
+#left-column h4 {
+    color: #dbdbdb;
+}
+
+#status-box {
+    height: 200px;
+    background-color: #1a1a1a;
+}
+
+#status-box img {
+    position: relative;
+    top: calc(50% - 75px);
+    display: block;
+    margin: 0 auto;
+    border-radius: 150px;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
 }
 
 #main-header {

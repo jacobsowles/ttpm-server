@@ -39,7 +39,6 @@
 }
 
 .module-body h3 {
-    color: #373737;
     padding: 10px 16px;
     display: block;
     font-size: .9em;
@@ -48,17 +47,16 @@
 }
 
     .module-body h3:hover {
-        background: #dbe3d5;
+        background: #312F33;
         text-decoration: none;
         cursor: pointer;
     }
 
     .module-body h3.ui-state-active {
-        background: #adc69f;
+        background: #312F33;
     }
 
 .module-body h4 {
-    color: #373737;
     padding: 10px 16px 10px 32px;
     display: block;
     font-size: .9em;
@@ -66,7 +64,7 @@
 }
 
     .module-body h4:hover {
-        background: #dbe3d5;
+        background: #636066;
         text-decoration: none;
         cursor: pointer;
     }
