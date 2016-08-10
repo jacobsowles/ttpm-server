@@ -2,11 +2,8 @@
 
 namespace TinyTwoProjectManager.Models
 {
-    public class Task
+    public class Task : DatabaseTable
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public int TaskListId { get; set; }
 

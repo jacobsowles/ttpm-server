@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608080215385_AddAuthenticationTables.cs" />
-    <Compile Include="Migrations\201608080215385_AddAuthenticationTables.Designer.cs">
-      <DependentUpon>201608080215385_AddAuthenticationTables.cs</DependentUpon>
+    <Compile Include="Migrations\201608100053437_InitialMigration.cs" />
+    <Compile Include="Migrations\201608100053437_InitialMigration.Designer.cs">
+      <DependentUpon>201608100053437_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -601,8 +601,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608080215385_AddAuthenticationTables.resx">
-      <DependentUpon>201608080215385_AddAuthenticationTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608100053437_InitialMigration.resx">
+      <DependentUpon>201608100053437_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

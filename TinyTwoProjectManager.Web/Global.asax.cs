@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -15,7 +14,7 @@ namespace TinyTwoProjectManager.Web
     {
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer(new ProjectManagerInitializer());
+            Database.SetInitializer(new ProjectManagerInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

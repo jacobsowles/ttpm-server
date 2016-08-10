@@ -3,11 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TinyTwoProjectManager.Models
 {
-    public class Project
+    public class Project : DatabaseTable
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public string Name { get; set; }
 

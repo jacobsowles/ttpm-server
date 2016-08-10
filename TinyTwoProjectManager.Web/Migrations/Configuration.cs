@@ -7,7 +7,7 @@ namespace TinyTwoProjectManager.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext";
         }
     }
