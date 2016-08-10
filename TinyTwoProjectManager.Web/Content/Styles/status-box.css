@@ -34,8 +34,8 @@
 
         #status-box #level-indicator h2 {
             width: 30px;
-            margin: 5px 1px 0 0;
+            margin: 8px 0 0 0;
             float: right;
-            font-size: 1.3em;
+            font-size: 1.1em;
             font-family: "Open Sans", Arial, sans-serif;
         }
