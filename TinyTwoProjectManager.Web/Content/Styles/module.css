@@ -63,7 +63,8 @@
     margin: 0;
 }
 
-    .module-body h4:hover {
+    .module-body h4:hover,
+    .active-task-list {
         background: #636066;
         text-decoration: none;
         cursor: pointer;
