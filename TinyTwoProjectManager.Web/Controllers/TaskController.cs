@@ -36,5 +36,24 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return PartialView("~/Views/TaskList/_TaskList.cshtml", taskListViewModel);
         }
+
+        [HttpPost]
+        public PartialViewResult ToggleCompletion(int id)
+        {
+            // TODO: make sure user is allowed to modify this task
+            var task = _taskService.GetTask(id);
+
+            if (task == null)
+            {
+                // TODO: throw task not found exception
+                throw new System.Exception("task not found");
+            }
+
+            task.Complete = !task.Complete;
+            _taskService.UpdateTask(task);
+            _taskService.SaveTask();
+
+            return null;
+        }
     }
 }

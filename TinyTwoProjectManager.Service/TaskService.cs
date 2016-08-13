@@ -15,6 +15,8 @@ namespace TinyTwoProjectManager.Services
         IEnumerable<Task> GetTasks(int taskListId);
 
         void SaveTask();
+
+        void UpdateTask(Task task);
     }
 
     public class TaskService : ITaskService
@@ -28,9 +30,9 @@ namespace TinyTwoProjectManager.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void CreateTask(Task Task)
+        public void CreateTask(Task task)
         {
-            _TaskRepository.Add(Task);
+            _TaskRepository.Add(task);
         }
 
         public Task GetTask(int id)
@@ -48,6 +50,11 @@ namespace TinyTwoProjectManager.Services
         public void SaveTask()
         {
             _unitOfWork.Commit();
+        }
+
+        public void UpdateTask(Task task)
+        {
+            _TaskRepository.Update(task);
         }
     }
 }

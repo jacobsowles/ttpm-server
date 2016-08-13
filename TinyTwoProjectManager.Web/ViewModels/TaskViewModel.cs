@@ -10,5 +10,10 @@ namespace TinyTwoProjectManager.Web.ViewModels
         public string Name { get; set; }
         public string Notes { get; set; }
         public bool Complete { get; set; }
+
+        public string RowClass
+        {
+            get { return Complete ? "task-complete" : ""; }
+        }
     }
 }

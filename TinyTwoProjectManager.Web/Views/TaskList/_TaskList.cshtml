@@ -15,7 +15,7 @@
         <tbody>
             @foreach (var task in Model.Tasks)
             {
-                <tr class="view-mode">
+                <tr class="view-mode @task.RowClass" data-id="@task.TaskId">
                     @Html.EditorFor(m => task)
                 </tr>
             }

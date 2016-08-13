@@ -22,5 +22,9 @@
     $(document).on('change', '#task-table input[type=checkbox]', function () {
         var row = $(this).closest('tr');
         this.checked ? row.addClass('task-complete') : row.removeClass('task-complete');
+
+        $.post('/Task/ToggleCompletion', { id: row.data("id") }, function (error) {
+            // TODO: throw exception
+        });
     });
 });
