@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace TinyTwoProjectManager.Web.ViewModels
 {
@@ -6,7 +7,7 @@ namespace TinyTwoProjectManager.Web.ViewModels
     {
         [HiddenInput(DisplayValue = false)]
         public int TaskId { get; set; }
-
+        
         public string Name { get; set; }
         public string Notes { get; set; }
         public bool Complete { get; set; }

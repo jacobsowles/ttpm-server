@@ -579,6 +579,7 @@
     <Content Include="Views\Shared\EditorTemplates\TaskViewModel.cshtml" />
     <Content Include="Views\TaskList\_TaskList.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\NewTaskViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

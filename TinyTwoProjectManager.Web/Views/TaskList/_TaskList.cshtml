@@ -19,6 +19,10 @@
                     @Html.EditorFor(m => task)
                 </tr>
             }
+
+            <tr id="new-task-edit-row">
+                @Html.EditorFor(m => m.NewTask, "NewTaskViewModel")
+            </tr>
         </tbody>
     </table>
 }

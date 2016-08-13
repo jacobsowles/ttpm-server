@@ -10,5 +10,6 @@ namespace TinyTwoProjectManager.Web.ViewModels
 
         public string Name { get; set; }
         public IEnumerable<TaskViewModel> Tasks { get; set; }
+        public TaskViewModel NewTask { get; set; }
     }
 }
