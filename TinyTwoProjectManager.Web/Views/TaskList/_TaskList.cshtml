@@ -1,6 +1,6 @@
 ﻿@model TaskListViewModel
 
-@if (Model != null && Model.Tasks.Any())
+@if (Model != null)
 {
     var taskViewModel = Model.Tasks.FirstOrDefault();
 
@@ -25,9 +25,4 @@
             </tr>
         </tbody>
     </table>
-}
-
-else
-{
-    <p>There are no tasks in this task list.</p>
 }
