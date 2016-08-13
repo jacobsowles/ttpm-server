@@ -19,11 +19,6 @@
 #new-task-edit-row input[type=text] {
     background: none;
     border: none;
-    border-bottom: 1px solid #ccc;
-}
-
-#new-task-edit-row input[type=text] {
-    border-bottom: 0;
 }
 
 .task-complete input[type=text] {

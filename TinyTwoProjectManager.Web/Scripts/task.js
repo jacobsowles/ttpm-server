@@ -17,6 +17,7 @@
         row.removeClass('edit-mode');
 
         // TODO: save data
+        //$.post('/Task/Update', { id: row.data("id"),  })
     });
 
     $(document).on('change', '#task-table input[type=checkbox]', function () {
