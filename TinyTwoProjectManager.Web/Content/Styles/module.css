@@ -69,3 +69,13 @@
         text-decoration: none;
         cursor: pointer;
     }
+
+.content-module {
+    background: #ffffff;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+    .content-module h3 {
+        margin-top: 0;
+    }

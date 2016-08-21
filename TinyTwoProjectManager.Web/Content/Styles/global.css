@@ -1,6 +1,11 @@
-﻿body {
+﻿* {
+    box-sizing: border-box !important;
+}
+
+body {
     color: #373737;
     font-family: 'Open Sans', Arial, sans-serif;
+    background: #F5F3F2;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -25,6 +30,10 @@ a {
 
 a:hover {
     color: #7da468;
+}
+
+.table {
+    margin-bottom: 0;
 }
 
 .no-left-padding {

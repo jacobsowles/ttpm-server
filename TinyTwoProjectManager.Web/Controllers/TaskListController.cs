@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
+using TinyTwoProjectManager.Models;
 using TinyTwoProjectManager.Services;
+using TinyTwoProjectManager.Web.ViewModels;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
@@ -13,10 +15,18 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Index(int id)
+        public PartialViewResult GetTaskListDashboard(int id)
         {
             var taskList = _taskListService.GetTaskList(id);
-            return PartialView("~/Views/TaskList/_TaskList.cshtml", taskList);
+            return PartialView("~/Views/TaskList/_TaskListDashboard.cshtml", new TaskListDashboardViewModel
+            {
+                TaskListTaskTableModule = new TaskListTaskTableModuleViewModel
+                {
+                    TaskList = AutoMapper.Mapper.Map<TaskList, TaskListViewModel>(taskList)
+                },
+
+                TaskListCompletionModule = new TaskListCompletionModuleViewModel(taskList)
+            });
         }
     }
 }

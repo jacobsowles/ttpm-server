@@ -9,7 +9,7 @@
 
         $(this).addClass('active-task-list');
 
-        $.get('/Task/GetTasksForTaskList/', { id: taskListId }, function (data) {
+        $.get('/TaskList/GetTaskListDashboard/', { id: taskListId }, function (data) {
             $('#center-column').html(data);
         });
     });

@@ -1,0 +1,8 @@
+﻿@model TaskListCompletionModuleViewModel
+
+<h3>@Model.Title</h3>
+<!-- TODO: move this to css file -->
+<span style="text-align: center">
+    <span style="font-size: 1.4em">@(Model.CompletionPercentage)%</span>
+    @Model.CompletedTaskCount / @Model.TotalTaskCount
+</span>

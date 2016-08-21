@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace TinyTwoProjectManager.Web.ViewModels
+﻿namespace TinyTwoProjectManager.Web.ViewModels
 {
     public class DashboardViewModel
     {

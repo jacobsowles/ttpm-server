@@ -210,6 +210,11 @@
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\ProjectListViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
+    <Compile Include="ViewModels\ContentModuleViewModel.cs" />
+    <Compile Include="ViewModels\TaskListCompletionModuleViewModel.cs" />
+    <Compile Include="ViewModels\TaskListDashboardViewModel.cs" />
+    <Compile Include="ViewModels\TaskListTaskTableModuleViewModel.cs" />
+    <Compile Include="ViewModels\TaskListDetailViewModel.cs" />
     <Compile Include="ViewModels\TaskListViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
   </ItemGroup>
@@ -576,10 +581,12 @@
     <Content Include="Views\Shared\DisplayTemplates\ProjectViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TaskListViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ProjectViewModel.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\TaskViewModel.cshtml" />
-    <Content Include="Views\TaskList\_TaskList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TaskListTaskTableModuleViewModel.cshtml" />
+    <Content Include="Views\TaskList\_TaskListDashboard.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\NewTaskViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TaskListCompletionModuleViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TaskViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

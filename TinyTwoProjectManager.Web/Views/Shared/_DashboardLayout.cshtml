@@ -20,22 +20,26 @@
             <div class="col-xs-2 no-horizontal-padding" id="left-column">
                 @RenderSection("LeftColumn", false)
             </div>
-            <div class="col-xs-10 no-horizontal-padding" id="main-header">
-                <a href="/" id="logo" title="Home">
-                    <img src="@Url.Content("~/Content/Images/tt-logo.png")" alt="Logo" height="40" />
-                    <span id="logo-text">PROJECT MANAGER</span>
-                </a>
+            <div class="col-xs-10">
+                <div class="row">
+                    <div class="col-xs-12 "id="main-header">
+                        <a href="/" id="logo" title="Home">
+                            <img src="@Url.Content("~/Content/Images/tt-logo.png")" alt="Logo" height="50" />
+                            <span id="logo-text">PROJECT MANAGER</span>
+                        </a>
 
-                <div id="main-header-right">
-                    
-                    <a href="/" title="Settings"><img src="@Url.Content("~/Content/Images/ThirdParty/interface-icon-compilation/settings-2.png")" alt="Settings" height="25" /></a>
-                    <a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/ThirdParty/basic-solid-ui/menu.png")" alt="Menu" height="25" /></a>
-                    @Html.Partial("_LoginPartial")
+                        <div id="main-header-right">
+                            <!--<a href="/" title="Settings"><img src="@*@Url.Content("~/Content/Images/ThirdParty/interface-icon-compilation/settings-2.png")" alt="Settings" height="25" /></a>-->
+                            <!--<a href="/" class="js-slideout-toggle" title="Menu"><img src="@Url.Content("~/Content/Images/ThirdParty/basic-solid-ui/menu.png")*@" alt="Menu" height="25" /></a>-->
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-xs-10 with-padding" id="center-column">
-                @RenderBody()
+                <div class="row" style="padding: 0 15px 15px 15px">
+                    <div class="col-xs-12" id="center-column">
+                        @RenderBody()
+                    </div>
+                </div>
             </div>
         </div>
     </div>

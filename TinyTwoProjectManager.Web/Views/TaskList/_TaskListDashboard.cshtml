@@ -1,0 +1,13 @@
+﻿@model TaskListDashboardViewModel
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-xs-@(Model.TaskListTaskTableModule.Width) content-module">
+            @Html.DisplayFor(m => m.TaskListTaskTableModule)
+        </div>
+        <div class="col-xs-@(Model.TaskListCompletionModule.Width) content-module">
+            @Html.DisplayFor(m => m.TaskListCompletionModule)
+        </div>
+    </div>
+}

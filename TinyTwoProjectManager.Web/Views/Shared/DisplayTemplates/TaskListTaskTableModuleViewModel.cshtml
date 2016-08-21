@@ -1,0 +1,27 @@
+﻿@model TaskListTaskTableModuleViewModel
+
+@{
+    var taskViewModel = Model.TaskList.Tasks.FirstOrDefault();
+}
+
+<table class="table table-striped" id="task-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>@Html.LabelFor(m => taskViewModel.Name)</th>
+            <th>@Html.LabelFor(m => taskViewModel.Notes)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.TaskList.Tasks)
+        {
+            <tr class="view-mode @task.RowClass" data-id="@task.TaskId">
+                @Html.EditorFor(m => task)
+            </tr>
+        }
+
+        <tr id="new-task-edit-row">
+            @Html.EditorFor(m => m.NewTask, "NewTaskViewModel")
+        </tr>
+    </tbody>
+</table>
