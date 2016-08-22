@@ -72,10 +72,25 @@
 
 .content-module {
     background: #ffffff;
-    padding: 15px;
     margin-top: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-    .content-module h3 {
-        margin-top: 0;
+.content-module-header {
+    padding: 10px 15px;
+    background: #636066;
+    color: #dbdbdb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+    .content-module-header h2 {
+        display: inline;
+        margin: 0;
+        font-size: .9em;
     }
+
+.content-module-body {
+    padding: 15px;
+}

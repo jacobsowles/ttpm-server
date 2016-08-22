@@ -4,10 +4,17 @@
 {
     <div class="row">
         <div class="col-xs-@(Model.TaskListTaskTableModule.Width) content-module">
-            @Html.DisplayFor(m => m.TaskListTaskTableModule)
+            <div class="content-module-body">
+                @Html.DisplayFor(m => m.TaskListTaskTableModule)
+            </div>
         </div>
         <div class="col-xs-@(Model.TaskListCompletionModule.Width) content-module">
-            @Html.DisplayFor(m => m.TaskListCompletionModule)
+            <div class="content-module-header">
+                <h2>@(Model.TaskListCompletionModule.Title)</h2>
+            </div>
+            <div class="content-module-body">
+                @Html.DisplayFor(m => m.TaskListCompletionModule)
+            </div>
         </div>
     </div>
 }

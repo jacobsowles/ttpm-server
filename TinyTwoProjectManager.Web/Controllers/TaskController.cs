@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using TinyTwoProjectManager.Models;
 using TinyTwoProjectManager.Services;
 using TinyTwoProjectManager.Web.ViewModels;
@@ -38,7 +39,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult ToggleCompletion(int id)
+        public int ToggleCompletion(int id)
         {
             // TODO: make sure user is allowed to modify this task
             var task = _taskService.GetTask(id);
@@ -53,7 +54,7 @@ namespace TinyTwoProjectManager.Web.Controllers
             _taskService.UpdateTask(task);
             _taskService.SaveTask();
 
-            return null;
+            return task.TaskListId;
         }
     }
 }

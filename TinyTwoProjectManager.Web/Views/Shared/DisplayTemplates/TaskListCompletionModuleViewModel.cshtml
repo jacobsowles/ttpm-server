@@ -1,8 +1,19 @@
 ﻿@model TaskListCompletionModuleViewModel
 
-<h3>@Model.Title</h3>
-<!-- TODO: move this to css file -->
-<span style="text-align: center">
-    <span style="font-size: 1.4em">@(Model.CompletionPercentage)%</span>
-    @Model.CompletedTaskCount / @Model.TotalTaskCount
-</span>
+<script>
+    // TODO: move to .js file
+    $(function () {
+        $('#task-list-completion-progress').circleProgress({
+            value: @Model.CompletionPercentage,
+            size: 150,
+            thickness: 10,
+            startAngle: -Math.PI / 2,
+            animationStartValue: 0.0,
+            fill: {
+                color: '#5e804d'
+            }
+        });
+    });
+</script>
+
+<div id="task-list-completion-progress" class="data-visualization"></div>

@@ -11,11 +11,11 @@ namespace TinyTwoProjectManager.Web.ViewModels
 
         public TaskListCompletionModuleViewModel(TaskList taskList)
         {
-            Title = "Completion";
-            Width = 4;
+            Title = "Task Completion";
+            Width = 3;
             CompletedTaskCount = taskList.Tasks.Count(t => t.Complete);
             TotalTaskCount = taskList.Tasks.Count();
-            CompletionPercentage = TotalTaskCount == 0 ? 0 : (CompletedTaskCount / TotalTaskCount) * 100;
+            CompletionPercentage = TotalTaskCount == 0 ? 0 : ((double)CompletedTaskCount / (double)TotalTaskCount);
         }
     }
 }

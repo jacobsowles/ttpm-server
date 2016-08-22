@@ -69,3 +69,8 @@ a:hover {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
 }
+
+.data-visualization canvas {
+    margin: 0 auto;
+    display: block;
+}

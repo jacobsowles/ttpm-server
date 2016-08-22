@@ -516,6 +516,7 @@
     <Content Include="Content\Styles\ThirdParty\bootstrap.css.map" />
     <Content Include="Content\Styles\ThirdParty\bootstrap.min.css.map" />
     <None Include="Scripts\ThirdParty\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\task-list-completion-module.js" />
     <Content Include="Scripts\status-box.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.js" />
     <Content Include="Scripts\ThirdParty\bootstrap.min.js" />
