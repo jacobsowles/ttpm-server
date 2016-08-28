@@ -1,0 +1,168 @@
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.exe
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.exe.config
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.rsp
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csi.exe
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csi.rsp
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.AppContext.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.exe
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.exe.config
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.rsp
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\VBCSCompiler.exe
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll.config
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.pdb
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.Integration.WebApi.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\AutoMapper.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.SqlServer.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Newtonsoft.Json.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Owin.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Net.Http.Formatting.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Cors.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Helpers.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Cors.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Owin.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.WebHost.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Deployment.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Razor.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Data.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Models.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Services.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Data.pdb
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Models.pdb
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Services.pdb
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.Integration.WebApi.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\AutoMapper.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.SqlServer.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Newtonsoft.Json.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Net.Http.Formatting.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Helpers.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Cors.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Owin.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.WebHost.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Deployment.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Razor.xml
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.csprojResolveAssemblyReference.cache
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.dll
+C:\Users\jacob.sowles\Documents\Visual Studio 2015\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.exe
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.exe.config
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csc.rsp
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csi.exe
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\csi.rsp
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.AppContext.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.exe
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.exe.config
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\vbc.rsp
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\VBCSCompiler.exe
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll.config
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.Integration.WebApi.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\AutoMapper.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.SqlServer.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Google.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Newtonsoft.Json.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Owin.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Net.Http.Formatting.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Cors.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Helpers.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Cors.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Owin.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.WebHost.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Razor.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Data.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Models.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Services.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Data.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Models.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.Services.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Autofac.Integration.WebApi.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\AutoMapper.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\EntityFramework.SqlServer.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.Google.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Newtonsoft.Json.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Net.Http.Formatting.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Helpers.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Cors.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.Owin.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Http.WebHost.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Razor.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.csprojResolveAssemblyReference.cache
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.pdb

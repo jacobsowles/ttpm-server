@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace TinyTwoProjectManager.Data.Repositories
@@ -14,11 +15,11 @@ namespace TinyTwoProjectManager.Data.Repositories
 
         T Get(Expression<Func<T, bool>> where);
 
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
 
         T GetById(int id);
 
-        IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
+        IQueryable<T> GetMany(Expression<Func<T, bool>> where);
 
         void Update(T entity);
     }
