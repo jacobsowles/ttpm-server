@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -11,7 +12,7 @@ namespace TinyTwoProjectManager.Services
 
         Project GetProject(int id);
 
-        IEnumerable<Project> GetProjects();
+        IQueryable<Project> GetProjects();
 
         void SaveProject();
     }
@@ -38,7 +39,7 @@ namespace TinyTwoProjectManager.Services
             return project;
         }
 
-        public IEnumerable<Project> GetProjects()
+        public IQueryable<Project> GetProjects()
         {
             var projects = _projectRepository.GetAll();
             return projects;

@@ -49,6 +49,13 @@
   <ItemGroup>
     <Compile Include="ApplicationRole.cs" />
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="DTOs\ApplicationRoleDTO.cs" />
+    <Compile Include="DTOs\ApplicationUserDTO.cs" />
+    <Compile Include="DTOs\DataTransferObject.cs" />
+    <Compile Include="DTOs\ProjectListDTO.cs" />
+    <Compile Include="DTOs\ProjectDTO.cs" />
+    <Compile Include="DTOs\TaskDTO.cs" />
+    <Compile Include="DTOs\TaskListDTO.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
