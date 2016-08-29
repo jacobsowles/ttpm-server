@@ -4,8 +4,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
-using TinyTwoProjectManager.Data.Infrastructure;
-using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
 using TinyTwoProjectManager.Services;
 
@@ -21,7 +19,6 @@ namespace TinyTwoProjectManager.Web.Controllers
             _projectService = projectService;
         }
 
-        // GET projects
         [HttpGet]
         [Route("")]
         public HttpResponseMessage Get()
@@ -38,11 +35,6 @@ namespace TinyTwoProjectManager.Web.Controllers
                 });
         }
 
-        /// <summary>
-        /// Get a specific project
-        /// </summary>
-        /// <param name="id">The ID of the project to get</param>
-        /// <returns>The project with the specified ID</returns>
         [HttpGet]
         [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
@@ -55,11 +47,6 @@ namespace TinyTwoProjectManager.Web.Controllers
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Project, ProjectDTO>(project));
         }
 
-        /// <summary>
-        /// Get all task lists for a specific project
-        /// </summary>
-        /// <param name="id">The ID of the project for which to get the task lists</param>
-        /// <returns>An array of task lists for the specified project</returns>
         [HttpGet]
         [Route("{id:int}/taskLists")]
         public HttpResponseMessage GetTaskLists(int id)
@@ -70,6 +57,28 @@ namespace TinyTwoProjectManager.Web.Controllers
                 project == null
                 ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + id)
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(project.TaskLists));
+        }
+
+        [HttpPost]
+        [Route("{id:int}/taskList")]
+        public HttpResponseMessage PostTaskList(int id)
+        {
+            var project = _projectService.GetProject(id);
+            var taskList = new TaskList
+            {
+                Name = "New Task List",
+                ProjectId = id
+            };
+
+            project.TaskLists.Add(taskList);
+
+            _projectService.UpdateProject(project);
+            _projectService.SaveProject();
+
+            return
+                project == null
+                ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + id)
+                : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<TaskList, TaskListDTO>(taskList));
         }
     }
 }

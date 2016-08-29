@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -15,6 +14,8 @@ namespace TinyTwoProjectManager.Services
         IQueryable<Project> GetProjects();
 
         void SaveProject();
+
+        void UpdateProject(Project project);
     }
 
     public class ProjectService : IProjectService
@@ -48,6 +49,11 @@ namespace TinyTwoProjectManager.Services
         public void SaveProject()
         {
             _unitOfWork.Commit();
+        }
+
+        public void UpdateProject(Project project)
+        {
+            _projectRepository.Update(project);
         }
     }
 }
