@@ -17,6 +17,24 @@ namespace TinyTwoProjectManager.Web.Controllers
             _taskListService = taskListService;
         }
 
+        [HttpDelete]
+        [Route("tasklists/{id:int}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            var taskList = _taskListService.GetTaskList(id);
+
+            if (taskList == null)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a task list with an ID of " + id);
+            }
+
+            _taskListService.DeleteTaskList(taskList);
+            _taskListService.SaveTaskList();
+
+            return
+                Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<TaskList, TaskListDTO>(taskList));
+        }
+
         [HttpGet]
         [Route("tasklists/{id:int}")]
         public HttpResponseMessage Get(int id)

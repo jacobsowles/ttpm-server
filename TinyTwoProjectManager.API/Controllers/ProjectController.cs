@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -35,6 +36,19 @@ namespace TinyTwoProjectManager.Web.Controllers
                 });
         }
 
+        [HttpPost]
+        [Route("")]
+        public HttpResponseMessage Post([FromBody] ProjectDTO projectDto)
+        {
+            var project = Mapper.Map<ProjectDTO, Project>(projectDto);
+
+            _projectService.CreateProject(project);
+            _projectService.SaveProject();
+
+            return
+                Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Project, ProjectDTO>(project));
+        }
+
         [HttpGet]
         [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
@@ -60,7 +74,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpPost]
-        [Route("{id:int}/taskList")]
+        [Route("{id:int}/taskLists")]
         public HttpResponseMessage PostTaskList(int id)
         {
             var project = _projectService.GetProject(id);
