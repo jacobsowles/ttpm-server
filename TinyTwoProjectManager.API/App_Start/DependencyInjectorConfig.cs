@@ -6,7 +6,7 @@ using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Services;
 
-namespace TinyTwoProjectManager.API.App_Start
+namespace TinyTwoProjectManager.API
 {
     public class DependencyInjectorConfig
     {

@@ -10,6 +10,7 @@ using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
+    [Authorize]
     [RoutePrefix("projects")]
     public class ProjectController : BaseController
     {

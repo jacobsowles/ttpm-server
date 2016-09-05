@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -49,18 +57,33 @@
   <ItemGroup>
     <Compile Include="ApplicationRole.cs" />
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="BindingModels\AddExternalLoginBindingModel.cs" />
+    <Compile Include="BindingModels\ChangePasswordBindingModel.cs" />
+    <Compile Include="BindingModels\RegisterBindingModel.cs" />
+    <Compile Include="BindingModels\RegisterExternalBindingModel.cs" />
+    <Compile Include="BindingModels\RemoveLoginBindingModel.cs" />
+    <Compile Include="BindingModels\SetPasswordBindingModel.cs" />
+    <Compile Include="DTOs\ExternalLoginDTO.cs" />
     <Compile Include="DTOs\ApplicationRoleDTO.cs" />
     <Compile Include="DTOs\ApplicationUserDTO.cs" />
     <Compile Include="DTOs\DataTransferObject.cs" />
+    <Compile Include="DTOs\ManageInfoDTO.cs" />
     <Compile Include="DTOs\ProjectListDTO.cs" />
     <Compile Include="DTOs\ProjectDTO.cs" />
     <Compile Include="DTOs\TaskDTO.cs" />
     <Compile Include="DTOs\TaskListDTO.cs" />
+    <Compile Include="DTOs\UserInfoDTO.cs" />
+    <Compile Include="DTOs\UserLoginInfoDTO.cs" />
+    <Compile Include="ProductivityStatus.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="DatabaseTable.cs" />
     <Compile Include="TaskList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,17 +6,17 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Models;
-using TinyTwoProjectManager.Services;
+using TinyTwoProjectManager.Services.Managers;
 
-namespace TinyTwoProjectManager.API.App_Start
+namespace TinyTwoProjectManager.API
 {
     public class IdentityConfig
     {
         public void Configuration(IAppBuilder app)
         {
             app.CreatePerOwinContext(() => new ProjectManagerDbContext());
-            app.CreatePerOwinContext<ApplicationUserService>(ApplicationUserService.Create);
-            app.CreatePerOwinContext<ApplicationSignInService>(ApplicationSignInService.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<RoleManager<ApplicationRole>>((options, context) =>
                 new RoleManager<ApplicationRole>(
                     new RoleStore<ApplicationRole>(context.Get<ProjectManagerDbContext>())

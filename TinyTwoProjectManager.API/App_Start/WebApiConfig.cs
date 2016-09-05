@@ -2,7 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace TinyTwoProjectManager.API.App_Start
+namespace TinyTwoProjectManager.API
 {
     public static class WebApiConfig
     {

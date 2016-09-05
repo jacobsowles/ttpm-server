@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Web;
 using System.Web.Http;
-using TinyTwoProjectManager.API.App_Start;
 using TinyTwoProjectManager.Data.Infrastructure;
 
 namespace TinyTwoProjectManager.API

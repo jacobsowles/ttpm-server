@@ -17,7 +17,7 @@ namespace TinyTwoProjectManager.Models
         public Project()
         {
             // TODO: Pull this dynamically
-            UserId = "254576d5-e3d8-4d2b-8729-0bf42502e478";
+            UserId = "acaaa54a-927d-4915-9400-e87b1de31891";
         }
     }
 }

@@ -12,6 +12,7 @@ namespace TinyTwoProjectManager.Data.Infrastructure
         {
         }
 
+        public DbSet<ProductivityStatus> ProductivityStatuses { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<TaskList> TaskLists { get; set; }
         public DbSet<Task> Tasks { get; set; }

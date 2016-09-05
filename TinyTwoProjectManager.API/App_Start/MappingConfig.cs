@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using TinyTwoProjectManager.Models;
 
-namespace TinyTwoProjectManager.API.App_Start
+namespace TinyTwoProjectManager.API
 {
     public class MappingConfig
     {

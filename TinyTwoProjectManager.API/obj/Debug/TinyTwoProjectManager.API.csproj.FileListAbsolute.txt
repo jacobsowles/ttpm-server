@@ -166,3 +166,10 @@ C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.csprojResolveAssemblyReference.cache
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.dll
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\obj\Debug\TinyTwoProjectManager.API.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Antlr3.Runtime.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Optimization.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\WebGrease.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Antlr3.Runtime.pdb
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Optimization.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Host.SystemWeb.xml

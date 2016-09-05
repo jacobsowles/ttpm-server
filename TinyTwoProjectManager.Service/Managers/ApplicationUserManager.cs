@@ -6,17 +6,17 @@ using System;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Models;
 
-namespace TinyTwoProjectManager.Services
+namespace TinyTwoProjectManager.Services.Managers
 {
-    public class ApplicationUserService : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public ApplicationUserService(IUserStore<ApplicationUser> store) : base(store)
+        public ApplicationUserManager(IUserStore<ApplicationUser> store) : base(store)
         {
         }
 
-        public static ApplicationUserService Create(IdentityFactoryOptions<ApplicationUserService> options, IOwinContext context)
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserService(new UserStore<ApplicationUser>(context.Get<ProjectManagerDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ProjectManagerDbContext>()));
             
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
@@ -29,10 +29,10 @@ namespace TinyTwoProjectManager.Services
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults
