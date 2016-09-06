@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Web.Http;
-using System.Web.Http.Cors;
+﻿using System.Web.Http;
 
 namespace TinyTwoProjectManager.API
 {
@@ -10,7 +8,6 @@ namespace TinyTwoProjectManager.API
         {
             config.MapHttpAttributeRoutes();
             //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));    Enabled in Web.config insteadB
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
     }
 }

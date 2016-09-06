@@ -13,17 +13,17 @@ namespace TinyTwoProjectManager.API
         public static void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(typeof(DependencyInjectorConfig).GetTypeInfo().Assembly);
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
             // Repositories (will grab all *Repository.cs files in the same assembly as ProjectRepository)
-            builder.RegisterAssemblyTypes(typeof(ProjectRepository).Assembly)
+            builder.RegisterAssemblyTypes(typeof(ProjectRepository).GetTypeInfo().Assembly)
                 .Where(t => t.Name.EndsWith("Repository", System.StringComparison.CurrentCulture))
                 .AsImplementedInterfaces().InstancePerRequest();
 
             // Services (will grab all *Service.cs files in the same assembly as ProjectService)
-            builder.RegisterAssemblyTypes(typeof(ProjectService).Assembly)
+            builder.RegisterAssemblyTypes(typeof(ProjectService).GetTypeInfo().Assembly)
                .Where(t => t.Name.EndsWith("Service", System.StringComparison.CurrentCulture))
                .AsImplementedInterfaces().InstancePerRequest();
 

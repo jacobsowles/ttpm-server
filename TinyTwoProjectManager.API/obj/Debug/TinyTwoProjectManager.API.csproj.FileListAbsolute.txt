@@ -173,3 +173,5 @@ C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Antlr3.Runtime.pdb
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\System.Web.Optimization.xml
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll.CodeAnalysisLog.xml
+C:\Projects\tt-project-manager\TinyTwoProjectManager.API\bin\TinyTwoProjectManager.API.dll.lastcodeanalysissucceeded
