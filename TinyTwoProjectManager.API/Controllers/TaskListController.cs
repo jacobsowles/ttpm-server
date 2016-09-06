@@ -8,6 +8,8 @@ using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
+    [Authorize]
+    [RoutePrefix("tasklists")]
     public class TaskListController : BaseController
     {
         private readonly ITaskListService _taskListService;
@@ -16,9 +18,9 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             _taskListService = taskListService;
         }
-
-        [HttpDelete]
-        [Route("tasklists/{id:int}")]
+        
+        [AcceptVerbs("DELETE", "OPTIONS")]
+        [Route("{id:int}")]
         public HttpResponseMessage Delete(int id)
         {
             var taskList = _taskListService.GetTaskList(id);
@@ -36,7 +38,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpGet]
-        [Route("tasklists/{id:int}")]
+        [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
         {
             var taskList = _taskListService.GetTaskList(id);
@@ -48,7 +50,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpGet]
-        [Route("tasklists/{id:int}/tasks")]
+        [Route("{id:int}/tasks")]
         public HttpResponseMessage GetTasks(int id)
         {
             var taskList = _taskListService.GetTaskList(id);

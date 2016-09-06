@@ -8,6 +8,8 @@ using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
+    [Authorize]
+    [RoutePrefix("tasks")]
     public class TaskController : BaseController
     {
         private readonly ITaskService _taskService;
@@ -18,7 +20,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpGet]
-        [Route("tasks/{id:int}")]
+        [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
         {
             var task = _taskService.GetTask(id);
@@ -30,7 +32,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpPut]
-        [Route("tasks")]
+        [Route("")]
         public HttpResponseMessage Put(TaskDTO taskDTO)
         {
             // TODO: make sure user is allowed to modify this task

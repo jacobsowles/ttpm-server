@@ -5,6 +5,7 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
+using System.Web;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Services.Managers;
 using TinyTwoProjectManager.Services.Providers;
@@ -20,6 +21,25 @@ namespace TinyTwoProjectManager.API
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.QueryString.HasValue)
+                {
+                    if (string.IsNullOrWhiteSpace(context.Request.Headers.Get("Authorization")))
+                    {
+                        var queryString = HttpUtility.ParseQueryString(context.Request.QueryString.Value);
+                        string token = queryString.Get("access_token");
+
+                        if (!string.IsNullOrWhiteSpace(token))
+                        {
+                            context.Request.Headers.Add("Authorization", new[] { string.Format("Bearer {0}", token) });
+                        }
+                    }
+                }
+
+                await next.Invoke();
+            });
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ProjectManagerDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);

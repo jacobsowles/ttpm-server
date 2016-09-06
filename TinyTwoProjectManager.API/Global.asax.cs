@@ -26,5 +26,14 @@ namespace TinyTwoProjectManager.API
                 Trace.TraceError(ex.ToString());
             }
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            if (Request.HttpMethod == "OPTIONS")
+            {
+                Response.StatusCode = 200;
+                Response.End();
+            }
+        }
     }
 }
