@@ -21,6 +21,7 @@ namespace TinyTwoProjectManager.API
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            // Allow access_token to be passed as a query parameter
             app.Use(async (context, next) =>
             {
                 if (context.Request.QueryString.HasValue)
