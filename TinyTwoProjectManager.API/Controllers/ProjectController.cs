@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
 using TinyTwoProjectManager.Models;
+using TinyTwoProjectManager.Models.BindingModels;
 using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
@@ -40,6 +41,7 @@ namespace TinyTwoProjectManager.Web.Controllers
                 });
         }
 
+        // TODO: replace DTO with binding model and create auto mapping
         [HttpPost]
         [Route("")]
         public HttpResponseMessage Post([FromBody] ProjectDTO projectDto)
@@ -65,6 +67,7 @@ namespace TinyTwoProjectManager.Web.Controllers
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Project, ProjectDTO>(project));
         }
 
+        // TODO: change to logical delete
         [AcceptVerbs("DELETE", "OPTIONS")]
         [Route("{id:int}")]
         public HttpResponseMessage Delete(int id)
@@ -95,15 +98,16 @@ namespace TinyTwoProjectManager.Web.Controllers
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(project.TaskLists));
         }
 
+        // TODO: create auto mapping for binding model
         [HttpPost]
-        [Route("{id:int}/taskLists")]
-        public HttpResponseMessage PostTaskList(int id)
+        [Route("{projectId:int}/taskLists")]
+        public HttpResponseMessage PostTaskList(int projectId, [FromBody] CreateTaskListBindingModel bindingModel)
         {
-            var project = _projectService.GetProject(id);
+            var project = _projectService.GetProject(projectId);
             var taskList = new TaskList
             {
-                Name = "New Task List",
-                ProjectId = id
+                Name = bindingModel.Name,
+                ProjectId = projectId
             };
 
             project.TaskLists.Add(taskList);
@@ -113,7 +117,7 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return
                 project == null
-                ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + id)
+                ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + projectId)
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<TaskList, TaskListDTO>(taskList));
         }
     }
