@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -8,6 +9,8 @@ namespace TinyTwoProjectManager.Services
     public interface IProjectService
     {
         void CreateProject(Project project);
+
+        void DeleteProject(Project project);
 
         Project GetProject(int id);
 
@@ -32,6 +35,11 @@ namespace TinyTwoProjectManager.Services
         public void CreateProject(Project project)
         {
             _projectRepository.Add(project);
+        }
+
+        public void DeleteProject(Project project)
+        {
+            _projectRepository.Delete(project);
         }
 
         public Project GetProject(int id)

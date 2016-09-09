@@ -24,7 +24,10 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
+            // TODO: This should really be in a ProjectListController, since we're not actually retrieving Projects from this route.
             var projects = _projectService.GetProjects().ToList();
+            var taskLists = projects.SelectMany(p => p.TaskLists);
+            var tasks = taskLists.SelectMany(tl => tl.Tasks);
 
             return
                 projects == null
@@ -32,7 +35,8 @@ namespace TinyTwoProjectManager.Web.Controllers
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, new ProjectListDTO
                 {
                     Projects = Mapper.Map<IEnumerable<Project>, IEnumerable<ProjectDTO>>(projects),
-                    TaskLists = Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(projects.SelectMany(p => p.TaskLists))
+                    TaskLists = Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(taskLists),
+                    Tasks = Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks)
                 });
         }
 
@@ -59,6 +63,24 @@ namespace TinyTwoProjectManager.Web.Controllers
                 project == null
                 ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + id)
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Project, ProjectDTO>(project));
+        }
+
+        [AcceptVerbs("DELETE", "OPTIONS")]
+        [Route("{id:int}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            var project = _projectService.GetProject(id);
+
+            if (project == null)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a project with an ID of " + id);
+            }
+
+            _projectService.DeleteProject(project);
+            _projectService.SaveProject();
+
+            return
+                Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Project, ProjectDTO>(project));
         }
 
         [HttpGet]
