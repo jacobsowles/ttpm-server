@@ -28,7 +28,6 @@ namespace TinyTwoProjectManager.Web.Controllers
             // TODO: This should really be in a ProjectListController, since we're not actually retrieving Projects from this route.
             var projects = _projectService.GetProjects().ToList();
             var taskLists = projects.SelectMany(p => p.TaskLists);
-            var tasks = taskLists.SelectMany(tl => tl.Tasks);
 
             return
                 projects == null
@@ -36,8 +35,7 @@ namespace TinyTwoProjectManager.Web.Controllers
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, new ProjectListDTO
                 {
                     Projects = Mapper.Map<IEnumerable<Project>, IEnumerable<ProjectDTO>>(projects),
-                    TaskLists = Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(taskLists),
-                    Tasks = Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks)
+                    TaskLists = Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(taskLists)
                 });
         }
 

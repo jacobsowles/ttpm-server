@@ -12,7 +12,7 @@ namespace TinyTwoProjectManager.Services
 
         Task GetTask(int id);
 
-        IEnumerable<Task> GetTasks(int taskListId);
+        IEnumerable<Task> GetTasks(int taskListId = 0);
 
         void SaveTask();
 
@@ -41,10 +41,14 @@ namespace TinyTwoProjectManager.Services
             return Task;
         }
 
-        public IEnumerable<Task> GetTasks(int taskListId)
+        public IEnumerable<Task> GetTasks(int taskListId = 0)
         {
-            var Tasks = _TaskRepository.GetAll().Where(t => t.TaskListId == taskListId);
-            return Tasks;
+            var Tasks = _TaskRepository.GetAll();
+
+            return
+                taskListId == 0
+                ? Tasks
+                : Tasks.Where(t => t.TaskListId == taskListId);
         }
 
         public void SaveTask()

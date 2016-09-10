@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -20,6 +21,14 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        public HttpResponseMessage Get()
+        {
+            var tasks = _taskService.GetTasks();
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks));
+        }
+
+        [HttpGet]
         [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
         {
@@ -27,8 +36,8 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return
                 task == null
-                ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id)
-                : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+                ? Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id)
+                : Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
         [HttpPut]
@@ -49,6 +58,19 @@ namespace TinyTwoProjectManager.Web.Controllers
             _taskService.SaveTask();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
+        [HttpGet]
+        [Route("tasktable")]
+        public HttpResponseMessage GetTaskTable()
+        {
+            var tasks = _taskService.GetTasks();
+
+            return
+                Request.CreateResponse(HttpStatusCode.OK, new TaskTableDTO
+                {
+                    Tasks = Mapper.Map<IEnumerable<Task>, IEnumerable<TaskTableTaskDTO>>(tasks)
+                });
         }
     }
 }

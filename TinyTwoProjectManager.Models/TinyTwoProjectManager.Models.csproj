@@ -70,6 +70,8 @@
     <Compile Include="DTOs\ApplicationUserDTO.cs" />
     <Compile Include="DTOs\DataTransferObject.cs" />
     <Compile Include="DTOs\ManageInfoDTO.cs" />
+    <Compile Include="DTOs\TaskTable\TaskTableTaskDTO.cs" />
+    <Compile Include="DTOs\TaskTable\TaskTableDTO.cs" />
     <Compile Include="DTOs\ProjectListDTO.cs" />
     <Compile Include="DTOs\ProjectDTO.cs" />
     <Compile Include="DTOs\TaskDTO.cs" />
