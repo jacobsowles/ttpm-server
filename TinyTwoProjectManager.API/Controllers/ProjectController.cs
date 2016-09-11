@@ -32,11 +32,7 @@ namespace TinyTwoProjectManager.Web.Controllers
             return
                 projects == null
                 ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find any projects")
-                : Request.CreateResponse(System.Net.HttpStatusCode.OK, new ProjectListDTO
-                {
-                    Projects = Mapper.Map<IEnumerable<Project>, IEnumerable<ProjectDTO>>(projects),
-                    TaskLists = Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(taskLists)
-                });
+                : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<IEnumerable<Project>, IEnumerable<ProjectDTO>>(projects));
         }
 
         // TODO: replace DTO with binding model and create auto mapping

@@ -59,18 +59,5 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
-
-        [HttpGet]
-        [Route("tasktable")]
-        public HttpResponseMessage GetTaskTable()
-        {
-            var tasks = _taskService.GetTasks();
-
-            return
-                Request.CreateResponse(HttpStatusCode.OK, new TaskTableDTO
-                {
-                    Tasks = Mapper.Map<IEnumerable<Task>, IEnumerable<TaskTableTaskDTO>>(tasks)
-                });
-        }
     }
 }
