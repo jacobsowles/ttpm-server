@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -14,7 +13,7 @@ namespace TinyTwoProjectManager.Services
 
         TaskList GetTaskList(int id);
 
-        IEnumerable<TaskList> GetTaskLists(int projectId);
+        IQueryable<TaskList> GetTaskLists(int projectId = 0);
 
         void SaveTaskList();
     }
@@ -42,14 +41,17 @@ namespace TinyTwoProjectManager.Services
 
         public TaskList GetTaskList(int id)
         {
-            var taskList = _taskListRepository.GetById(id);
-            return taskList;
+            return _taskListRepository.GetById(id);
         }
 
-        public IEnumerable<TaskList> GetTaskLists(int projectId)
+        public IQueryable<TaskList> GetTaskLists(int projectId = 0)
         {
-            var taskLists = _taskListRepository.GetAll().Where(tl => tl.ProjectId == projectId);
-            return taskLists;
+            var taskLists = _taskListRepository.GetAll();
+            
+            return
+                projectId == 0
+                ? taskLists
+                : taskLists.Where(tl => tl.ProjectId == projectId);
         }
 
         public void SaveTaskList()

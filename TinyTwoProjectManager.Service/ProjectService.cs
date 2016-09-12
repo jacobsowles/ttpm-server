@@ -44,14 +44,12 @@ namespace TinyTwoProjectManager.Services
 
         public Project GetProject(int id)
         {
-            var project = _projectRepository.GetById(id);
-            return project;
+            return _projectRepository.GetById(id);
         }
 
         public IQueryable<Project> GetProjects()
         {
-            var projects = _projectRepository.GetAll();
-            return projects;
+            return _projectRepository.GetAll();
         }
 
         public void SaveProject()

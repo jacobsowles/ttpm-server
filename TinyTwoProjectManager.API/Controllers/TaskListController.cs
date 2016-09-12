@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
@@ -18,7 +19,19 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             _taskListService = taskListService;
         }
-        
+
+        [HttpGet]
+        [Route("")]
+        public HttpResponseMessage Get()
+        {
+            var taskLists = _taskListService.GetTaskLists().ToList();
+
+            return
+                taskLists == null
+                ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find any task lists")
+                : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskList>, IEnumerable<TaskListDTO>>(taskLists));
+        }
+
         [AcceptVerbs("DELETE", "OPTIONS")]
         [Route("{id:int}")]
         public HttpResponseMessage Delete(int id)

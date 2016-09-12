@@ -25,9 +25,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            // TODO: This should really be in a ProjectListController, since we're not actually retrieving Projects from this route.
             var projects = _projectService.GetProjects().ToList();
-            var taskLists = projects.SelectMany(p => p.TaskLists);
 
             return
                 projects == null
