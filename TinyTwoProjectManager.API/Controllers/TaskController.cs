@@ -49,11 +49,30 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             if (task == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + task.Id);
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + taskDTO.Id);
             }
 
             task = Mapper.Map<TaskDTO, Task>(taskDTO);
 
+            _taskService.UpdateTask(task);
+            _taskService.SaveTask();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
+        [HttpPut]
+        [Route("{id:int}/toggleComplete")]
+        public HttpResponseMessage ToggleComplete(int id)
+        {
+            // TODO: make sure user is allowed to modify this task
+            var task = _taskService.GetTask(id);
+
+            if (task == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
+            }
+
+            task.Complete = !task.Complete;
             _taskService.UpdateTask(task);
             _taskService.SaveTask();
 
