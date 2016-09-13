@@ -10,6 +10,8 @@ namespace TinyTwoProjectManager.Services
     {
         void CreateTask(Task Task);
 
+        void DeleteTask(Task Task);
+
         Task GetTask(int id);
 
         IEnumerable<Task> GetTasks(int taskListId = 0);
@@ -33,6 +35,11 @@ namespace TinyTwoProjectManager.Services
         public void CreateTask(Task task)
         {
             _TaskRepository.Add(task);
+        }
+
+        public void DeleteTask(Task task)
+        {
+            _TaskRepository.Delete(task);
         }
 
         public Task GetTask(int id)

@@ -60,6 +60,25 @@ namespace TinyTwoProjectManager.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
+        // TODO: change to logical delete
+        [AcceptVerbs("DELETE", "OPTIONS")]
+        [Route("{id:int}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            var task = _taskService.GetTask(id);
+
+            if (task == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
+            }
+
+            _taskService.DeleteTask(task);
+            _taskService.SaveTask();
+
+            return
+                Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
         [HttpPut]
         [Route("{id:int}/toggleComplete")]
         public HttpResponseMessage ToggleComplete(int id)
