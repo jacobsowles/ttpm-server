@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using TinyTwoProjectManager.Data.Infrastructure;
@@ -67,8 +68,7 @@ namespace TinyTwoProjectManager.Data.Repositories
 
         public virtual void Update(T entity)
         {
-            _dbSet.Attach(entity);
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbSet.AddOrUpdate(entity);
         }
     }
 }
