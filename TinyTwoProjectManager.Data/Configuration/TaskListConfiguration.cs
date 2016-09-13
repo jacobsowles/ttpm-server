@@ -13,7 +13,7 @@ namespace TinyTwoProjectManager.Data.Configuration
             this.HasRequired(tl => tl.Project)
                 .WithMany(p => p.TaskLists)
                 .HasForeignKey(tl => tl.ProjectId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201608311656535_InitialMigrations.Designer.cs">
       <DependentUpon>201608311656535_InitialMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609132318594_EnableCascadingDeletesForTasksAndTaskLists.cs" />
+    <Compile Include="Migrations\201609132318594_EnableCascadingDeletesForTasksAndTaskLists.Designer.cs">
+      <DependentUpon>201609132318594_EnableCascadingDeletesForTasksAndTaskLists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -91,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608311656535_InitialMigrations.resx">
       <DependentUpon>201608311656535_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609132318594_EnableCascadingDeletesForTasksAndTaskLists.resx">
+      <DependentUpon>201609132318594_EnableCascadingDeletesForTasksAndTaskLists.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
