@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -83,6 +84,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}/toggleComplete")]
         public HttpResponseMessage ToggleComplete(int id)
         {
+            // TODO: unit test the logic here
             // TODO: make sure user is allowed to modify this task
             var task = _taskService.GetTask(id);
 
@@ -91,7 +93,19 @@ namespace TinyTwoProjectManager.Web.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
             }
 
+            if (!task.Complete)
+            {
+                if (task.TimesCompleted == 0)
+                {
+                    task.FirstDateCompleted = DateTime.Now;
+                }
+
+                task.LastDateCompleted = DateTime.Now;
+                task.TimesCompleted++;
+            }
+
             task.Complete = !task.Complete;
+
             _taskService.UpdateTask(task);
             _taskService.SaveTask();
 
