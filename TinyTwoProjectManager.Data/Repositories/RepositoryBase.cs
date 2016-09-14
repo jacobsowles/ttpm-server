@@ -68,7 +68,8 @@ namespace TinyTwoProjectManager.Data.Repositories
 
         public virtual void Update(T entity)
         {
-            _dbSet.AddOrUpdate(entity);
+            _dbSet.Attach(entity);
+            _dbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
