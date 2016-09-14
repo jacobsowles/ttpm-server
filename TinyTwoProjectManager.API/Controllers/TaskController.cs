@@ -15,10 +15,12 @@ namespace TinyTwoProjectManager.Web.Controllers
     public class TaskController : BaseController
     {
         private readonly ITaskService _taskService;
+        private readonly ITaskListService _taskListService;
 
-        public TaskController(ITaskService taskService)
+        public TaskController(ITaskService taskService, ITaskListService taskListService)
         {
             _taskService = taskService;
+            _taskListService = taskListService;
         }
 
         [HttpGet]

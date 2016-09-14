@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
@@ -72,6 +73,30 @@ namespace TinyTwoProjectManager.Web.Controllers
                 taskList == null
                 ? Request.CreateResponse(System.Net.HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id)
                 : Request.CreateResponse(System.Net.HttpStatusCode.OK, Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(taskList.Tasks));
+        }
+
+        // TODO: create auto mapping for binding model
+        [HttpPost]
+        [Route("{taskListId:int}/tasks")]
+        public HttpResponseMessage CreateTaskTaskBindingModel(TaskBindingModel bindingModel)
+        {
+            // TODO: create validator
+            var taskList = _taskListService.GetTaskList(bindingModel.TaskListId);
+
+            if (taskList == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task list with an ID of " + bindingModel.TaskListId);
+            }
+
+            var task = Mapper.Map<TaskBindingModel, Task>(bindingModel);
+
+            taskList.Tasks.Add(task);
+
+            _taskListService.UpdateTaskList(taskList);
+            _taskListService.SaveTaskList();
+
+            return
+                Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
     }
 }

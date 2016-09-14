@@ -16,6 +16,8 @@ namespace TinyTwoProjectManager.Services
         IQueryable<TaskList> GetTaskLists(int projectId = 0);
 
         void SaveTaskList();
+
+        void UpdateTaskList(TaskList taskList);
     }
 
     public class TaskListService : ITaskListService
@@ -57,6 +59,11 @@ namespace TinyTwoProjectManager.Services
         public void SaveTaskList()
         {
             _unitOfWork.Commit();
+        }
+
+        public void UpdateTaskList(TaskList taskList)
+        {
+            _taskListRepository.Update(taskList);
         }
     }
 }

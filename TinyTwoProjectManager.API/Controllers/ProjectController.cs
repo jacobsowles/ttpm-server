@@ -38,6 +38,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Post([FromBody] ProjectDTO projectDto)
         {
+            // TODO: create validator
             var project = Mapper.Map<ProjectDTO, Project>(projectDto);
 
             _projectService.CreateProject(project);

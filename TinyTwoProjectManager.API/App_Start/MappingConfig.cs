@@ -20,6 +20,7 @@ namespace TinyTwoProjectManager.API
                 // Tasks
                 config.CreateMap<Task, TaskDTO>();
                 config.CreateMap<TaskDTO, Task>();
+                config.CreateMap<TaskBindingModel, Task>();
             });
         }
     }

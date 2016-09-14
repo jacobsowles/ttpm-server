@@ -65,6 +65,7 @@
     <Compile Include="BindingModels\RegisterExternalBindingModel.cs" />
     <Compile Include="BindingModels\RemoveLoginBindingModel.cs" />
     <Compile Include="BindingModels\SetPasswordBindingModel.cs" />
+    <Compile Include="BindingModels\TaskBindingModel.cs" />
     <Compile Include="DTOs\ExternalLoginDTO.cs" />
     <Compile Include="DTOs\ApplicationRoleDTO.cs" />
     <Compile Include="DTOs\ApplicationUserDTO.cs" />
