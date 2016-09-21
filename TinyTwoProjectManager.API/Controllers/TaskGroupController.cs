@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -26,8 +27,8 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var projects = _taskGroupService.GetTaskGroups().ToList();
-            return  Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroup>, IEnumerable<TaskGroupDTO>>(projects));
+            var taskGroups = _taskGroupService.GetTaskGroupsForUser(User.Identity.GetUserId()).ToList();
+            return  Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroup>, IEnumerable<TaskGroupDTO>>(taskGroups));
         }
         
         [HttpPost]

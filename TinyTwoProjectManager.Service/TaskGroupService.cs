@@ -13,7 +13,7 @@ namespace TinyTwoProjectManager.Services
 
         TaskGroup GetTaskGroup(int id);
 
-        IQueryable<TaskGroup> GetTaskGroups();
+        IQueryable<TaskGroup> GetTaskGroupsForUser(string userId);
 
         void SaveTaskGroup();
 
@@ -46,9 +46,9 @@ namespace TinyTwoProjectManager.Services
             return _taskGroupRepository.GetById(id);
         }
 
-        public IQueryable<TaskGroup> GetTaskGroups()
+        public IQueryable<TaskGroup> GetTaskGroupsForUser(string userId)
         {
-            return _taskGroupRepository.GetAll();
+            return _taskGroupRepository.GetMany(tg => tg.UserId == userId);
         }
 
         public void SaveTaskGroup()
