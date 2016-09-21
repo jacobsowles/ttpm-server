@@ -27,7 +27,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var tasks = _taskService.GetTasks();
+            var tasks = _taskService.GetTasksForUser(User.Identity.GetUserId());
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks));
         }
 

@@ -14,7 +14,7 @@ namespace TinyTwoProjectManager.Services
 
         Task GetTask(int id);
 
-        IEnumerable<Task> GetTasks(int taskGroupId = 0);
+        IEnumerable<Task> GetTasksForUser(string userId, int taskGroupId = 0);
 
         void SaveTask();
 
@@ -48,9 +48,9 @@ namespace TinyTwoProjectManager.Services
             return Task;
         }
 
-        public IEnumerable<Task> GetTasks(int taskGroupId = 0)
+        public IEnumerable<Task> GetTasksForUser(string userId, int taskGroupId = 0)
         {
-            var Tasks = _TaskRepository.GetAll();
+            var Tasks = _TaskRepository.GetMany(t => t.UserId == userId);
 
             return
                 taskGroupId == 0
