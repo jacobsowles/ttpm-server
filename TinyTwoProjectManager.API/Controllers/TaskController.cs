@@ -38,6 +38,19 @@ namespace TinyTwoProjectManager.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
+        [HttpPost]
+        [Route("")]
+        public HttpResponseMessage Post(CreateTaskBindingModel bindingModel)
+        {
+            // TODO: create validator
+            var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
+
+            _taskService.CreateTask(task);
+            _taskService.SaveTask();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
         [HttpPut]
         [Route("")]
         public HttpResponseMessage Put(TaskDTO taskDTO)
@@ -75,19 +88,6 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return
                 Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
-        }
-
-        [HttpPost]
-        [Route("{id:int}/Tasks")]
-        public HttpResponseMessage Post(CreateTaskBindingModel bindingModel)
-        {
-            // TODO: create validator
-            var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
-
-            _taskService.CreateTask(task);
-            _taskService.SaveTask();
-
-            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
         [HttpPut]
