@@ -21,6 +21,12 @@ namespace TinyTwoProjectManager.Models
 
         public int TimesCompleted { get; set; }
 
+        [Required]
+        public string UserId { get; set; }
+
+
+        public virtual ApplicationUser User { get; set; }
+
         public virtual TaskGroup TaskGroup { get; set; }
     }
 }

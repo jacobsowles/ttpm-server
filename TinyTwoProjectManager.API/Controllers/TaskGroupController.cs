@@ -37,6 +37,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             // TODO: create validator
             var taskGroup = Mapper.Map<CreateTaskGroupBindingModel, TaskGroup>(bindingModel);
+            taskGroup.UserId = User.Identity.GetUserId();
 
             // Add new task group on its own
             if (bindingModel.ParentTaskGroupId == null)
@@ -124,6 +125,7 @@ namespace TinyTwoProjectManager.Web.Controllers
             }
 
             var task = Mapper.Map<CreateTaskInGroupBindingModel, Task>(bindingModel);
+            task.UserId = User.Identity.GetUserId();
 
             taskGroup.Tasks.Add(task);
 

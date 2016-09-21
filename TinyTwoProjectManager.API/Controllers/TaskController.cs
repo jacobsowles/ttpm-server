@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -44,6 +45,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             // TODO: create validator
             var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
+            task.UserId = User.Identity.GetUserId();
 
             _taskService.CreateTask(task);
             _taskService.SaveTask();
