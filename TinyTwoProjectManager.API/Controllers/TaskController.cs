@@ -6,21 +6,20 @@ using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
 using TinyTwoProjectManager.Models;
+using TinyTwoProjectManager.Models.BindingModels;
 using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
     [Authorize]
-    [RoutePrefix("tasks")]
+    [RoutePrefix("Tasks")]
     public class TaskController : BaseController
     {
         private readonly ITaskService _taskService;
-        private readonly ITaskListService _taskListService;
 
-        public TaskController(ITaskService taskService, ITaskListService taskListService)
+        public TaskController(ITaskService taskService)
         {
             _taskService = taskService;
-            _taskListService = taskListService;
         }
 
         [HttpGet]
@@ -36,11 +35,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         public HttpResponseMessage Get(int id)
         {
             var task = _taskService.GetTask(id);
-
-            return
-                task == null
-                ? Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id)
-                : Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
         [HttpPut]
@@ -82,8 +77,21 @@ namespace TinyTwoProjectManager.Web.Controllers
                 Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
+        [HttpPost]
+        [Route("{id:int}/Tasks")]
+        public HttpResponseMessage Post(CreateTaskBindingModel bindingModel)
+        {
+            // TODO: create validator
+            var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
+
+            _taskService.CreateTask(task);
+            _taskService.SaveTask();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
         [HttpPut]
-        [Route("{id:int}/toggleComplete")]
+        [Route("{id:int}/ToggleComplete")]
         public HttpResponseMessage ToggleComplete(int id)
         {
             // TODO: unit test the logic here

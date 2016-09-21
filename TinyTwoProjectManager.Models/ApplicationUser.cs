@@ -11,7 +11,7 @@ namespace TinyTwoProjectManager.Models
     {
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<TaskGroup> TaskGroups { get; set; }
 
         public ApplicationUser()
         {

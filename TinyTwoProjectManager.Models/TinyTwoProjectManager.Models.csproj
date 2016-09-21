@@ -60,28 +60,27 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="BindingModels\AddExternalLoginBindingModel.cs" />
     <Compile Include="BindingModels\ChangePasswordBindingModel.cs" />
-    <Compile Include="BindingModels\CreateTaskListBindingModel.cs" />
+    <Compile Include="BindingModels\CreateTaskInGroupBindingModel.cs" />
+    <Compile Include="BindingModels\CreateTaskGroupBindingModel.cs" />
     <Compile Include="BindingModels\RegisterBindingModel.cs" />
     <Compile Include="BindingModels\RegisterExternalBindingModel.cs" />
     <Compile Include="BindingModels\RemoveLoginBindingModel.cs" />
     <Compile Include="BindingModels\SetPasswordBindingModel.cs" />
-    <Compile Include="BindingModels\TaskBindingModel.cs" />
+    <Compile Include="BindingModels\CreateTaskBindingModel.cs" />
     <Compile Include="DTOs\ExternalLoginDTO.cs" />
     <Compile Include="DTOs\ApplicationRoleDTO.cs" />
     <Compile Include="DTOs\ApplicationUserDTO.cs" />
     <Compile Include="DTOs\DataTransferObject.cs" />
     <Compile Include="DTOs\ManageInfoDTO.cs" />
-    <Compile Include="DTOs\ProjectDTO.cs" />
+    <Compile Include="DTOs\TaskGroupDTO.cs" />
     <Compile Include="DTOs\TaskDTO.cs" />
-    <Compile Include="DTOs\TaskListDTO.cs" />
     <Compile Include="DTOs\UserInfoDTO.cs" />
     <Compile Include="DTOs\UserLoginInfoDTO.cs" />
     <Compile Include="ProductivityStatus.cs" />
-    <Compile Include="Project.cs" />
+    <Compile Include="TaskGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="DatabaseTable.cs" />
-    <Compile Include="TaskList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

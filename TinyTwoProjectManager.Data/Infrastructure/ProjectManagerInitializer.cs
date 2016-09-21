@@ -8,33 +8,23 @@ namespace TinyTwoProjectManager.Data.Infrastructure
     {
         protected override void Seed(ProjectManagerDbContext context)
         {
-            GetProjects().ForEach(p => context.Projects.Add(p));
-            context.Commit();
-
-            GetTaskLists().ForEach(tl => context.TaskLists.Add(tl));
+            GetTaskGroups().ForEach(tg => context.TaskGroups.Add(tg));
             context.Commit();
 
             GetTasks().ForEach(t => context.Tasks.Add(t));
             context.Commit();
         }
 
-        private static List<Project> GetProjects()
+        private static List<TaskGroup> GetTaskGroups()
         {
-            return new List<Project>
+            return new List<TaskGroup>
             {
-                new Project { Name = "Maintenance and Repairs" },
-                new Project { Name = "Homestead" }
-            };
-        }
-
-        private static List<TaskList> GetTaskLists()
-        {
-            return new List<TaskList>
-            {
-                new TaskList { Name = "Taurus", ProjectId = 1 },
-                new TaskList { Name = "Truck", ProjectId = 1 },
-                new TaskList { Name = "Tractor", ProjectId = 1 },
-                new TaskList { Name = "Generator", ProjectId = 1 }
+                new TaskGroup { Name = "Maintenance and Repairs" },
+                new TaskGroup { Name = "Taurus", ParentTaskGroupId = 1 },
+                new TaskGroup { Name = "Truck", ParentTaskGroupId = 1 },
+                new TaskGroup { Name = "Tractor", ParentTaskGroupId = 1 },
+                new TaskGroup { Name = "Generator", ParentTaskGroupId = 1 },
+                new TaskGroup { Name = "Homestead" }
             };
         }
 
@@ -42,15 +32,15 @@ namespace TinyTwoProjectManager.Data.Infrastructure
         {
             return new List<Task>
             {
-                new Task { Name = "Rotate tires", TaskListId = 1, Notes = "See http://www.greatautohelp.com/images/rotate.gif for details" },
-                new Task { Name = "Check fluid levels", TaskListId = 1, Complete = true },
+                new Task { Name = "Rotate tires", TaskGroupId = 2, Notes = "See http://www.greatautohelp.com/images/rotate.gif for details" },
+                new Task { Name = "Check fluid levels", TaskGroupId = 2, Complete = true },
 
-                new Task { Name = "Change oil", TaskListId = 3 },
-                new Task { Name = "Lubricate pins", TaskListId = 3 },
-                new Task { Name = "Clean engine screen", TaskListId = 3 },
+                new Task { Name = "Change oil", TaskGroupId = 4 },
+                new Task { Name = "Lubricate pins", TaskGroupId = 4 },
+                new Task { Name = "Clean engine screen", TaskGroupId = 4 },
 
-                new Task { Name = "Change oil", TaskListId = 4 },
-                new Task { Name = "Clean air filter", TaskListId = 4 }
+                new Task { Name = "Change oil", TaskGroupId = 5 },
+                new Task { Name = "Clean air filter", TaskGroupId = 5 }
             };
         }
     }

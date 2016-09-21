@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TinyTwoProjectManager.Models
+namespace TinyTwoProjectManager.Models.BindingModels
 {
-    public class TaskBindingModel
+    public class CreateTaskBindingModel
     {
-        [Required]
-        public int TaskListId { get; set; }
-
         [Required]
         public string Name { get; set; }
 
