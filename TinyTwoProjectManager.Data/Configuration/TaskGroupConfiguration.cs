@@ -15,10 +15,10 @@ namespace TinyTwoProjectManager.Data.Configuration
                 .HasForeignKey(tg => tg.ParentTaskGroupId)
                 .WillCascadeOnDelete(false);
 
-            /*this.HasRequired(tg => tg.User)
+            this.HasRequired(tg => tg.User)
                 .WithMany(u => u.TaskGroups)
                 .HasForeignKey(tg => tg.UserId)
-                .WillCascadeOnDelete(true);*/
+                .WillCascadeOnDelete(false);
         }
     }
 }
