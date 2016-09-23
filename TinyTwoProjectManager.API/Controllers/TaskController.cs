@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -6,28 +7,27 @@ using System.Net.Http;
 using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
 using TinyTwoProjectManager.Models;
+using TinyTwoProjectManager.Models.BindingModels;
 using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
 {
     [Authorize]
-    [RoutePrefix("tasks")]
+    [RoutePrefix("Tasks")]
     public class TaskController : BaseController
     {
         private readonly ITaskService _taskService;
-        private readonly ITaskListService _taskListService;
 
-        public TaskController(ITaskService taskService, ITaskListService taskListService)
+        public TaskController(ITaskService taskService)
         {
             _taskService = taskService;
-            _taskListService = taskListService;
         }
 
         [HttpGet]
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var tasks = _taskService.GetTasks();
+            var tasks = _taskService.GetTasksForUser(User.Identity.GetUserId());
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks));
         }
 
@@ -36,11 +36,21 @@ namespace TinyTwoProjectManager.Web.Controllers
         public HttpResponseMessage Get(int id)
         {
             var task = _taskService.GetTask(id);
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
 
-            return
-                task == null
-                ? Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id)
-                : Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        [HttpPost]
+        [Route("")]
+        public HttpResponseMessage Post(CreateTaskBindingModel bindingModel)
+        {
+            // TODO: create validator
+            var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
+            task.UserId = User.Identity.GetUserId();
+
+            _taskService.CreateTask(task);
+            _taskService.SaveTask();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
         [HttpPut]
@@ -83,7 +93,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         }
 
         [HttpPut]
-        [Route("{id:int}/toggleComplete")]
+        [Route("{id:int}/ToggleComplete")]
         public HttpResponseMessage ToggleComplete(int id)
         {
             // TODO: unit test the logic here

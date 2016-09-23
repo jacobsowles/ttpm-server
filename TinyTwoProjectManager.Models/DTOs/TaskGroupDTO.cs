@@ -2,8 +2,10 @@
 
 namespace TinyTwoProjectManager.Models
 {
-    public class ProjectDTO : DataTransferObject
+    public class TaskGroupDTO : DataTransferObject
     {
         public string Name { get; set; }
+
+        public int? ParentTaskGroupId { get; set; }
     }
 }

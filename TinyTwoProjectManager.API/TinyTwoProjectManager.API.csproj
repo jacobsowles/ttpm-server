@@ -211,9 +211,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\TaskGroupController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
-    <Compile Include="Controllers\TaskListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

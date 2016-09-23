@@ -5,8 +5,7 @@ namespace TinyTwoProjectManager.Models
 {
     public class Task : DatabaseTable
     {
-        [Required]
-        public int TaskListId { get; set; }
+        public int? TaskGroupId { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -22,6 +21,12 @@ namespace TinyTwoProjectManager.Models
 
         public int TimesCompleted { get; set; }
 
-        public virtual TaskList TaskList { get; set; }
+        [Required]
+        public string UserId { get; set; }
+
+
+        public virtual ApplicationUser User { get; set; }
+
+        public virtual TaskGroup TaskGroup { get; set; }
     }
 }
