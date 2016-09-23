@@ -7,7 +7,11 @@ namespace TinyTwoProjectManager.Models
     {
         [Required]
         public string Name { get; set; }
+
         public string Description { get; set; }
+
+        [Required]
+        public string DefaultValue { get; set; }
 
         public virtual ICollection<UserSetting> UserSettings { get; set; }
     }

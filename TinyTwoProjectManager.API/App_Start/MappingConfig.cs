@@ -10,6 +10,10 @@ namespace TinyTwoProjectManager.API
         {
             Mapper.Initialize(config =>
             {
+                // Setting
+                config.CreateMap<Setting, SettingDTO>();
+                config.CreateMap<SettingDTO, Setting>();
+
                 // TaskGroup
                 config.CreateMap<TaskGroup, TaskGroupDTO>();
                 config.CreateMap<TaskGroupDTO, TaskGroup>();

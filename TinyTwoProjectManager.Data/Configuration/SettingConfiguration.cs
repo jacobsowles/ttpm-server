@@ -10,6 +10,7 @@ namespace TinyTwoProjectManager.Data.Configuration
             this.ToTable("Setting");
             this.Property(s => s.Name).IsRequired().HasMaxLength(100);
             this.Property(s => s.Description).HasMaxLength(500);
+            this.Property(s => s.DefaultValue).IsRequired().HasMaxLength(100);
         }
     }
 }

@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201609230200005_CreateSettingsAndUserSettingsTables.Designer.cs">
       <DependentUpon>201609230200005_CreateSettingsAndUserSettingsTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609230219392_AddDefaultValueToSetting.cs" />
+    <Compile Include="Migrations\201609230219392_AddDefaultValueToSetting.Designer.cs">
+      <DependentUpon>201609230219392_AddDefaultValueToSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609230200005_CreateSettingsAndUserSettingsTables.resx">
       <DependentUpon>201609230200005_CreateSettingsAndUserSettingsTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609230219392_AddDefaultValueToSetting.resx">
+      <DependentUpon>201609230219392_AddDefaultValueToSetting.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
