@@ -81,6 +81,8 @@
     <Compile Include="EmailService.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="SmsService.cs" />
+    <Compile Include="SettingService.cs" />
+    <Compile Include="UserSettingService.cs" />
     <Compile Include="TaskService.cs" />
     <Compile Include="TaskGroupService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

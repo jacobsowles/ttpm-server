@@ -104,6 +104,8 @@
     <Compile Include="Repositories\ProductivityStatusRepository.cs" />
     <Compile Include="Repositories\TaskGroupRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SettingRepository.cs" />
+    <Compile Include="Repositories\UserSettingRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
   </ItemGroup>
   <ItemGroup>
