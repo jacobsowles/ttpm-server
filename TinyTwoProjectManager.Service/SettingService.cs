@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -11,7 +12,9 @@ namespace TinyTwoProjectManager.Services
 
         void DeleteSetting(Setting setting);
 
-        Setting GetUserSetting(int id);
+        Setting GetSetting(int id);
+
+        IQueryable<Setting> GetSettings();
 
         void SaveSetting();
 
@@ -39,9 +42,14 @@ namespace TinyTwoProjectManager.Services
             _settingRepository.Delete(setting);
         }
 
-        public Setting GetUserSetting(int id)
+        public Setting GetSetting(int id)
         {
             return _settingRepository.GetById(id);
+        }
+
+        public IQueryable<Setting> GetSettings()
+        {
+            return _settingRepository.GetAll();
         }
 
         public void SaveSetting()
