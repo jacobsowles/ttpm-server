@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ProductivityStatusConfiguration.cs" />
+    <Compile Include="Configuration\SettingConfiguration.cs" />
+    <Compile Include="Configuration\UserSettingConfiguration.cs" />
     <Compile Include="Configuration\TaskGroupConfiguration.cs" />
     <Compile Include="Configuration\TaskConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
@@ -87,6 +89,10 @@
     <Compile Include="Migrations\201609212346118_AddUserIdColumnToTasks.cs" />
     <Compile Include="Migrations\201609212346118_AddUserIdColumnToTasks.Designer.cs">
       <DependentUpon>201609212346118_AddUserIdColumnToTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609230200005_CreateSettingsAndUserSettingsTables.cs" />
+    <Compile Include="Migrations\201609230200005_CreateSettingsAndUserSettingsTables.Designer.cs">
+      <DependentUpon>201609230200005_CreateSettingsAndUserSettingsTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609212346118_AddUserIdColumnToTasks.resx">
       <DependentUpon>201609212346118_AddUserIdColumnToTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609230200005_CreateSettingsAndUserSettingsTables.resx">
+      <DependentUpon>201609230200005_CreateSettingsAndUserSettingsTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
