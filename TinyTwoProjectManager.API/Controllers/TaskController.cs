@@ -66,6 +66,7 @@ namespace TinyTwoProjectManager.Web.Controllers
             }
 
             task = Mapper.Map<TaskDTO, Task>(taskDTO);
+            task.UserId = User.Identity.GetUserId();
 
             _taskService.UpdateTask(task);
             _taskService.SaveTask();
