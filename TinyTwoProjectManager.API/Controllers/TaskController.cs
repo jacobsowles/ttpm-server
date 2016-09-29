@@ -124,5 +124,33 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
+
+        [HttpPut]
+        [Route("{firstTaskId:int}/SwapDisplayOrder/{secondTaskId:int}")]
+        public HttpResponseMessage SwapDisplayOrder(int firstTaskId, int secondTaskId)
+        {
+            // TODO: unit test the logic here
+            // TODO: make sure user is allowed to modify these tasks
+            var firstTask = _taskService.GetTask(firstTaskId);
+            var secondTask = _taskService.GetTask(secondTaskId);
+
+            if (firstTask == null || secondTask == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find one of the specified tasks.");
+            }
+
+            int firstTaskDisplayOrder = firstTask.DisplayOrder;
+
+            firstTask.DisplayOrder = secondTask.DisplayOrder;
+            secondTask.DisplayOrder = firstTaskDisplayOrder;
+
+            _taskService.UpdateTask(firstTask);
+            _taskService.SaveTask();
+
+            _taskService.UpdateTask(secondTask);
+            _taskService.SaveTask();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }
