@@ -74,6 +74,7 @@
     <Compile Include="DTOs\DataTransferObject.cs" />
     <Compile Include="DTOs\ManageInfoDTO.cs" />
     <Compile Include="DTOs\SettingDTO.cs" />
+    <Compile Include="DTOs\TaskGroupDisplayOrderDTO.cs" />
     <Compile Include="DTOs\UserSettingDTO.cs" />
     <Compile Include="DTOs\TaskGroupDTO.cs" />
     <Compile Include="DTOs\TaskDTO.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="DTOs\UserLoginInfoDTO.cs" />
     <Compile Include="ProductivityStatus.cs" />
     <Compile Include="Setting.cs" />
+    <Compile Include="TaskGroupDisplayOrder.cs" />
     <Compile Include="UserSetting.cs" />
     <Compile Include="TaskGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

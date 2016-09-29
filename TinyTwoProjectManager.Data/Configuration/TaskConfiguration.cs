@@ -8,16 +8,17 @@ namespace TinyTwoProjectManager.Data.Configuration
         public TaskConfiguration()
         {
             this.ToTable("Task");
-            this.Property(p => p.Name).IsRequired().HasMaxLength(100);
+            this.Property(t => t.Name).IsRequired().HasMaxLength(100);
+            this.Property(t => t.DisplayOrder).IsRequired();
 
             this.HasOptional(t => t.TaskGroup)
-                .WithMany(tl => tl.Tasks)
+                .WithMany(tg => tg.Tasks)
                 .HasForeignKey(t => t.TaskGroupId)
                 .WillCascadeOnDelete(true);
 
-            this.HasRequired(tg => tg.User)
+            this.HasRequired(t => t.User)
                 .WithMany(u => u.Tasks)
-                .HasForeignKey(tg => tg.UserId)
+                .HasForeignKey(t => t.UserId)
                 .WillCascadeOnDelete(false);
         }
     }

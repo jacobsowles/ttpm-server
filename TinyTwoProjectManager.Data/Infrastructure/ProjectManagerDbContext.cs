@@ -15,6 +15,7 @@ namespace TinyTwoProjectManager.Data.Infrastructure
         public DbSet<ProductivityStatus> ProductivityStatuses { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskGroupDisplayOrder> TaskGroupDisplayOrders { get; set; }
         public DbSet<TaskGroup> TaskGroups { get; set; }
         public DbSet<UserSetting> UserSettings { get; set; }
 
@@ -44,6 +45,7 @@ namespace TinyTwoProjectManager.Data.Infrastructure
             modelBuilder.Configurations.Add(new SettingConfiguration());
             modelBuilder.Configurations.Add(new TaskConfiguration());
             modelBuilder.Configurations.Add(new TaskGroupConfiguration());
+            modelBuilder.Configurations.Add(new TaskGroupDisplayOrderConfiguration());
             modelBuilder.Configurations.Add(new UserSettingConfiguration());
         }
     }

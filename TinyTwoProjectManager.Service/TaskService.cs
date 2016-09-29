@@ -50,10 +50,7 @@ namespace TinyTwoProjectManager.Services
 
         public IEnumerable<Task> GetTasksForUser(string userId, int taskGroupId = 0)
         {
-            var Tasks =
-                _TaskRepository
-                    .GetMany(t => t.UserId == userId)
-                    .OrderBy(t => t.DisplayOrder);
+            var Tasks =  _TaskRepository.GetMany(t => t.UserId == userId);
 
             return
                 taskGroupId == 0

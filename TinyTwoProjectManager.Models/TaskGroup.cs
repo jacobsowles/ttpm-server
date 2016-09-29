@@ -21,5 +21,7 @@ namespace TinyTwoProjectManager.Models
         public virtual ICollection<TaskGroup> TaskGroups { get; set; }
 
         public virtual ICollection<Task> Tasks { get; set; }
+
+        public virtual ICollection<TaskGroupDisplayOrder> DisplayOrders { get; set; }
     }
 }

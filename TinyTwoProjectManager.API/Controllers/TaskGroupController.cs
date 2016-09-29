@@ -134,5 +134,19 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
+
+        [HttpGet]
+        [Route("{id:int}/TaskDisplayOrder")]
+        public HttpResponseMessage GetTaskDisplayOrder(int id)
+        {
+            var taskGroup = _taskGroupService.GetTaskGroup(id);
+
+            if (taskGroup == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task group with an ID of " + id);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroupDisplayOrder>, IEnumerable<TaskGroupDisplayOrderDTO>>(taskGroup.DisplayOrders));
+        }
     }
 }

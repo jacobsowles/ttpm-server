@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Configuration\ProductivityStatusConfiguration.cs" />
     <Compile Include="Configuration\SettingConfiguration.cs" />
+    <Compile Include="Configuration\TaskGroupDisplayOrderConfiguration.cs" />
     <Compile Include="Configuration\UserSettingConfiguration.cs" />
     <Compile Include="Configuration\TaskGroupConfiguration.cs" />
     <Compile Include="Configuration\TaskConfiguration.cs" />
@@ -102,10 +103,15 @@
     <Compile Include="Migrations\201609292025357_AddDisplayOrderToTasks.Designer.cs">
       <DependentUpon>201609292025357_AddDisplayOrderToTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609292252211_AddTaskGroupDisplayOrder.cs" />
+    <Compile Include="Migrations\201609292252211_AddTaskGroupDisplayOrder.Designer.cs">
+      <DependentUpon>201609292252211_AddTaskGroupDisplayOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ProductivityStatusRepository.cs" />
+    <Compile Include="Repositories\TaskGroupDisplayOrderRepository.cs" />
     <Compile Include="Repositories\TaskGroupRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\SettingRepository.cs" />
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609292025357_AddDisplayOrderToTasks.resx">
       <DependentUpon>201609292025357_AddDisplayOrderToTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609292252211_AddTaskGroupDisplayOrder.resx">
+      <DependentUpon>201609292252211_AddTaskGroupDisplayOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
