@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public string Notes { get; set; }
         public bool Complete { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }

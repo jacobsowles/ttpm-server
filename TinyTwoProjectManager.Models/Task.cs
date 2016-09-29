@@ -15,6 +15,9 @@ namespace TinyTwoProjectManager.Models
         [Required]
         public bool Complete { get; set; }
 
+        [Required]
+        public int DisplayOrder { get; set; }
+
         public DateTime? FirstDateCompleted { get; set; }
 
         public DateTime? LastDateCompleted { get; set; }
