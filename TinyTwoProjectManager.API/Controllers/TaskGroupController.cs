@@ -17,10 +17,14 @@ namespace TinyTwoProjectManager.Web.Controllers
     public class TaskGroupController : BaseController
     {
         private readonly ITaskGroupService _taskGroupService;
+        private readonly ITaskGroupDisplayOrderService _taskGroupDisplayOrderService;
+        private readonly ITaskService _taskService;
 
-        public TaskGroupController(ITaskGroupService taskGroupService)
+        public TaskGroupController(ITaskGroupService taskGroupService, ITaskGroupDisplayOrderService taskGroupDisplayOrderService, ITaskService taskService)
         {
             _taskGroupService = taskGroupService;
+            _taskGroupDisplayOrderService = taskGroupDisplayOrderService;
+            _taskService = taskService;
         }
 
         [HttpGet]
@@ -126,11 +130,18 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             var task = Mapper.Map<CreateTaskInGroupBindingModel, Task>(bindingModel);
             task.UserId = User.Identity.GetUserId();
+            task.DisplayOrder = _taskService.GetMaximumDisplayOrderForUser(task.UserId) + 1;
 
             taskGroup.Tasks.Add(task);
 
             _taskGroupService.UpdateTaskGroup(taskGroup);
             _taskGroupService.SaveTaskGroup();
+
+            // Add TaskGroup display orders
+            _taskGroupDisplayOrderService.AddTaskToBottomOfTaskGroups(
+                taskGroup.AllAncestors().Select(tg => tg.Id),
+                task.Id
+            );
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }

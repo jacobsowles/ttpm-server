@@ -19,38 +19,40 @@ namespace TinyTwoProjectManager.Services
         void SaveTask();
 
         void UpdateTask(Task task);
+
+        int GetMaximumDisplayOrderForUser(string userId);
     }
 
     public class TaskService : ITaskService
     {
-        private readonly ITaskRepository _TaskRepository;
+        private readonly ITaskRepository _taskRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public TaskService(ITaskRepository TaskRepository, IUnitOfWork unitOfWork)
         {
-            _TaskRepository = TaskRepository;
+            _taskRepository = TaskRepository;
             _unitOfWork = unitOfWork;
         }
 
         public void CreateTask(Task task)
         {
-            _TaskRepository.Add(task);
+            _taskRepository.Add(task);
         }
 
         public void DeleteTask(Task task)
         {
-            _TaskRepository.Delete(task);
+            _taskRepository.Delete(task);
         }
 
         public Task GetTask(int id)
         {
-            var Task = _TaskRepository.GetById(id);
+            var Task = _taskRepository.GetById(id);
             return Task;
         }
 
         public IEnumerable<Task> GetTasksForUser(string userId, int taskGroupId = 0)
         {
-            var Tasks =  _TaskRepository.GetMany(t => t.UserId == userId);
+            var Tasks =  _taskRepository.GetMany(t => t.UserId == userId);
 
             return
                 taskGroupId == 0
@@ -65,7 +67,12 @@ namespace TinyTwoProjectManager.Services
 
         public void UpdateTask(Task task)
         {
-            _TaskRepository.Update(task);
+            _taskRepository.Update(task);
+        }
+
+        public int GetMaximumDisplayOrderForUser(string userId)
+        {
+            return GetTasksForUser(userId).Max(t => t.DisplayOrder);
         }
     }
 }

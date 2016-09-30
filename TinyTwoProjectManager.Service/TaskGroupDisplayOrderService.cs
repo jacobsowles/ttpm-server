@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TinyTwoProjectManager.Data.Infrastructure;
 using TinyTwoProjectManager.Data.Repositories;
 using TinyTwoProjectManager.Models;
@@ -7,7 +8,7 @@ namespace TinyTwoProjectManager.Services
 {
     public interface ITaskGroupDisplayOrderService
     {
-        void CreateTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder);
+        void AddTaskToBottomOfTaskGroups(IEnumerable<int> taskGroupIds, int taskId);
 
         void DeleteTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder);
 
@@ -31,9 +32,21 @@ namespace TinyTwoProjectManager.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void CreateTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder)
+        public void AddTaskToBottomOfTaskGroups(IEnumerable<int> taskGroupIds, int taskId)
         {
-            _taskGroupDisplayOrderRepository.Add(taskGroupDisplayOrder);
+            foreach (var taskGroupId in taskGroupIds)
+            {
+                var maxDisplayOrder = GetDisplayOrderForTaskGroup(taskGroupId).Max(tgdo => tgdo.DisplayOrder);
+
+                _taskGroupDisplayOrderRepository.Add(new TaskGroupDisplayOrder
+                {
+                    TaskId = taskId,
+                    TaskGroupId = taskGroupId,
+                    DisplayOrder = maxDisplayOrder + 1
+                });
+
+                SaveTaskGroupDisplayOrder();
+            }
         }
 
         public void DeleteTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder)

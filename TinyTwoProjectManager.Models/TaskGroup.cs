@@ -23,5 +23,22 @@ namespace TinyTwoProjectManager.Models
         public virtual ICollection<Task> Tasks { get; set; }
 
         public virtual ICollection<TaskGroupDisplayOrder> DisplayOrders { get; set; }
+
+        public IEnumerable<TaskGroup> AllAncestors(bool includeSelf = true)
+        {
+            var ancestors = new List<TaskGroup>();
+
+            if (includeSelf)
+            {
+                ancestors.Add(this);
+            }
+
+            if (ParentTaskGroup != null)
+            {
+                ancestors.AddRange(ParentTaskGroup.AllAncestors(true));
+            }
+
+            return ancestors;
+        }
     }
 }
