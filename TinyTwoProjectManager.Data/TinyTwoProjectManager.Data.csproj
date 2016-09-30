@@ -107,6 +107,10 @@
     <Compile Include="Migrations\201609292252211_AddTaskGroupDisplayOrder.Designer.cs">
       <DependentUpon>201609292252211_AddTaskGroupDisplayOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609301944232_CascadeDeleteTaskGroupDisplayOrderWhenDeletingTasks.cs" />
+    <Compile Include="Migrations\201609301944232_CascadeDeleteTaskGroupDisplayOrderWhenDeletingTasks.Designer.cs">
+      <DependentUpon>201609301944232_CascadeDeleteTaskGroupDisplayOrderWhenDeletingTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609292252211_AddTaskGroupDisplayOrder.resx">
       <DependentUpon>201609292252211_AddTaskGroupDisplayOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609301944232_CascadeDeleteTaskGroupDisplayOrderWhenDeletingTasks.resx">
+      <DependentUpon>201609301944232_CascadeDeleteTaskGroupDisplayOrderWhenDeletingTasks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

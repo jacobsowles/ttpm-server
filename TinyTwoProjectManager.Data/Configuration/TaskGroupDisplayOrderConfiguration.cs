@@ -13,12 +13,12 @@ namespace TinyTwoProjectManager.Data.Configuration
             this.HasRequired(tgdo => tgdo.TaskGroup)
                 .WithMany(tg => tg.DisplayOrders)
                 .HasForeignKey(tgdo => tgdo.TaskGroupId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(false);    // can't cascade because deleting a task group already cascades to delete any child tasks
 
             this.HasRequired(tgdo => tgdo.Task)
                 .WithMany(t => t.DisplayOrders)
                 .HasForeignKey(tgdo => tgdo.TaskId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

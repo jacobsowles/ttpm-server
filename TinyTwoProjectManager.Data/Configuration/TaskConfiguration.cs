@@ -19,7 +19,7 @@ namespace TinyTwoProjectManager.Data.Configuration
             this.HasRequired(t => t.User)
                 .WithMany(u => u.Tasks)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }
