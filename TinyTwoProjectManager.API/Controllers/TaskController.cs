@@ -46,6 +46,7 @@ namespace TinyTwoProjectManager.Web.Controllers
             // TODO: create validator
             var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
             task.UserId = User.Identity.GetUserId();
+            task.DisplayOrder = _taskService.GetMaximumDisplayOrderForUser(task.UserId) + 1;
 
             _taskService.Create(task);
             _taskService.Save();
