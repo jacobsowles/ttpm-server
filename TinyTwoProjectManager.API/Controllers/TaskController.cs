@@ -9,6 +9,7 @@ using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
 using TinyTwoProjectManager.Models;
 using TinyTwoProjectManager.Models.BindingModels;
+using TinyTwoProjectManager.Models.Extensions;
 using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
@@ -86,36 +87,12 @@ namespace TinyTwoProjectManager.Web.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
             }
 
-            CopyProperties(bindingModel, task);
+            bindingModel.CopyPropertiesTo(task);
 
             _taskService.Update(task);
             _taskService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
-        }
-
-        // TODO: Put this somewhere better
-        public void CopyProperties<T1, T2>(T1 source, T2 dest)
-        {
-            var sourceProps = typeof(T1)
-                .GetProperties()
-                .Where(p => p.CanRead && p.GetValue(source) != null)
-                .ToList();
-
-            var destProps = typeof(T2)
-                .GetProperties()
-                .Where(x => x.CanWrite)
-                .ToList();
-
-            foreach (var sourceProp in sourceProps)
-            {
-                if (destProps.Any(x => x.Name == sourceProp.Name))
-                {
-                    var p = destProps.First(x => x.Name == sourceProp.Name);
-                    p.SetValue(dest, sourceProp.GetValue(source), null);
-                }
-
-            }
         }
 
         [HttpPut]

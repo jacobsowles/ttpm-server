@@ -108,6 +108,7 @@
     <Compile Include="Data\Repositories\SettingRepositoryTests.cs" />
     <Compile Include="Data\Repositories\TaskGroupRepositoryTests.cs" />
     <Compile Include="Data\Repositories\TaskRepositoryTests.cs" />
+    <Compile Include="Models\Extensions\ObjectExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TaskGroupTests.cs" />
   </ItemGroup>
@@ -131,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
-    <Folder Include="Models\Extensions\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

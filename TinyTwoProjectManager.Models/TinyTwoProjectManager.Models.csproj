@@ -81,6 +81,7 @@
     <Compile Include="DTOs\TaskDTO.cs" />
     <Compile Include="DTOs\UserInfoDTO.cs" />
     <Compile Include="DTOs\UserLoginInfoDTO.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="ProductivityStatus.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="TaskGroupDisplayOrder.cs" />
@@ -94,9 +95,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
