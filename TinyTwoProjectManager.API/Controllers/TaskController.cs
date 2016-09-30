@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -54,27 +55,6 @@ namespace TinyTwoProjectManager.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
-        [HttpPut]
-        [Route("")]
-        public HttpResponseMessage Put(TaskDTO taskDTO)
-        {
-            // TODO: make sure user is allowed to modify this task
-            var task = _taskService.Get(taskDTO.Id);
-
-            if (task == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + taskDTO.Id);
-            }
-
-            task = Mapper.Map<TaskDTO, Task>(taskDTO);
-            task.UserId = User.Identity.GetUserId();
-
-            _taskService.Update(task);
-            _taskService.Save();
-
-            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
-        }
-
         // TODO: change to logical delete
         [AcceptVerbs("DELETE", "OPTIONS")]
         [Route("{id:int}")]
@@ -92,6 +72,50 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             return
                 Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public HttpResponseMessage Put(int id, [FromBody] UpdateTaskBindingModel bindingModel)
+        {
+            // TODO: make sure user is allowed to modify this task
+            var task = _taskService.Get(id);
+
+            if (task == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
+            }
+
+            CopyProperties(bindingModel, task);
+
+            _taskService.Update(task);
+            _taskService.Save();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
+        }
+
+        // TODO: Put this somewhere better
+        public void CopyProperties<T1, T2>(T1 source, T2 dest)
+        {
+            var sourceProps = typeof(T1)
+                .GetProperties()
+                .Where(p => p.CanRead && p.GetValue(source) != null)
+                .ToList();
+
+            var destProps = typeof(T2)
+                .GetProperties()
+                .Where(x => x.CanWrite)
+                .ToList();
+
+            foreach (var sourceProp in sourceProps)
+            {
+                if (destProps.Any(x => x.Name == sourceProp.Name))
+                {
+                    var p = destProps.First(x => x.Name == sourceProp.Name);
+                    p.SetValue(dest, sourceProp.GetValue(source), null);
+                }
+
+            }
         }
 
         [HttpPut]
