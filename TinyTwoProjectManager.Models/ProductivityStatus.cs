@@ -2,7 +2,7 @@
 
 namespace TinyTwoProjectManager.Models
 {
-    public class ProductivityStatus : DatabaseTable
+    public class ProductivityStatus : Entity
     {
         public string Name { get; set; }
         public int Rank { get; set; }

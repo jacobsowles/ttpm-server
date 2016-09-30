@@ -25,7 +25,7 @@ namespace TinyTwoProjectManager.API
             // Services (will grab all *Service.cs files in the same assembly as ProjectService)
             builder.RegisterAssemblyTypes(typeof(TaskGroupService).GetTypeInfo().Assembly)
                .Where(t => t.Name.EndsWith("Service", System.StringComparison.CurrentCulture))
-               .AsImplementedInterfaces().InstancePerRequest();
+               .InstancePerRequest();
 
             var container = builder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);

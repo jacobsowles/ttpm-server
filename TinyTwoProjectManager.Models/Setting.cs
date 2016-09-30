@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TinyTwoProjectManager.Models
 {
-    public class Setting : DatabaseTable
+    public class Setting : Entity
     {
         [Required]
         public string Name { get; set; }

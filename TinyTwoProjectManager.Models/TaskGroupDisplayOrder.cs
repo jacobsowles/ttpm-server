@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TinyTwoProjectManager.Models
 {
-    public class TaskGroupDisplayOrder : DatabaseTable
+    public class TaskGroupDisplayOrder : Entity
     {
         [Required]
         public int TaskGroupId { get; set; }

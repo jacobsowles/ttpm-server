@@ -7,58 +7,19 @@ namespace TinyTwoProjectManager.Services
 {
     public interface ITaskGroupService
     {
-        void CreateTaskGroup(TaskGroup taskGroup);
-
-        void DeleteTaskGroup(TaskGroup taskGroup);
-
-        TaskGroup GetTaskGroup(int id);
-
-        IQueryable<TaskGroup> GetTaskGroupsForUser(string userId);
-
-        void SaveTaskGroup();
-
-        void UpdateTaskGroup(TaskGroup taskGroup);
+        IQueryable<TaskGroup> GetByUser(string userId);
     }
 
-    public class TaskGroupService : ITaskGroupService
+    public class TaskGroupService : ServiceBase<TaskGroup, ITaskGroupRepository>, ITaskGroupService
     {
-        private readonly ITaskGroupRepository _taskGroupRepository;
-        private readonly IUnitOfWork _unitOfWork;
-
-        public TaskGroupService(ITaskGroupRepository taskGroupRepository, IUnitOfWork unitOfWork)
+        public TaskGroupService(ITaskGroupRepository taskGroupRepository, IUnitOfWork unitOfWork) : base(taskGroupRepository, unitOfWork)
         {
-            _taskGroupRepository = taskGroupRepository;
-            _unitOfWork = unitOfWork;
         }
 
-        public void CreateTaskGroup(TaskGroup taskGroup)
+        // TODO: move this logic to the repository
+        public IQueryable<TaskGroup> GetByUser(string userId)
         {
-            _taskGroupRepository.Add(taskGroup);
-        }
-
-        public void DeleteTaskGroup(TaskGroup taskGroup)
-        {
-            _taskGroupRepository.Delete(taskGroup);
-        }
-
-        public TaskGroup GetTaskGroup(int id)
-        {
-            return _taskGroupRepository.GetById(id);
-        }
-
-        public IQueryable<TaskGroup> GetTaskGroupsForUser(string userId)
-        {
-            return _taskGroupRepository.GetMany(tg => tg.UserId == userId);
-        }
-
-        public void SaveTaskGroup()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void UpdateTaskGroup(TaskGroup taskGroup)
-        {
-            _taskGroupRepository.Update(taskGroup);
+            return Repository.GetMany(tg => tg.UserId == userId);
         }
     }
 }

@@ -16,11 +16,11 @@ namespace TinyTwoProjectManager.Web.Controllers
     [RoutePrefix("TaskGroups")]
     public class TaskGroupController : BaseController
     {
-        private readonly ITaskGroupService _taskGroupService;
-        private readonly ITaskGroupDisplayOrderService _taskGroupDisplayOrderService;
-        private readonly ITaskService _taskService;
+        private readonly TaskGroupService _taskGroupService;
+        private readonly TaskGroupDisplayOrderService _taskGroupDisplayOrderService;
+        private readonly TaskService _taskService;
 
-        public TaskGroupController(ITaskGroupService taskGroupService, ITaskGroupDisplayOrderService taskGroupDisplayOrderService, ITaskService taskService)
+        public TaskGroupController(TaskGroupService taskGroupService, TaskGroupDisplayOrderService taskGroupDisplayOrderService, TaskService taskService)
         {
             _taskGroupService = taskGroupService;
             _taskGroupDisplayOrderService = taskGroupDisplayOrderService;
@@ -31,7 +31,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var taskGroups = _taskGroupService.GetTaskGroupsForUser(User.Identity.GetUserId()).ToList();
+            var taskGroups = _taskGroupService.GetByUser(User.Identity.GetUserId()).ToList();
             return  Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroup>, IEnumerable<TaskGroupDTO>>(taskGroups));
         }
         
@@ -46,14 +46,14 @@ namespace TinyTwoProjectManager.Web.Controllers
             // Add new task group on its own
             if (bindingModel.ParentTaskGroupId == null)
             {
-                _taskGroupService.CreateTaskGroup(taskGroup);
-                _taskGroupService.SaveTaskGroup();
+                _taskGroupService.Create(taskGroup);
+                _taskGroupService.Save();
             }
 
             // Add new task group to parent task group
             else
             {
-                var parentTaskGroup = _taskGroupService.GetTaskGroup((int) bindingModel.ParentTaskGroupId);
+                var parentTaskGroup = _taskGroupService.Get((int) bindingModel.ParentTaskGroupId);
 
                 if (parentTaskGroup == null)
                 {
@@ -61,8 +61,8 @@ namespace TinyTwoProjectManager.Web.Controllers
                 }
 
                 parentTaskGroup.TaskGroups.Add(taskGroup);
-                _taskGroupService.UpdateTaskGroup(parentTaskGroup);
-                _taskGroupService.SaveTaskGroup();
+                _taskGroupService.Update(parentTaskGroup);
+                _taskGroupService.Save();
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<TaskGroup, TaskGroupDTO>(taskGroup));
@@ -72,7 +72,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
         {
-            var taskGroup = _taskGroupService.GetTaskGroup(id);
+            var taskGroup = _taskGroupService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<TaskGroup, TaskGroupDTO>(taskGroup));
         }
 
@@ -81,15 +81,15 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}")]
         public HttpResponseMessage Delete(int id)
         {
-            var taskGroup = _taskGroupService.GetTaskGroup(id);
+            var taskGroup = _taskGroupService.Get(id);
 
             if (taskGroup == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task group with an ID of " + id);
             }
 
-            _taskGroupService.DeleteTaskGroup(taskGroup);
-            _taskGroupService.SaveTaskGroup();
+            _taskGroupService.Delete(taskGroup);
+            _taskGroupService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<TaskGroup, TaskGroupDTO>(taskGroup));
         }
@@ -98,7 +98,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}/ChildTaskGroups")]
         public HttpResponseMessage GetChildTaskGroups(int id)
         {
-            var taskGroup = _taskGroupService.GetTaskGroup(id);
+            var taskGroup = _taskGroupService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroup>, IEnumerable<TaskGroupDTO>>(taskGroup.TaskGroups));
         }
 
@@ -106,7 +106,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}/Tasks")]
         public HttpResponseMessage GetTasks(int id)
         {
-            var taskGroup = _taskGroupService.GetTaskGroup(id);
+            var taskGroup = _taskGroupService.Get(id);
 
             if (taskGroup == null)
             {
@@ -121,7 +121,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         public HttpResponseMessage CreateTask(CreateTaskInGroupBindingModel bindingModel)
         {
             // TODO: create validator
-            var taskGroup = _taskGroupService.GetTaskGroup(bindingModel.TaskGroupId);
+            var taskGroup = _taskGroupService.Get(bindingModel.TaskGroupId);
 
             if (taskGroup == null)
             {
@@ -134,8 +134,8 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             taskGroup.Tasks.Add(task);
 
-            _taskGroupService.UpdateTaskGroup(taskGroup);
-            _taskGroupService.SaveTaskGroup();
+            _taskGroupService.Update(taskGroup);
+            _taskGroupService.Save();
 
             // Add TaskGroup display orders
             _taskGroupDisplayOrderService.AddTaskToBottomOfTaskGroups(
@@ -150,7 +150,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}/TaskDisplayOrder")]
         public HttpResponseMessage GetTaskDisplayOrder(int id)
         {
-            var taskGroup = _taskGroupService.GetTaskGroup(id);
+            var taskGroup = _taskGroupService.Get(id);
 
             if (taskGroup == null)
             {

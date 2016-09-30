@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using TinyTwoProjectManager.Data.Infrastructure;
@@ -9,7 +8,7 @@ using TinyTwoProjectManager.Models;
 
 namespace TinyTwoProjectManager.Data.Repositories
 {
-    public abstract class RepositoryBase<T> where T : DatabaseTable
+    public abstract class RepositoryBase<T> where T : Entity
     {
         private readonly IDbSet<T> _dbSet;
         private ProjectManagerDbContext _dbContext;
@@ -27,7 +26,7 @@ namespace TinyTwoProjectManager.Data.Repositories
 
         protected IDbFactory DbFactory { get; private set; }
 
-        public virtual void Add(T entity)
+        public virtual void Create(T entity)
         {
             _dbSet.Add(entity);
         }
@@ -37,7 +36,7 @@ namespace TinyTwoProjectManager.Data.Repositories
             _dbSet.Remove(entity);
         }
 
-        public virtual void Delete(Expression<Func<T, bool>> where)
+        public virtual void DeleteMany(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = _dbSet.Where(where).AsEnumerable();
 
@@ -47,9 +46,9 @@ namespace TinyTwoProjectManager.Data.Repositories
             }
         }
 
-        public T Get(Expression<Func<T, bool>> where)
+        public virtual T Get(int id)
         {
-            return _dbSet.Where(where).FirstOrDefault();
+            return _dbSet.Find(id);
         }
 
         public virtual IQueryable<T> GetAll()
@@ -57,9 +56,9 @@ namespace TinyTwoProjectManager.Data.Repositories
             return _dbSet;
         }
 
-        public virtual T GetById(int id)
+        public T GetFirst(Expression<Func<T, bool>> where)
         {
-            return _dbSet.Find(id);
+            return _dbSet.Where(where).FirstOrDefault();
         }
 
         public virtual IQueryable<T> GetMany(Expression<Func<T, bool>> where)

@@ -10,68 +10,37 @@ namespace TinyTwoProjectManager.Services
     {
         void AddTaskToBottomOfTaskGroups(IEnumerable<int> taskGroupIds, int taskId);
 
-        void DeleteTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder);
-
-        TaskGroupDisplayOrder GetTaskGroupDisplayOrder(int id);
-
         IQueryable<TaskGroupDisplayOrder> GetDisplayOrderForTaskGroup(int taskGroupId);
-
-        void SaveTaskGroupDisplayOrder();
-
-        void UpdateTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder);
     }
 
-    public class TaskGroupDisplayOrderService : ITaskGroupDisplayOrderService
+    public class TaskGroupDisplayOrderService : ServiceBase<TaskGroupDisplayOrder, ITaskGroupDisplayOrderRepository>, ITaskGroupDisplayOrderService
     {
-        private readonly ITaskGroupDisplayOrderRepository _taskGroupDisplayOrderRepository;
-        private readonly IUnitOfWork _unitOfWork;
-
-        public TaskGroupDisplayOrderService(ITaskGroupDisplayOrderRepository taskGroupDisplayOrderRepository, IUnitOfWork unitOfWork)
+        public TaskGroupDisplayOrderService(ITaskGroupDisplayOrderRepository taskGroupDisplayOrderRepository, IUnitOfWork unitOfWork) : base(taskGroupDisplayOrderRepository, unitOfWork)
         {
-            _taskGroupDisplayOrderRepository = taskGroupDisplayOrderRepository;
-            _unitOfWork = unitOfWork;
         }
 
         public void AddTaskToBottomOfTaskGroups(IEnumerable<int> taskGroupIds, int taskId)
         {
+            // TODO: move this logic to the repository
             foreach (var taskGroupId in taskGroupIds)
             {
                 var maxDisplayOrder = GetDisplayOrderForTaskGroup(taskGroupId).Max(tgdo => tgdo.DisplayOrder);
 
-                _taskGroupDisplayOrderRepository.Add(new TaskGroupDisplayOrder
+                Repository.Create(new TaskGroupDisplayOrder
                 {
                     TaskId = taskId,
                     TaskGroupId = taskGroupId,
                     DisplayOrder = maxDisplayOrder + 1
                 });
 
-                SaveTaskGroupDisplayOrder();
+                Save();
             }
-        }
-
-        public void DeleteTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder)
-        {
-            _taskGroupDisplayOrderRepository.Delete(taskGroupDisplayOrder);
-        }
-
-        public TaskGroupDisplayOrder GetTaskGroupDisplayOrder(int id)
-        {
-            return _taskGroupDisplayOrderRepository.GetById(id);
         }
 
         public IQueryable<TaskGroupDisplayOrder> GetDisplayOrderForTaskGroup(int taskGroupId)
         {
-            return _taskGroupDisplayOrderRepository.GetMany(tgdo => tgdo.TaskGroupId == taskGroupId);
-        }
-
-        public void SaveTaskGroupDisplayOrder()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void UpdateTaskGroupDisplayOrder(TaskGroupDisplayOrder taskGroupDisplayOrder)
-        {
-            _taskGroupDisplayOrderRepository.Update(taskGroupDisplayOrder);
+            // TODO: move this logic to the repository
+            return Repository.GetMany(tgdo => tgdo.TaskGroupId == taskGroupId);
         }
     }
 }

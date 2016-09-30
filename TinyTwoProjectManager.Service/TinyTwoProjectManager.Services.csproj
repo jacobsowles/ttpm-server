@@ -83,6 +83,8 @@
     <Compile Include="SmsService.cs" />
     <Compile Include="SettingService.cs" />
     <Compile Include="TaskGroupDisplayOrderService.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="ServiceBase.cs" />
     <Compile Include="UserSettingService.cs" />
     <Compile Include="TaskService.cs" />
     <Compile Include="TaskGroupService.cs" />

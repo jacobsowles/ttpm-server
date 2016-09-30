@@ -101,9 +101,15 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Data\Repositories\RepositoryBaseTests.cs" />
+    <Compile Include="Data\Repositories\ProductivityStatusRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\TaskGroupDisplayOrderRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\UserSettingRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\SettingRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\TaskGroupRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\TaskRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TaskGroupTests.cs" />
-    <Compile Include="Repositories\ProjectRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -122,6 +128,10 @@
       <Project>{e632d30e-d8f9-48ae-a8f8-2d9200a09612}</Project>
       <Name>TinyTwoProjectManager.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="API\" />
+    <Folder Include="Models\Extensions\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

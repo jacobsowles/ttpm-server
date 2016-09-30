@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TinyTwoProjectManager.Models
 {
-    public abstract class DatabaseTable
+    public abstract class Entity
     {
         [Key]
         public int Id { get; set; }
 
         public DateTime DateCreated { get; set; }
 
-        public DatabaseTable()
+        public Entity()
         {
             DateCreated = DateTime.Now;
         }

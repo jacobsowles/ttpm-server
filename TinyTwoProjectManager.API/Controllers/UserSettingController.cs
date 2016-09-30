@@ -25,7 +25,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var userSettings = _userSettingService.GetSettingsForUser(User.Identity.GetUserId());
+            var userSettings = _userSettingService.GetByUser(User.Identity.GetUserId());
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<UserSetting>, IEnumerable<UserSettingDTO>>(userSettings));
         }
     }

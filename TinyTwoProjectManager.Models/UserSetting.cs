@@ -2,7 +2,7 @@
 
 namespace TinyTwoProjectManager.Models
 {
-    public class UserSetting : DatabaseTable
+    public class UserSetting : Entity
     {
         [Required]
         public string UserId { get; set; }

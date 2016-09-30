@@ -16,9 +16,9 @@ namespace TinyTwoProjectManager.Web.Controllers
     [RoutePrefix("Tasks")]
     public class TaskController : BaseController
     {
-        private readonly ITaskService _taskService;
+        private readonly TaskService _taskService;
 
-        public TaskController(ITaskService taskService)
+        public TaskController(TaskService taskService)
         {
             _taskService = taskService;
         }
@@ -27,7 +27,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("")]
         public HttpResponseMessage Get()
         {
-            var tasks = _taskService.GetTasksForUser(User.Identity.GetUserId());
+            var tasks = _taskService.GetByUser(User.Identity.GetUserId());
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<Task>, IEnumerable<TaskDTO>>(tasks));
         }
 
@@ -35,7 +35,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}")]
         public HttpResponseMessage Get(int id)
         {
-            var task = _taskService.GetTask(id);
+            var task = _taskService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
 
@@ -47,8 +47,8 @@ namespace TinyTwoProjectManager.Web.Controllers
             var task = Mapper.Map<CreateTaskBindingModel, Task>(bindingModel);
             task.UserId = User.Identity.GetUserId();
 
-            _taskService.CreateTask(task);
-            _taskService.SaveTask();
+            _taskService.Create(task);
+            _taskService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
@@ -58,7 +58,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         public HttpResponseMessage Put(TaskDTO taskDTO)
         {
             // TODO: make sure user is allowed to modify this task
-            var task = _taskService.GetTask(taskDTO.Id);
+            var task = _taskService.Get(taskDTO.Id);
 
             if (task == null)
             {
@@ -68,8 +68,8 @@ namespace TinyTwoProjectManager.Web.Controllers
             task = Mapper.Map<TaskDTO, Task>(taskDTO);
             task.UserId = User.Identity.GetUserId();
 
-            _taskService.UpdateTask(task);
-            _taskService.SaveTask();
+            _taskService.Update(task);
+            _taskService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
@@ -79,15 +79,15 @@ namespace TinyTwoProjectManager.Web.Controllers
         [Route("{id:int}")]
         public HttpResponseMessage Delete(int id)
         {
-            var task = _taskService.GetTask(id);
+            var task = _taskService.Get(id);
 
             if (task == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task with an ID of " + id);
             }
 
-            _taskService.DeleteTask(task);
-            _taskService.SaveTask();
+            _taskService.Delete(task);
+            _taskService.Save();
 
             return
                 Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
@@ -99,7 +99,7 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             // TODO: unit test the logic here
             // TODO: make sure user is allowed to modify this task
-            var task = _taskService.GetTask(id);
+            var task = _taskService.Get(id);
 
             if (task == null)
             {
@@ -119,8 +119,8 @@ namespace TinyTwoProjectManager.Web.Controllers
 
             task.Complete = !task.Complete;
 
-            _taskService.UpdateTask(task);
-            _taskService.SaveTask();
+            _taskService.Update(task);
+            _taskService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<Task, TaskDTO>(task));
         }
@@ -131,8 +131,8 @@ namespace TinyTwoProjectManager.Web.Controllers
         {
             // TODO: unit test the logic here
             // TODO: make sure user is allowed to modify these tasks
-            var firstTask = _taskService.GetTask(firstTaskId);
-            var secondTask = _taskService.GetTask(secondTaskId);
+            var firstTask = _taskService.Get(firstTaskId);
+            var secondTask = _taskService.Get(secondTaskId);
 
             if (firstTask == null || secondTask == null)
             {
@@ -144,11 +144,11 @@ namespace TinyTwoProjectManager.Web.Controllers
             firstTask.DisplayOrder = secondTask.DisplayOrder;
             secondTask.DisplayOrder = firstTaskDisplayOrder;
 
-            _taskService.UpdateTask(firstTask);
-            _taskService.SaveTask();
+            _taskService.Update(firstTask);
+            _taskService.Save();
 
-            _taskService.UpdateTask(secondTask);
-            _taskService.SaveTask();
+            _taskService.Update(secondTask);
+            _taskService.Save();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }

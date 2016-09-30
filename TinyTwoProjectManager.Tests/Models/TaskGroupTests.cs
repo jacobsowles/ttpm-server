@@ -10,7 +10,7 @@ namespace TinyTwoProjectManager.Tests.Models
     public class TaskGroupTests
     {
         [Test]
-        public void AllAncestorsShouldReturnListOfAllSuperTaskGroups()
+        public void AllAncestors_ShouldReturnItselfPlusListOfAllTaskGroupsAboveTheSpecifiedGroup()
         {
             // Given task groups
             WhenAncestorsRetreived();
@@ -18,7 +18,7 @@ namespace TinyTwoProjectManager.Tests.Models
         }
 
         [Test]
-        public void AllAncestorsShoulExcludeSelfWhenSpecified()
+        public void AllAncestors_ShoulExcludeSelfWhenSpecified()
         {
             // Given task groups
             GivenIncludeSelf(false);
