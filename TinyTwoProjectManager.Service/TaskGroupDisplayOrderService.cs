@@ -10,7 +10,7 @@ namespace TinyTwoProjectManager.Services
     {
         void AddTaskToBottomOfTaskGroups(IEnumerable<int> taskGroupIds, int taskId);
 
-        IQueryable<TaskGroupDisplayOrder> GetDisplayOrderForTaskGroup(int taskGroupId);
+        IQueryable<TaskGroupDisplayOrder> GetByTaskGroup(int taskGroupId);
     }
 
     public class TaskGroupDisplayOrderService : ServiceBase<TaskGroupDisplayOrder, ITaskGroupDisplayOrderRepository>, ITaskGroupDisplayOrderService
@@ -24,7 +24,8 @@ namespace TinyTwoProjectManager.Services
             // TODO: move this logic to the repository
             foreach (var taskGroupId in taskGroupIds)
             {
-                var maxDisplayOrder = GetDisplayOrderForTaskGroup(taskGroupId).Max(tgdo => tgdo.DisplayOrder);
+                var displayOrders = GetByTaskGroup(taskGroupId);
+                var maxDisplayOrder = (displayOrders == null || !displayOrders.Any()) ? 0 : displayOrders.Max(tgdo => tgdo.DisplayOrder);
 
                 Repository.Create(new TaskGroupDisplayOrder
                 {
@@ -37,7 +38,7 @@ namespace TinyTwoProjectManager.Services
             }
         }
 
-        public IQueryable<TaskGroupDisplayOrder> GetDisplayOrderForTaskGroup(int taskGroupId)
+        public IQueryable<TaskGroupDisplayOrder> GetByTaskGroup(int taskGroupId)
         {
             // TODO: move this logic to the repository
             return Repository.GetMany(tgdo => tgdo.TaskGroupId == taskGroupId);
