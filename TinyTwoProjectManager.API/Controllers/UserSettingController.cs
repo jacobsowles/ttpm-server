@@ -14,9 +14,9 @@ namespace TinyTwoProjectManager.Web.Controllers
     [RoutePrefix("UserSettings")]
     public class UserSettingController : BaseController
     {
-        private readonly IUserSettingService _userSettingService;
+        private readonly UserSettingService _userSettingService;
 
-        public UserSettingController(IUserSettingService userSettingService)
+        public UserSettingController(UserSettingService userSettingService)
         {
             _userSettingService = userSettingService;
         }
