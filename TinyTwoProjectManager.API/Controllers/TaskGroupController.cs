@@ -8,6 +8,7 @@ using System.Web.Http;
 using TinyTwoProjectManager.API.Controllers;
 using TinyTwoProjectManager.Models;
 using TinyTwoProjectManager.Models.BindingModels;
+using TinyTwoProjectManager.Models.Extensions;
 using TinyTwoProjectManager.Services;
 
 namespace TinyTwoProjectManager.Web.Controllers
@@ -34,7 +35,27 @@ namespace TinyTwoProjectManager.Web.Controllers
             var taskGroups = _taskGroupService.GetByUser(User.Identity.GetUserId()).ToList();
             return  Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<IEnumerable<TaskGroup>, IEnumerable<TaskGroupDTO>>(taskGroups));
         }
-        
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public HttpResponseMessage Put(int id, [FromBody] UpdateTaskGroupBindingModel bindingModel)
+        {
+            // TODO: make sure user is allowed to modify this task
+            var taskGroup = _taskGroupService.Get(id);
+
+            if (taskGroup == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Unable to find a task group with an ID of " + id);
+            }
+
+            bindingModel.CopyPropertiesTo(taskGroup);
+
+            _taskGroupService.Update(taskGroup);
+            _taskGroupService.Save();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<TaskGroup, TaskGroupDTO>(taskGroup));
+        }
+
         [HttpPost]
         [Route("")]
         public HttpResponseMessage Post([FromBody] CreateTaskGroupBindingModel bindingModel)

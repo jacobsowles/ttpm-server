@@ -60,6 +60,7 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="BindingModels\AddExternalLoginBindingModel.cs" />
     <Compile Include="BindingModels\ChangePasswordBindingModel.cs" />
+    <Compile Include="BindingModels\UpdateTaskGroupBindingModel.cs" />
     <Compile Include="BindingModels\UpdateTaskBindingModel.cs" />
     <Compile Include="BindingModels\UpdateUserSettingBindingModel.cs" />
     <Compile Include="BindingModels\CreateTaskInGroupBindingModel.cs" />
