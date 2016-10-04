@@ -9,6 +9,7 @@ namespace TinyTwoProjectManager.Models
         public string Notes { get; set; }
         public bool Complete { get; set; }
         public int DisplayOrder { get; set; }
+        public DateTime? LastDateCompleted { get; set; }
         public DateTime? PlannedDate { get; set; }
         public DateTime? DueDate { get; set; }
     }
