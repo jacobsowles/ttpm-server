@@ -28,6 +28,10 @@ namespace TinyTwoProjectManager.Models
         [Required]
         public string UserId { get; set; }
 
+        public DateTime? PlannedDate { get; set; }
+
+        public DateTime? DueDate { get; set; }
+
 
         public virtual ApplicationUser User { get; set; }
 

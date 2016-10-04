@@ -1,4 +1,6 @@
-﻿namespace TinyTwoProjectManager.Models
+﻿using System;
+
+namespace TinyTwoProjectManager.Models
 {
     public class TaskDTO : DataTransferObject
     {
@@ -7,5 +9,7 @@
         public string Notes { get; set; }
         public bool Complete { get; set; }
         public int DisplayOrder { get; set; }
+        public DateTime? PlannedDate { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }

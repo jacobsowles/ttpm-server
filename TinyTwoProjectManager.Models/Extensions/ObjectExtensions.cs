@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace TinyTwoProjectManager.Models.Extensions
 {
@@ -19,10 +20,31 @@ namespace TinyTwoProjectManager.Models.Extensions
 
             foreach (var sourceProp in sourceProps)
             {
-                if (destProps.Any(x => x.Name == sourceProp.Name))
+                var destProp = destProps.FirstOrDefault(dp => dp.Name == sourceProp.Name);
+                if (destProps != null)
                 {
+                    // Add unit tests for specific conditions
                     var p = destProps.First(x => x.Name == sourceProp.Name);
-                    p.SetValue(dest, sourceProp.GetValue(source), null);
+                    var value = sourceProp.GetValue(source);
+                    DateTime dateValue;
+
+                    if (destProp.PropertyType == typeof(DateTime?))
+                    {
+                        if (DateTime.TryParse(value.ToString(), out dateValue))
+                        {
+                            p.SetValue(dest, dateValue, null);
+                        }
+
+                        else
+                        {
+                            p.SetValue(dest, null, null);
+                        }
+                    }
+
+                    else
+                    {
+                        p.SetValue(dest, value, null);
+                    }
                 }
             }
         }
