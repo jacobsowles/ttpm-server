@@ -27,7 +27,8 @@ namespace TinyTwoProjectManager.Data.Repositories
 
         public int GetMaximumDisplayOrderByUser(string userId)
         {
-            return GetByUser(userId).Max(t => t.DisplayOrder);
+            var displayOrders = GetByUser(userId);
+            return displayOrders.Any() ? displayOrders.Max(t => t.DisplayOrder) : 0;
         }
     }
 }
