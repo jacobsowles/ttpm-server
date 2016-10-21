@@ -16,7 +16,6 @@ namespace TinyTwoProjectManager.API
         {
             app.CreatePerOwinContext(() => new ProjectManagerDbContext());
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<RoleManager<ApplicationRole>>((options, context) =>
                 new RoleManager<ApplicationRole>(
                     new RoleStore<ApplicationRole>(context.Get<ProjectManagerDbContext>())

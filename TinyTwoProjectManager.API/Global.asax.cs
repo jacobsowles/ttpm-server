@@ -14,7 +14,7 @@ namespace TinyTwoProjectManager.API
             GlobalConfiguration.Configure(WebApiConfig.Register);
             DependencyInjectorConfig.RegisterDependencies();
             MappingConfig.RegisterMappings();
-            Database.SetInitializer(new ProjectManagerInitializer());
+            //Database.SetInitializer(new ProjectManagerInitializer());
         }
 
         protected void Application_Error(object sender, EventArgs e)

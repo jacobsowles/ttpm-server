@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TinyTwoProjectManager-Web.config Connection String" description="TinyTwoProjectManager Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5031.SmarterASP.NET;Initial Catalog=DB_A11023_ttpm;User Id=DB_A11023_ttpm_admin;Password=I@mN0rse;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TinyTwoProjectManager']/@connectionString" />
+  </parameter>
+  <parameter name="TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext-Web.config Connection String" description="TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext Connection String used in web.config by the application to access the database." defaultValue="TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext']/@connectionString" />
+  </parameter>
+</parameters>

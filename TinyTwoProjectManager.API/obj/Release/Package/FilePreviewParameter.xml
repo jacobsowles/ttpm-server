@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="jrsowles-001-site3" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext-Web.config Connection String" description="" value="Data Source=SQL5031.SmarterASP.NET;Initial Catalog=DB_A11023_ttpm;User Id=DB_A11023_ttpm_admin;Password=I@mN0rse;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TinyTwoProjectManager.Data.Infrastructure.ProjectManagerDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="TinyTwoProjectManager-Web.config Connection String" description="TinyTwoProjectManager Connection String used in web.config by the application to access the database." value="Data Source=SQL5031.SmarterASP.NET;Initial Catalog=DB_A11023_ttpm;User Id=DB_A11023_ttpm_admin;Password=I@mN0rse;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\tt-productivity-manager\\TinyTwoProjectManager\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TinyTwoProjectManager']/@connectionString" />
+  </parameter>
+</parameters>

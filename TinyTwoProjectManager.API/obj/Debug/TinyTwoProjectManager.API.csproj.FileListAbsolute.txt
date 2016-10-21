@@ -240,3 +240,4 @@ C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\System.Web.Opt
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.xml
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Deployment.xml
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\System.Web.WebPages.Razor.xml
+C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\EntityFramework.xml

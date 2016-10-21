@@ -61,3 +61,4 @@ C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\System.Web.Web
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\obj\Release\TinyTwoProjectManager.API.csprojResolveAssemblyReference.cache
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\obj\Release\TinyTwoProjectManager.API.dll
 C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\obj\Release\TinyTwoProjectManager.API.pdb
+C:\Projects\tt-productivity-manager\TinyTwoProjectManager.API\bin\EntityFramework.xml
