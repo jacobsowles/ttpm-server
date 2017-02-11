@@ -5,20 +5,16 @@
 		"es6": true,
 		"jest": true
 	},
-	"parser": "babel-eslint",
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module",
 		"ecmaFeatures": {
-			"jsx": true,
 			"modules": true,
 			"restParams": true,
 			"experimentalDecorators": true,
 			"experimentalObjectRestSpread": true
 		},
 		"plugins": [
-			"react",
-			"babel",
 			"import"
 		],
 		"extends": [
@@ -70,6 +66,6 @@
 		"semi": 1
 	},
 	"settings": {
-		"import/extensions": [".js", ".jsx"]
+		"import/extensions": [".js"]
 	}
 }

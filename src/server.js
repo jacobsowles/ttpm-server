@@ -42,7 +42,6 @@ app.get('/', (request, response) => {
 });
 
 require('./components/authentication/authentication.routes.js')(app, passport);
-require('./components/transactions/transaction.routes.js')(app);
 
 // Start server
 db.once('open', function() {
