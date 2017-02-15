@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const extend = require('mongoose-schema-extend');
+const EntitySchema = require('../extend/extend.model');
 const Schema = mongoose.Schema;
 
-const taskSchema = new Schema({
+const TaskSchema = EntitySchema.extend({
     displayOrder: {
         type: Number,
         required: true,
@@ -42,4 +44,4 @@ const taskSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model('Task', TaskSchema);
