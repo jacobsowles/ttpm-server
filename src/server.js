@@ -10,8 +10,8 @@ const flash = require('connect-flash');
 const path = require('path');
 
 // Configurations
-const dbConfig = require('./config/db.config.js');
-const sessionConfig = require('./config/session.config.js');
+const dbConfig = require('./config/db.config');
+const sessionConfig = require('./config/session.config');
 
 // General setup
 const root = path.resolve(__dirname + '/../..');
@@ -42,6 +42,8 @@ app.get('/', (request, response) => {
 });
 
 require('./components/authentication/authentication.routes.js')(app, passport);
+require('./components/event/event.routes.js')(app, passport);
+require('./components/task/task.routes.js')(app, passport);
 
 // Start server
 db.once('open', function() {
