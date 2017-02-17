@@ -1,24 +1,28 @@
 const mongoose = require('mongoose');
-const extend = require('mongoose-schema-extend');
-const EntitySchema = require('../extend/extend.model');
+const BaseSchema = require('../base/base.model');
 const Schema = mongoose.Schema;
 
-const TaskSchema = EntitySchema.extend({
+const TaskSchema = new BaseSchema({
     displayOrder: {
         type: Number,
-        required: true,
         default: 0
     },
     displayOrders: [{
         type: Schema.Types.ObjectId,
-        required: true,
         ref: 'TaskGroupDisplayOrder'
     }],
     dueDate: Date,
     firstDateCompleted: Date,
+    isArchived: {
+        type: Boolean,
+        default: false
+    },
     isComplete: {
         type: Boolean,
-        required: true,
+        default: false
+    },
+    isDeleted: {
+        type: Boolean,
         default: false
     },
     lastDateCompleted: Date,
@@ -34,7 +38,6 @@ const TaskSchema = EntitySchema.extend({
     },
     timesCompleted: {
         type: Number,
-        required: true,
         default: 0
     },
     user: {
