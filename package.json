@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "BABEL_JEST_STAGE=0 jest || true"
+    "test": "mocha \"./src/components/**/*.tests.js\" --timeout 10000"
   },
   "repository": {
     "type": "git",
@@ -18,14 +18,16 @@
   },
   "homepage": "https://github.com/jrsowles/tt-productivity-manager#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "eslint": "^3.3.1",
     "eslint-config-defaults": "^9.0.0",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-import": "^1.13.0",
-    "jest": "^16.0.1",
-    "jest-cli": "^16.0.1",
+    "mocha": "^3.2.0",
     "mongoose-schema-extend": "^0.2.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "tap": "^10.1.1"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -45,16 +47,5 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "underscore": "^1.8.3"
-  },
-  "jest": {
-    "testRegex": "(/tests/.*|\\.test)\\.js$",
-    "modulePathIgnorePatterns": [
-      "/tests/helpers/"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6"
-    ]
   }
 }
