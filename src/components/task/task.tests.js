@@ -8,7 +8,7 @@ const server = require('../../server');
 const routeBase = require('../../config/api.config').apiPrefix + '/tasks';
 const should = chai.should();
 const testHelper = require('../../utils/test-helper/test-helper');
-const then = testHelper.then;
+const then = new testHelper.Then();
 
 const validTask = {
     name: 'Test Task',
@@ -30,8 +30,10 @@ describe('Tasks', () => {
             .request(server)
             .get(routeBase + '/')
             .end((error, response) => {
-                response.should.have.status(200);
-                response.body.should.be.a('array');
+                then
+                    .response(response)
+                    .shouldBeOk()
+                    .shouldBeAnArray();
                 response.body.length.should.be.eql(0);
                 done();
             });
@@ -45,9 +47,10 @@ describe('Tasks', () => {
                 .post(routeBase + '/')
                 .send(validTask)
                 .end((error, response) => {
-                    response.should.have.status(200);
-                    response.body.should.be.a('object');
-                    response.body.should.have.property('_id');
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldBeAnObject();
                     done();
                 });
         });
@@ -61,8 +64,11 @@ describe('Tasks', () => {
                 .post(routeBase + '/')
                 .send(task)
                 .end((error, response) => {
-                    then.shouldReturnFieldRequiredError(response, 'name');
-                    done();
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldReturnFieldRequiredError('name')
+                        .end(done);
                 });
         });
     });
