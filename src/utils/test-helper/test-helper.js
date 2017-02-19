@@ -1,5 +1,36 @@
 const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../../server');
+const apiConfig = require('../../config/api.config');
 const should = chai.should();
+
+chai.use(chaiHttp);
+
+const Request = class Request {
+    constructor(baseRoute) {
+        this.baseRoute = apiConfig.apiPrefix + '/' + baseRoute;
+        this.request = chai.request(server);
+    }
+
+    get(route) {
+        return this.makeRequest(this.request.get, route);
+    }
+
+    makeRequest(verb, route, body) {
+        route = route || '';
+        let request = verb(this.baseRoute + route);
+
+        if (body) {
+            request = request.send(body);
+        }
+
+        return request;
+    }
+
+    post(route, body) {
+        return this.makeRequest(this.request.post, route, body);
+    }
+};
 
 const Then = class Then {
     end(done) {
@@ -54,9 +85,7 @@ const Then = class Then {
     }
 
     shouldReturnFieldRequiredError(field) {
-        this
-            .shouldBeOk()
-            .shouldHaveError(field, 'required');
+        this.shouldHaveError(field, 'required');
 
         return this;
     }
@@ -69,5 +98,6 @@ module.exports = {
         });
     },
 
+    Request,
     Then
 };
