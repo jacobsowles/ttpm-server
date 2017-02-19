@@ -33,9 +33,8 @@ describe('Tasks', () => {
                 then
                     .response(response)
                     .shouldBeOk()
-                    .shouldBeAnArray();
-                response.body.length.should.be.eql(0);
-                done();
+                    .shouldBeAnEmptyArray()
+                    .end(done);
             });
         });
     });
@@ -50,8 +49,8 @@ describe('Tasks', () => {
                     then
                         .response(response)
                         .shouldBeOk()
-                        .shouldBeAnObject();
-                    done();
+                        .shouldBeABusinessObject()
+                        .end(done);
                 });
         });
 
