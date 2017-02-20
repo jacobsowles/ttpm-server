@@ -9,19 +9,29 @@ module.exports = function(app, passport) {
         Task
             .find()
             .lean()
-            .then(tasks => response.send(tasks))
+            .then(tasks => response.json(tasks))
             .catch(error => {
-                response.send(error);
+                response.json(error);
+            });
+    });
+
+    app.get(routePrefix + '/:id', (request, response) => {
+        Task
+            .findById(request.params.id)
+            .lean()
+            .then(task => response.json(task))
+            .catch(error => {
+                response.json(error);
             });
     });
 
     app.post(routePrefix + '/', (request, response) => {
         new Task(request.body)
             .save()
-            .then(task => response.send(task))
+            .then(task => response.json(task))
             .catch(error => {
                 EventLogger.logError(error, 'POST ' + routePrefix + '/', request.body.user);
-                response.send(error);
+                response.json(error);
             });
     });
 };

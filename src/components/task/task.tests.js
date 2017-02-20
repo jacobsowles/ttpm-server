@@ -5,13 +5,15 @@ const testHelper = require('../../utils/test-helper/test-helper');
 const then = new testHelper.Then();
 const request = new testHelper.Request('tasks');
 
-const validTask = {
-    name: 'Test Task',
-    user: '58a73fab07404f65cf1ba0f5'
-};
+let validTask;
 
 describe('Tasks', () => {
     beforeEach((done) => {
+        validTask = {
+            name: 'Test Task',
+            user: '58a73fab07404f65cf1ba0f5'
+        };
+
         Task.remove({}, (error) => {
            done();
         });
@@ -57,6 +59,23 @@ describe('Tasks', () => {
                         .shouldReturnFieldRequiredError('name')
                         .end(done);
                 });
+        });
+    });
+
+    describe('/GET/:id tasks', () => {
+        it('should GET a task by the given id', (done) => {
+            new Task(validTask).save((error, task) => {
+                request
+                    .get('/' + task._id, task)
+                    .end((error, response) => {
+                        then
+                            .response(response)
+                            .shouldBeOk()
+                            .shouldBeABusinessObject()
+                            .shouldHaveIdOf(task._id)
+                            .end(done);
+                    });
+            });
         });
     });
 });

@@ -2,6 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../server');
 const apiConfig = require('../../config/api.config');
+const ObjectId = require('mongodb').ObjectId;
 const should = chai.should();
 
 chai.use(chaiHttp);
@@ -47,7 +48,7 @@ const Then = class Then {
     shouldBeABusinessObject() {
         this
             .shouldBeAnObject()
-            ._response.body.should.have.property('_id');
+            .shouldHaveId();
 
         return this;
     }
@@ -76,11 +77,22 @@ const Then = class Then {
     }
 
     shouldHaveError(field, errorType) {
-        this.shouldBeAnObject()
-        this._response.body.should.have.property('errors')
-        this._response.body.errors.should.have.property(field)
+        this.shouldBeAnObject();
+        this._response.body.should.have.property('errors');
+        this._response.body.errors.should.have.property(field);
         this._response.body.errors[field].should.have.property('kind').eql(errorType);
 
+        return this;
+    }
+
+    shouldHaveId() {
+        this._response.body.should.have.property('_id');
+        return this;
+    }
+
+    shouldHaveIdOf(id) {
+        this.shouldHaveId();
+        new ObjectId(this._response.body._id).should.eql(id);
         return this;
     }
 
