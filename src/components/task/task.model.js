@@ -45,6 +45,8 @@ const TaskSchema = new BaseSchema({
         required: true,
         ref: 'User'
     }
+}, {
+    versionKey: false
 });
 
 module.exports = mongoose.model('Task', TaskSchema);
