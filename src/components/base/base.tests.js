@@ -13,25 +13,22 @@ describe('Base', () => {
         });
     });
 
+    /**
+     * Test field values
+     */
+
     it('should have a createdAt timestamp', (done) => {
         new Base().save((error, base) => {
             assert(!!base['createdAt']);
+            done();
         });
-        done();
     });
 
     it('should have a updatedAt timestamp', (done) => {
         new Base().save((error, base) => {
             assert(!!base['updatedAt']);
+            done();
         });
-        done();
-    });
-
-    it('should not have a version number', (done) => {
-        new Base().save((error, base) => {
-            assert(!base['__v']);
-        });
-        done();
     });
 
     it('should record new updateAt on item update', (done) => {
@@ -39,9 +36,20 @@ describe('Base', () => {
             base.update(() => {
                 Base.findById(base, (error, updatedBase) => {
                     assert(updatedBase.updatedAt > updatedBase.createdAt);
+                    done();
                 });
             });
         });
-        done();
+    });
+
+    /**
+     * Test settings
+     */
+
+    it('should not have a version number', (done) => {
+        new Base().save((error, base) => {
+            assert(!base['__v']);
+            done();
+        });
     });
 });
