@@ -19,19 +19,9 @@ describe('Tasks', () => {
         });
     });
 
-    describe('/GET tasks', () => {
-      it('should GET all the tasks', (done) => {
-        request
-            .get('/')
-            .end((error, response) => {
-                then
-                    .response(response)
-                    .shouldBeOk()
-                    .shouldBeAnEmptyArray()
-                    .end(done);
-            });
-        });
-    });
+    /*
+     * Test item creation
+     */
 
     describe('/POST tasks', () => {
         it('should POST a task ', (done) => {
@@ -46,6 +36,74 @@ describe('Tasks', () => {
                 });
         });
 
+        /*
+         * Test default values
+         */
+
+        it('should create an incomplete task', (done) => {
+            request
+                .post('/', validTask)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldHaveFieldWithValue('isComplete', false)
+                        .end(done);
+                });
+        });
+
+        it('should create an unarchived task', (done) => {
+            request
+                .post('/', validTask)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldHaveFieldWithValue('isArchived', false)
+                        .end(done);
+                });
+        });
+
+        it('should create a non-deleted task', (done) => {
+            request
+                .post('/', validTask)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldHaveFieldWithValue('isDeleted', false)
+                        .end(done);
+                });
+        });
+
+        it('should create a task with displayOrder 0', (done) => {
+            request
+                .post('/', validTask)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldHaveFieldWithValue('displayOrder', 0)
+                        .end(done);
+                });
+        });
+
+        it('should create a task that has never been completed', (done) => {
+            request
+                .post('/', validTask)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldHaveFieldWithValue('timesCompleted', 0)
+                        .end(done);
+                });
+        });
+
+        /*
+         * Test presence of required fields
+         */
+
         it('should not POST a task without name field', (done) => {
             const task = validTask;
             task.name = undefined;
@@ -59,6 +117,24 @@ describe('Tasks', () => {
                         .shouldReturnFieldRequiredError('name')
                         .end(done);
                 });
+        });
+    });
+
+    /*
+     * Test item retrieval
+     */
+
+    describe('/GET tasks', () => {
+      it('should GET all the tasks', (done) => {
+        request
+            .get('/')
+            .end((error, response) => {
+                then
+                    .response(response)
+                    .shouldBeOk()
+                    .shouldBeAnEmptyArray()
+                    .end(done);
+            });
         });
     });
 

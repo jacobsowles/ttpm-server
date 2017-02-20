@@ -96,6 +96,11 @@ const Then = class Then {
         return this;
     }
 
+    shouldHaveFieldWithValue(field, value) {
+        this._response.body[field].should.eql(value);
+        return this;
+    }
+
     shouldReturnFieldRequiredError(field) {
         this.shouldHaveError(field, 'required');
 
