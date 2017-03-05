@@ -104,7 +104,7 @@ describe('Tasks', () => {
          * Test presence of required fields
          */
 
-        it('should not POST a task without name field', (done) => {
+        it('should not POST a task without name', (done) => {
             const task = validTask;
             task.name = undefined;
 
@@ -118,6 +118,21 @@ describe('Tasks', () => {
                         .end(done);
                 });
         });
+
+        it('should not POST a task without user', (done) => {
+            const task = validTask;
+            task.user = undefined;
+
+            request
+                .post('/', task)
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldReturnFieldRequiredError('user')
+                        .end(done);
+                });
+        });
     });
 
     /*
@@ -125,15 +140,33 @@ describe('Tasks', () => {
      */
 
     describe('/GET tasks', () => {
-      it('should GET all the tasks', (done) => {
-        request
-            .get('/')
-            .end((error, response) => {
-                then
-                    .response(response)
-                    .shouldBeOk()
-                    .shouldBeAnEmptyArray()
-                    .end(done);
+        it('should GET all the tasks', (done) => {
+            request
+                .get('/')
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldBeAnEmptyArray()
+                        .end(done);
+                });
+        });
+
+        it('should GET all tasks for the given user', (done) => {
+            new Task(validTask).save((error, task1) => {
+                validTask.user = '111111111111';
+                new Task(validTask).save((error, task2) => {
+                    request
+                        .get('?user=' + task1.user)
+                        .end((error, response) => {
+                            then
+                                .response(response)
+                                .shouldBeOk()
+                                .shouldBeAnArray()
+                                .shouldHaveCount(1)
+                                .end(done);
+                        });
+                });
             });
         });
     });

@@ -6,8 +6,13 @@ module.exports = function(app, passport) {
     const routePrefix = apiConfig.apiPrefix + '/tasks';
 
     app.get(routePrefix + '/', (request, response) => {
+        const where =
+            request.query.user
+                ? {user: request.query.user}
+                : undefined;
+
         Task
-            .find()
+            .find(where)
             .lean()
             .then(tasks => response.json(tasks))
             .catch(error => {

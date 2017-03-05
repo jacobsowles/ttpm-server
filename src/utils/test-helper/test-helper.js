@@ -76,6 +76,14 @@ const Then = class Then {
         return this;
     }
 
+    shouldHaveCount(count, where) {
+        const result = where ? this._response.body.filter(where) : this._response.body;
+        console.log(result.length);
+        chai.assert(result.length === count);
+
+        return this;
+    }
+
     shouldHaveError(field, errorType) {
         this.shouldBeAnObject();
         this._response.body.should.have.property('errors');
