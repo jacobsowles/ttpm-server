@@ -39,6 +39,21 @@ module.exports = function(app, passport) {
                 response.json(error);
             });
     });
+
+    app.delete(routePrefix + '/:id', (request, response) => {
+        const updatedTask = request.body;
+        updatedTask.isDeleted = true;
+
+        Task
+            .findByIdAndUpdate(request.params.id, updatedTask, { new: true })
+            .then(task => {
+                console.log(task);
+                response.json(task);
+            })
+            .catch(error => {
+                response.json(error);
+            });
+    });
 };
 
 

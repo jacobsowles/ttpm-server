@@ -13,6 +13,10 @@ const Request = class Request {
         this.request = chai.request(server);
     }
 
+    delete(route, body) {
+        return this.makeRequest(this.request.del, route, body);
+    }
+
     get(route) {
         return this.makeRequest(this.request.get, route);
     }

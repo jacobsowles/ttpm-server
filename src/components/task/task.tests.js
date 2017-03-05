@@ -20,6 +20,59 @@ describe('Tasks', () => {
     });
 
     /*
+     * Test item retrieval
+     */
+
+    describe('/GET tasks', () => {
+        it('should GET all the tasks', (done) => {
+            request
+                .get('/')
+                .end((error, response) => {
+                    then
+                        .response(response)
+                        .shouldBeOk()
+                        .shouldBeAnEmptyArray()
+                        .end(done);
+                });
+        });
+
+        it('should GET all tasks for the given user', (done) => {
+            new Task(validTask).save((error, task1) => {
+                validTask.user = '111111111111';
+                new Task(validTask).save((error, task2) => {
+                    request
+                        .get('?user=' + task1.user)
+                        .end((error, response) => {
+                            then
+                                .response(response)
+                                .shouldBeOk()
+                                .shouldBeAnArray()
+                                .shouldHaveCount(1)
+                                .end(done);
+                        });
+                });
+            });
+        });
+    });
+
+    describe('/GET/:id tasks', () => {
+        it('should GET a task with the given id', (done) => {
+            new Task(validTask).save((error, task) => {
+                request
+                    .get('/' + task._id)
+                    .end((error, response) => {
+                        then
+                            .response(response)
+                            .shouldBeOk()
+                            .shouldBeABusinessObject()
+                            .shouldHaveIdOf(task._id)
+                            .end(done);
+                    });
+            });
+        });
+    });
+
+    /*
      * Test item creation
      */
 
@@ -136,52 +189,21 @@ describe('Tasks', () => {
     });
 
     /*
-     * Test item retrieval
+     * Test item deletion
      */
 
-    describe('/GET tasks', () => {
-        it('should GET all the tasks', (done) => {
-            request
-                .get('/')
-                .end((error, response) => {
-                    then
-                        .response(response)
-                        .shouldBeOk()
-                        .shouldBeAnEmptyArray()
-                        .end(done);
-                });
-        });
-
-        it('should GET all tasks for the given user', (done) => {
-            new Task(validTask).save((error, task1) => {
-                validTask.user = '111111111111';
-                new Task(validTask).save((error, task2) => {
-                    request
-                        .get('?user=' + task1.user)
-                        .end((error, response) => {
-                            then
-                                .response(response)
-                                .shouldBeOk()
-                                .shouldBeAnArray()
-                                .shouldHaveCount(1)
-                                .end(done);
-                        });
-                });
-            });
-        });
-    });
-
-    describe('/GET/:id tasks', () => {
-        it('should GET a task by the given id', (done) => {
+    describe('/DELETE/:id tasks', () => {
+        it('should logically DELETE a task with the given id', (done) => {
             new Task(validTask).save((error, task) => {
                 request
-                    .get('/' + task._id, task)
+                    .delete('/' + task._id, task)
                     .end((error, response) => {
                         then
                             .response(response)
                             .shouldBeOk()
                             .shouldBeABusinessObject()
                             .shouldHaveIdOf(task._id)
+                            .shouldHaveFieldWithValue('isDeleted', true)
                             .end(done);
                     });
             });
