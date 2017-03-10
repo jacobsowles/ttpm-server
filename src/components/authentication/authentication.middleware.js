@@ -6,6 +6,6 @@ function authenticationMiddleware() {
             return next();
         }
 
-        response.status(HttpCode.unauthorized).json();
+        response.status(HttpCode.unauthorized).json(response);
     };
 }

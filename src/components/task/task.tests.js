@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test';
-
 const Task = require('./task.model');
 const testHelper = require('../../utils/test-helper/test-helper');
 const then = new testHelper.Then();

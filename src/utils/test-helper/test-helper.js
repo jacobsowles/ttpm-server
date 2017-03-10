@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test';
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../server');
@@ -9,8 +11,9 @@ const HttpCode = require('../../utils/http-code');
 chai.use(chaiHttp);
 
 const Request = class Request {
-    constructor(baseRoute) {
-        this.baseRoute = apiConfig.apiPrefix + '/' + baseRoute;
+    constructor(routePrefix) {
+        routePrefix = routePrefix ? '/' + routePrefix : '';
+        this.baseRoute = apiConfig.apiPrefix + routePrefix;
         this.request = chai.request(server);
     }
 
@@ -92,6 +95,11 @@ const Then = class Then {
 
     shouldBeStatusCode(code) {
         this._response.should.have.status(code);
+        return this;
+    }
+
+    shouldBeUnauthorized() {
+        this.shouldBeStatusCode(HttpCode.unauthorized);
         return this;
     }
 

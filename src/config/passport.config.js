@@ -30,7 +30,11 @@ module.exports = function(passport) {
                         }
 
                         if (user) {
-                            return done(null, false, request.flash('signupMessage', 'That email is already taken.'));
+                            return done(null, false, ErrorGenerator.createError('email', 'invalid', 'Email already taken.'));
+                        }
+
+                        if (!password) {
+                            return done(null, false, ErrorGenerator.createError('password', 'invalid', 'Password cannot be blank.'));
                         }
 
                         else {
@@ -69,11 +73,11 @@ module.exports = function(passport) {
                     }
 
                     if (!user) {
-                        return done(null, false, request.json(ErrorGenerator.createError('email', 'invalid', 'Email not found.')));
+                        return done(null, false, ErrorGenerator.createError('email', 'invalid', 'Email not found.'));
                     }
 
                     if (!user.validPassword(password)) {
-                        return done(null, false, request.json(ErrorGenerator.createError('password', 'invalid', 'Invalid password.')));
+                        return done(null, false, ErrorGenerator.createError('password', 'invalid', 'Invalid password.'));
                     }
 
                     return done(null, user);
