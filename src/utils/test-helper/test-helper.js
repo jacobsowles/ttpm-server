@@ -4,6 +4,7 @@ const server = require('../../server');
 const apiConfig = require('../../config/api.config');
 const ObjectId = require('mongodb').ObjectId;
 const should = chai.should();
+const HttpCode = require('../../utils/http-code');
 
 chai.use(chaiHttp);
 
@@ -80,12 +81,12 @@ const Then = class Then {
     }
 
     shouldBeBadRequest() {
-        this.shouldBeStatusCode(400);
+        this.shouldBeStatusCode(HttpCode.badRequest);
         return this;
     }
 
     shouldBeOk() {
-        this.shouldBeStatusCode(200);
+        this.shouldBeStatusCode(HttpCode.ok);
         return this;
     }
 

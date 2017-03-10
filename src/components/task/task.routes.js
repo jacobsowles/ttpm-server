@@ -1,6 +1,7 @@
 const apiConfig = require('../../config/api.config');
 const ErrorGenerator = require('../../utils/error-generator/error-generator');
 const EventLogger = require('../../utils/event-logger/event-logger');
+const HttpCode = require('../../utils/http-code');
 const Task = require('../task/task.model');
 
 module.exports = function(app, passport) {
@@ -46,7 +47,7 @@ module.exports = function(app, passport) {
     app.put(routePrefix + '/:id', (request, response) => {
         if (!request.body.name) {
             response
-                .status(400)
+                .status(HttpCode.badRequest)
                 .json(ErrorGenerator.createError('name', 'invalid', 'Name cannot be blank.'));
         }
 
