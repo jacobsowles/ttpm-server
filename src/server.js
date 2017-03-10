@@ -11,13 +11,11 @@ const path = require('path');
 
 // Configurations
 const dbConfig = require('./config/db.config');
+const passportConfig = require('./config/passport.config')(passport);
 const sessionConfig = require('./config/session.config');
 
 // General setup
-const root = path.resolve(__dirname + '/../..');
 const app = express();
-
-app.use(express.static(root + '/public'));
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -37,10 +35,6 @@ app.use(passport.session());
 app.use(flash());
 
 // Routes
-app.get('/', (request, response) => {
-    response.sendFile(root + '/public/index.html');
-});
-
 require('./components/authentication/authentication.routes.js')(app, passport);
 require('./components/event/event.routes.js')(app, passport);
 require('./components/task/task.routes.js')(app, passport);

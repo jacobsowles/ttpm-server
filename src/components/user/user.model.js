@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const extend = require('mongoose-schema-extend');
-const EntitySchema = require('../extend/extend.model');
 const bcrypt = require('bcrypt-nodejs');
+const BaseSchema = require('../base/base.model');
 const Schema = mongoose.Schema;
 
-const UserSchema = EntitySchema.extend({
+const UserSchema = new BaseSchema({
     facebook : {
         id: String,
         token: String,

@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const extend = require('mongoose-schema-extend');
-const EntitySchema = require('../extend/extend.model');
+const BaseSchema = require('../base/base.model');
 const Schema = mongoose.Schema;
 
-const TaskGroupSchema = EntitySchema.extend({
+const TaskGroupSchema = new BaseSchema({
     childTaskGroups: [{
         type: Schema.Types.ObjectId,
         ref: 'TaskGroup'

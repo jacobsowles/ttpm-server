@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const extend = require('mongoose-schema-extend');
-const EntitySchema = require('../extend/extend.model');
+const BaseSchema = require('../base/base.model');
 const Schema = mongoose.Schema;
 
-const TaskGroupDisplayOrderSchema = EntitySchema.exptend({
+const TaskGroupDisplayOrderSchema = new BaseSchema({
     displayOrder: {
         type: Number,
         required: true
