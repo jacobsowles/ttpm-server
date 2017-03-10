@@ -1,15 +1,6 @@
-const apiConfig = require('../../config/api.config.js');
+const apiPrefix = require('../../config/api.config.js').apiPrefix;
 
 module.exports = function(app, passport) {
-    app.post(`${apiConfig.apiPrefix}/register`, passport.authenticate('local-signup', {
-        successRedirect: '/',
-        failureRedirect: '/register',
-        failureFlash: true
-    }));
-
-    app.post(`${apiConfig.apiPrefix}/login`, passport.authenticate('local-login', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
+    app.post(`${apiPrefix}/register`, passport.authenticate('local-signup'));
+    app.post(`${apiPrefix}/login`, passport.authenticate('local-login'));
 };

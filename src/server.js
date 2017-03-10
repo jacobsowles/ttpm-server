@@ -17,6 +17,8 @@ const sessionConfig = require('./config/session.config');
 // General setup
 const app = express();
 
+app.set('port', process.env.PORT || 3000);
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -32,7 +34,6 @@ mongoose.connect(dbConfig.uri, dbConfig.options);
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 // Routes
 require('./components/authentication/authentication.routes.js')(app, passport);
@@ -41,8 +42,8 @@ require('./components/task/task.routes.js')(app, passport);
 
 // Start server
 db.once('open', function() {
-    app.listen(3000, () => {
-        console.log('listening on 3000');
+    app.listen(app.get('port'), () => {
+        console.log(`listening on ${app.get('port')}`);
     });
 });
 

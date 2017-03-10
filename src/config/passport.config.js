@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../components/user/user.model.js');
+const ErrorGenerator = require('../utils/error-generator/error-generator');
 
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {
@@ -68,11 +69,11 @@ module.exports = function(passport) {
                     }
 
                     if (!user) {
-                        return done(null, false, request.flash('loginMessage', 'No user found.'));
+                        return done(null, false, request.json(ErrorGenerator.createError('email', 'invalid', 'Email not found.')));
                     }
 
                     if (!user.validPassword(password)) {
-                        return done(null, false, request.flash('loginMessage', 'Oops! Wrong password.'));
+                        return done(null, false, request.json(ErrorGenerator.createError('password', 'invalid', 'Invalid password.')));
                     }
 
                     return done(null, user);
