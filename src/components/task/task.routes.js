@@ -16,6 +16,7 @@ module.exports = function(app, passport) {
             .lean()
             .then(tasks => response.json(tasks))
             .catch(error => {
+                EventLogger.logError(error, 'GET ' + routePrefix + '/', request.body.user);
                 response.json(error);
             });
     });
@@ -26,6 +27,7 @@ module.exports = function(app, passport) {
             .lean()
             .then(task => response.json(task))
             .catch(error => {
+                EventLogger.logError(error, 'GET ' + routePrefix + '/', request.body.user);
                 response.json(error);
             });
     });
@@ -47,10 +49,10 @@ module.exports = function(app, passport) {
         Task
             .findByIdAndUpdate(request.params.id, updatedTask, { new: true })
             .then(task => {
-                console.log(task);
                 response.json(task);
             })
             .catch(error => {
+                EventLogger.logError(error, 'DELETE ' + routePrefix + '/', request.body.user);
                 response.json(error);
             });
     });
