@@ -1,4 +1,5 @@
 const apiConfig = require('../../config/api.config');
+const ErrorGenerator = require('../../utils/error-generator/error-generator');
 const EventLogger = require('../../utils/event-logger/event-logger');
 const Task = require('../task/task.model');
 
@@ -38,6 +39,22 @@ module.exports = function(app, passport) {
             .then(task => response.json(task))
             .catch(error => {
                 EventLogger.logError(error, 'POST ' + routePrefix + '/', request.body.user);
+                response.json(error);
+            });
+    });
+
+    app.put(routePrefix + '/:id', (request, response) => {
+        if (!request.body.name) {
+            response.json(ErrorGenerator.createError('name', 'invalid', 'Name cannot be blank.'));
+        }
+
+        Task
+            .findByIdAndUpdate(request.params.id, request.body, { new: true })
+            .then(task => {
+                response.json(task);
+            })
+            .catch(error => {
+                EventLogger.logError(error, 'PUT ' + routePrefix + '/', request.body.user);
                 response.json(error);
             });
     });

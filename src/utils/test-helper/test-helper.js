@@ -35,6 +35,10 @@ const Request = class Request {
     post(route, body) {
         return this.makeRequest(this.request.post, route, body);
     }
+
+    put(route, body) {
+        return this.makeRequest(this.request.put, route, body);
+    }
 };
 
 const Then = class Then {

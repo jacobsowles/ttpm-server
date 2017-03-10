@@ -189,6 +189,46 @@ describe('Tasks', () => {
     });
 
     /*
+     * Test item modification
+     */
+
+    describe('/PUT/:id tasks', () => {
+        it('should update a task with the given id', (done) => {
+            new Task(validTask).save((error, task) => {
+                task.name = 'Updated name';
+
+                request
+                    .put('/' + task._id, task)
+                    .end((error, response) => {
+                        then
+                            .response(response)
+                            .shouldBeOk()
+                            .shouldBeABusinessObject()
+                            .shouldHaveIdOf(task._id)
+                            .shouldHaveFieldWithValue('name', 'Updated name')
+                            .end(done);
+                    });
+            });
+        });
+
+        it('should not update a task to an empty name', (done) => {
+            new Task(validTask).save((error, task) => {
+                task.name = '';
+
+                request
+                    .put('/' + task._id, task)
+                    .end((error, response) => {
+                        then
+                            .response(response)
+                            .shouldBeOk()
+                            .shouldHaveError('name', 'invalid')
+                            .end(done);
+                    });
+            });
+        });
+    });
+
+    /*
      * Test item deletion
      */
 
