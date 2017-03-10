@@ -79,8 +79,18 @@ const Then = class Then {
         return this;
     }
 
+    shouldBeBadRequest() {
+        this.shouldBeStatusCode(400);
+        return this;
+    }
+
     shouldBeOk() {
-        this._response.should.have.status(200);
+        this.shouldBeStatusCode(200);
+        return this;
+    }
+
+    shouldBeStatusCode(code) {
+        this._response.should.have.status(code);
         return this;
     }
 

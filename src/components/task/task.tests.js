@@ -220,7 +220,7 @@ describe('Tasks', () => {
                     .end((error, response) => {
                         then
                             .response(response)
-                            .shouldBeOk()
+                            .shouldBeBadRequest()
                             .shouldHaveError('name', 'invalid')
                             .end(done);
                     });

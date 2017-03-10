@@ -45,7 +45,9 @@ module.exports = function(app, passport) {
 
     app.put(routePrefix + '/:id', (request, response) => {
         if (!request.body.name) {
-            response.json(ErrorGenerator.createError('name', 'invalid', 'Name cannot be blank.'));
+            response
+                .status(400)
+                .json(ErrorGenerator.createError('name', 'invalid', 'Name cannot be blank.'));
         }
 
         Task
