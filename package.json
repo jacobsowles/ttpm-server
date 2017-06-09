@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrsowles/tt-productivity-manager.git"
+    "url": "git+https://github.com/jrsowles/ttpm-server.git"
   },
   "author": "Jacob Sowles, Kate Sowles",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jrsowles/tt-productivity-manager/issues"
+    "url": "https://github.com/jrsowles/ttpm-server/issues"
   },
-  "homepage": "https://github.com/jrsowles/tt-productivity-manager#readme",
+  "homepage": "https://github.com/jrsowles/ttpm-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",

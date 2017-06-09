@@ -48,6 +48,7 @@ module.exports = function(passport) {
                                     throw error;
                                 }
 
+                                request.login(newUser);
                                 return done(null, newUser);
                             });
                         }
